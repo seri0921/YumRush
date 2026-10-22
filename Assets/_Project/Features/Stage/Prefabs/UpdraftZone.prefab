@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c0f64a0fa30bae48a3dd2bf5c01a664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpdraftZone
-  period: 2
+  period: 1
   amplitude: 0.65
   boostMultiplier: 6
   captureSpeed: 10
