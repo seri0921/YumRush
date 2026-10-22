@@ -73,6 +73,14 @@ public sealed class PlayerHomingAttack : MonoBehaviour
             ClearTarget();
     }
 
+    // 対象の破棄・撃破は演出中にも発生する正当な中断条件。
+    public bool TryGetTargetPosition(out Vector2 position)
+    {
+        bool valid = target != null && targetCollider != null && target.isActiveAndEnabled &&
+                     !target.IsDefeated && targetCollider.enabled && targetCollider.gameObject.activeInHierarchy;
+        position = valid ? (Vector2)targetCollider.bounds.center : Vector2.zero;
+        return valid;
+    }
     public void ClearTarget()
     {
         target = null;
