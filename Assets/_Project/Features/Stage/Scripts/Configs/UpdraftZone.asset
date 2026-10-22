@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4a1642d6b9f9345a660df61df6c3f3, type: 3}
+  m_Name: UpdraftZone
+  m_EditorClassIdentifier: Assembly-CSharp::DElements
+  elementName: UpdraftZone
+  prefab: {fileID: 5285418642879627737, guid: c7b4af0422d51fb4c90e69f9da775203, type: 3}
+  elementType: 2
+  minReachX: 10
+  maxReachX: 15
+  minReachY: 10
+  maxReachY: 15
+  extraUpwardBoost: 6
+  allowGlide: 0
+  diveMinY: -3
+  diveMaxX: 5
+  spawnWeight: 55
+  isFreeAnchor: 0
