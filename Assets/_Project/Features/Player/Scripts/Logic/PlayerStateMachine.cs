@@ -11,7 +11,8 @@ public enum PlayerState
     Gliding,
     AirDashing,
     Homing,
-    Hit
+    Hit,
+    HomingWindup
 }
 
 public interface IPlayerState
@@ -36,12 +37,12 @@ public sealed class PlayerStateMachine
 
     public IPlayerState Current { get; private set; }
     public PlayerState State => Current.Id;
-    public bool IsActionLocked => State == PlayerState.Hit;
-    public bool IsHoming => State == PlayerState.Homing;
+    public bool IsActionLocked => State == PlayerState.Hit || IsHoming;
+    public bool IsHoming => State == PlayerState.Homing || State == PlayerState.HomingWindup;
     public bool IsGliding => State == PlayerState.Gliding;
     public bool CanWindJump => State == PlayerState.Floating && wind.CanWindJump;
     public float LiftVelocity => wind.LiftVelocity;
-    public bool CanEnterWind => State != PlayerState.Homing && State != PlayerState.Hit;
+    public bool CanEnterWind => !IsHoming && State != PlayerState.Hit;
 
     public bool IsInWind =>
         State == PlayerState.Capturing || State == PlayerState.Floating ||
@@ -59,7 +60,7 @@ public sealed class PlayerStateMachine
     {
         this.wind = wind ?? throw new ArgumentNullException(nameof(wind));
 
-        states = new IPlayerState[] { new GroundedState(this), new AirborneState(this), new CapturingState(this, wind), new FloatingState(this, wind), new WindJumpState(this, wind), new GlidingState(this, glide), new AirDashingState(this, dash), new HomingState(this), new HitState(this, hit) };
+        states = new IPlayerState[] { new GroundedState(this), new AirborneState(this), new CapturingState(this, wind), new FloatingState(this, wind), new WindJumpState(this, wind), new GlidingState(this, glide), new AirDashingState(this, dash), new HomingState(this), new HitState(this, hit), new HomingWindupState(this) };
         Current = states[(int)PlayerState.Airborne];
         Current.Enter();
     }
@@ -152,7 +153,7 @@ public sealed class PlayerStateMachine
             dash.Recharge();
 
         if (State != PlayerState.Hit && !IsHoming && (frame.Input.JumpQueued && !result.JumpConsumed) && frame.Homing.HasHomingTarget)
-            ChangeState(PlayerState.Homing);
+            ChangeState(PlayerState.HomingWindup);
         else if ((State == PlayerState.Airborne || IsGliding) && !frame.Body.Grounded &&
                  !frame.Wind.HasWind && (frame.Input.DashQueued && !result.DashConsumed) && dash.TryStart(true, settings.Dash.AirDashDuration))
         {
@@ -413,6 +414,30 @@ public sealed class AirDashingState : PlayerStateBase
     }
 }
 
+public sealed class HomingWindupState : PlayerStateBase
+{
+    public override PlayerState Id => PlayerState.HomingWindup;
+    public HomingWindupState(PlayerStateMachine machine) : base(machine) { }
+
+    public override void Tick(in PlayerFrame frame, in PlayerSettings settings, ref PlayerStepResult result)
+    {
+        result.JumpConsumed = true;
+        result.DashConsumed = true;
+        result.VelocityX = 0f;
+        result.VelocityY = 0f;
+        result.SuppressGravity = true;
+        if (!frame.Homing.HasHomingTarget)
+        {
+            result.SuppressGravity = false;
+            Machine.ChangeState(PlayerState.Airborne);
+        }
+        else if (frame.Homing.WindupComplete)
+        {
+            Machine.ChangeState(PlayerState.Homing);
+            Machine.Current.Tick(frame, settings, ref result);
+        }
+    }
+}
 public sealed class HomingState : PlayerStateBase
 {
     public override PlayerState Id => PlayerState.Homing;

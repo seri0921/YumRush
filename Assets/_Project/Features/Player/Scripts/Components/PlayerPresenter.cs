@@ -10,7 +10,11 @@ public class PlayerPresenter : MonoBehaviour
 
     [Header("プレイヤー本体のコライダー")] [SerializeField] 
     private Collider2D playerCollider;
+
+    [SerializeField] private PlayerAnimationView animationView;
     
+    [SerializeField] private PlayerHomingAttackView homingAttackView;
+
     private readonly PlayerStateMachine _machine = new PlayerStateMachine();
     private PlayerPhysicsMotor _motor;
     private PlayerInput _input;
@@ -41,6 +45,8 @@ public class PlayerPresenter : MonoBehaviour
     
     private void Awake()
     {
+        UnityEngine.Assertions.Assert.IsNotNull(animationView);
+        UnityEngine.Assertions.Assert.IsNotNull(homingAttackView);
         config.Validate();
         
         _motor = new PlayerPhysicsMotor(GetComponent<Rigidbody2D>(), playerCollider,
@@ -59,6 +65,7 @@ public class PlayerPresenter : MonoBehaviour
         {
             scriptedMovement?.Dispose();
             _input.Disable();
+            homingAttackView.Hide();
             _machine.Reset();
             _homing?.ClearTarget();
             _motor.RestoreGravity();
@@ -85,6 +92,7 @@ public class PlayerPresenter : MonoBehaviour
             PlayerFrame frame = _frames.Sample(Time.fixedDeltaTime, FacingDirection);
             _windContact.Sample(ref frame);
             _homing.Sample(ref frame, _machine.IsHoming);
+            frame.Homing.WindupComplete = homingAttackView.IsComplete;
             PlayerSettings settings = _frames.SampleSettings();
             PlayerStepResult result = _machine.Tick(frame, settings);
             if (result.SuppressGravity)
@@ -93,7 +101,20 @@ public class PlayerPresenter : MonoBehaviour
                 _motor.RestoreGravity();
             _motor.ApplyVelocity(new Vector2(result.VelocityX, result.VelocityY));
             _homing.Resolve(result, _machine.IsHoming);
+            bool preparing = State == PlayerState.HomingWindup;
+            Vector2 targetPosition = Vector2.zero;
+            preparing = preparing && _homing.TryGetTargetPosition(out targetPosition);
+            homingAttackView.Render(preparing, targetPosition);
             _input.ClearRequests();
+        }
+
+        private void LateUpdate()
+        {
+            bool preparing = State == PlayerState.HomingWindup;
+            Vector2 targetPosition = Vector2.zero;
+            preparing = preparing && _homing.TryGetTargetPosition(out targetPosition);
+            homingAttackView.Render(preparing, targetPosition);
+            animationView.Render(State, _motor.Velocity.x, FacingDirection);
         }
         
         public IDisposable LockOperation() => _input.LockOperation();
@@ -108,6 +129,7 @@ public class PlayerPresenter : MonoBehaviour
             IDisposable inputLock = _input.LockOperation();
             try
             {
+                homingAttackView.Hide();
                 _machine.ChangeState(PlayerState.Airborne);
                 _homing?.ClearTarget();
                 _motor.RestoreGravity();

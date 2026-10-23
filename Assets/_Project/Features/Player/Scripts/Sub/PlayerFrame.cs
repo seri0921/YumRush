@@ -39,7 +39,7 @@ public struct PlayerWindSnapshot
 
 public struct PlayerHomingSnapshot
 {
-    public bool HasHomingTarget, TouchingHomingTarget;
+    public bool HasHomingTarget, TouchingHomingTarget, WindupComplete;
     public float HomingDirectionX, HomingDirectionY;
 }
 
