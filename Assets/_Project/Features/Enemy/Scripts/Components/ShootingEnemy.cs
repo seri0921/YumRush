@@ -74,6 +74,8 @@ public sealed class ShootingEnemy : EnemyBase
         if (!defeatLogic.TryDefeat())
             return;
         hitCollider.enabled = false;
+        if (TryGetComponent<RespawnTarget>(out var respawnTarget))
+            respawnTarget.NotifyConsumed();
         gameObject.SetActive(false);
         Destroy(gameObject);
     }
