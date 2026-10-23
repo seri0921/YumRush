@@ -101,6 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6438841918948688205}
   - component: {fileID: 337611542278785935}
+  - component: {fileID: 7256732667052693698}
   m_Layer: 0
   m_Name: ScoreItem
   m_TagString: Untagged
@@ -161,6 +162,19 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.38
+--- !u!114 &7256732667052693698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994425199152664405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0493760cc545e418f543500581b42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreItem
+  config: {fileID: 11400000, guid: 9f4417b1b264995439e0ff79f75ace50, type: 2}
 --- !u!1 &6330617907176501738
 GameObject:
   m_ObjectHideFlags: 0
