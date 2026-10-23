@@ -16,6 +16,9 @@ public sealed class PlayerAnimationView : MonoBehaviour
     private static readonly int Jump = Animator.StringToHash("Base Layer.Jump");
     private static readonly int AirDash = Animator.StringToHash("Base Layer.AirDash");
     private static readonly int Glide = Animator.StringToHash("Base Layer.Glide");
+    private static readonly int Damage = Animator.StringToHash("Base Layer.Damage");
+    private static readonly int DamageSpeed = Animator.StringToHash("DamageSpeed");
+    private float damageClipLength;
     private int currentAnimation;
     private bool hasAnimation;
 
@@ -25,8 +28,14 @@ public sealed class PlayerAnimationView : MonoBehaviour
         Assert.IsNotNull(spriteRenderer);
         if (!animator.HasState(0, Idle) || !animator.HasState(0, Walk) ||
             !animator.HasState(0, Jump) || !animator.HasState(0, AirDash) ||
-            !animator.HasState(0, Glide))
-            throw new InvalidOperationException("Player Animator requires Idle, Walk, Jump, AirDash and Glide in Base Layer.");
+            !animator.HasState(0, Glide) || !animator.HasState(0, Damage))
+            throw new InvalidOperationException("Player Animator requires Idle, Walk, Jump, AirDash, Glide and Damage in Base Layer.");
+
+        foreach (AnimationClip clip in animator.runtimeAnimatorController.animationClips)
+        {
+            if (clip.name == "Damage")
+                damageClipLength = clip.length;
+        }
     }
 
     private void OnEnable() => hasAnimation = false;
@@ -38,7 +47,7 @@ public sealed class PlayerAnimationView : MonoBehaviour
         spriteRenderer.flipX = facesRight != spriteFacesRight;
         if (hasAnimation && currentAnimation == nextAnimation)
             return;
-
+        
         animator.Play(nextAnimation, 0, 0f);
         currentAnimation = nextAnimation;
         hasAnimation = true;
@@ -54,6 +63,8 @@ public sealed class PlayerAnimationView : MonoBehaviour
                 return AirDash;
             case PlayerState.Gliding:
                 return Glide;
+            case PlayerState.Hit:
+                return Damage;
             case PlayerState.Airborne:
             case PlayerState.WindJump:
             // 専用クリップが用意されるまでは空中ポーズを使用する。
@@ -61,7 +72,6 @@ public sealed class PlayerAnimationView : MonoBehaviour
             case PlayerState.Floating:
             case PlayerState.HomingWindup:
             case PlayerState.Homing:
-            case PlayerState.Hit:
                 return Jump;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
