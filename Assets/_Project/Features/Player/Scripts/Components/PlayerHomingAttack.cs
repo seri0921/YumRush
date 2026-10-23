@@ -48,7 +48,7 @@ public sealed class PlayerHomingAttack : MonoBehaviour
         if (!homing && frame.Input.JumpQueued)
             FindNearestTarget();
         frame.Homing.HasHomingTarget = target != null && targetCollider != null &&
-                                       target.isActiveAndEnabled && !target.IsDefeated && targetCollider.enabled &&
+                                        !target.IsDefeated && targetCollider.enabled &&
                                        targetCollider.gameObject.activeInHierarchy;
         if (!frame.Homing.HasHomingTarget)
             return;
@@ -76,7 +76,7 @@ public sealed class PlayerHomingAttack : MonoBehaviour
     // 対象の破棄・撃破は演出中にも発生する正当な中断条件。
     public bool TryGetTargetPosition(out Vector2 position)
     {
-        bool valid = target != null && targetCollider != null && target.isActiveAndEnabled &&
+        bool valid = target != null && targetCollider != null && 
                      !target.IsDefeated && targetCollider.enabled && targetCollider.gameObject.activeInHierarchy;
         position = valid ? (Vector2)targetCollider.bounds.center : Vector2.zero;
         return valid;
@@ -95,7 +95,7 @@ public sealed class PlayerHomingAttack : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Collider2D candidate = hits[i];
-            if (!candidate.TryGetComponent<IEnemy>(out var enemy) || enemy.IsDefeated || !enemy.isActiveAndEnabled)
+            if (!candidate.TryGetComponent<IEnemy>(out var enemy) || enemy.IsDefeated)
                 continue;
             float distance = ((Vector2)candidate.ClosestPoint(body.position) - body.position).sqrMagnitude;
             if (!HomingAttackLogic.IsCloser(distance, nearest, config.AttackRange * config.AttackRange))
@@ -105,4 +105,5 @@ public sealed class PlayerHomingAttack : MonoBehaviour
             targetCollider = candidate;
         }
     }
+
 }
