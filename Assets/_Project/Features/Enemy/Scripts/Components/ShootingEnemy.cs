@@ -3,11 +3,6 @@ using UnityEngine;
 
 public sealed class ShootingEnemy : EnemyBase
 {
-    [Space(8)]
-    [Header("参照")]
-    [Tooltip("射撃対象のプレイヤー。未設定時はシーン内から取得します。")]
-    [SerializeField]
-    private PlayerPresenter target;
 
     [Tooltip("発射する弾のPrefab。UpdraftEnemyProjectileが必要です。")]
     [SerializeField]
@@ -31,40 +26,28 @@ public sealed class ShootingEnemy : EnemyBase
     [SerializeField]
     private Vector2 muzzleOffset = Vector2.zero;
 
-    private readonly EnemyFireLogic fireLogic = new EnemyFireLogic();
-
-
-    protected override void Awake()
+    protected override void OnInitialize()
     {
-        // Prefab単体を配置した場合は、シーン内のプレイヤーを一度だけ取得する。
-        base.Awake();
-
-        if (target == null)
-            target = FindFirstObjectByType<PlayerPresenter>();
-
         if (target == null || projectilePrefab == null)
             throw new InvalidOperationException($"{gameObject.name}: PlayerとProjectile Prefabが必要です。");
 
         if (detectionRange <= 0f || fireInterval <= 0f || projectileSpeed <= 0f)
             throw new InvalidOperationException($"{gameObject.name}: 射撃設定は正の値にしてください。");
+
         if (!hitCollider.isTrigger)
-            throw new InvalidOperationException("UpdraftEnemy: Collider2DをTriggerにしてください。");
+            throw new InvalidOperationException($"{gameObject.name}: Collider2DをTriggerにしてください。");
     }
 
     protected override void UpdateBehavior()
     {
-        if (IsDefeated)
-            return;
         Vector2 origin = (Vector2)transform.position + muzzleOffset;
-        Vector2 targetPosition = target.transform.position;
-        if (!fireLogic.Tick(Time.deltaTime, (targetPosition - origin).sqrMagnitude,
-                detectionRange, fireInterval))
+
+        // 基底クラス（AttackerEnemyBase）の距離・方向判定を利用
+        float sqrDistance = GetSqrDistanceToTarget(origin);
+        if (!fireLogic.Tick(Time.deltaTime, sqrDistance, detectionRange, fireInterval))
             return;
 
-        Vector2 displacement = targetPosition - origin;
-        Vector2 direction = displacement.sqrMagnitude > 0f
-            ? displacement.normalized
-            : Vector2.down;
+        Vector2 direction = GetDirectionToTarget(origin);
         EnemyBullet projectile = Instantiate(projectilePrefab, origin, Quaternion.identity);
         projectile.Launch(direction, projectileSpeed);
     }
