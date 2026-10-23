@@ -103,12 +103,12 @@ TextureImporter:
       name: character_eat_1_0
       rect:
         serializedVersion: 2
-        x: 14
+        x: 13
         y: 0
-        width: 495
-        height: 229
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        width: 499
+        height: 256
+      alignment: 9
+      pivot: {x: -0.0013479221, y: 0.44556385}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a617aea05e38de042b19585e740fb72d
+    spriteID: b6029405eaa7b474c922590347bdbdfb
     internalID: 0
     vertices: []
     indices: 
