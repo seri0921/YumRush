@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public sealed class bumper : EnemyBase
+public sealed class bumper : HarmlessEnemyBase
 {
     [Header("クールタイム")]
     [SerializeField] private float cool = 1.0f;
