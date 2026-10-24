@@ -12,7 +12,8 @@ public enum PlayerState
     AirDashing,
     Homing,
     Hit,
-    HomingWindup
+    HomingWindup,
+    AirCurrent
 }
 
 public interface IPlayerState
@@ -37,12 +38,13 @@ public sealed class PlayerStateMachine
 
     public IPlayerState Current { get; private set; }
     public PlayerState State => Current.Id;
-    public bool IsActionLocked => State == PlayerState.Hit || IsHoming;
+    public bool IsActionLocked => State == PlayerState.Hit || IsHoming || State == PlayerState.AirCurrent;
     public bool IsHoming => State == PlayerState.Homing || State == PlayerState.HomingWindup;
     public bool IsGliding => State == PlayerState.Gliding;
     public bool CanWindJump => State == PlayerState.Floating && wind.CanWindJump;
     public float LiftVelocity => wind.LiftVelocity;
-    public bool CanEnterWind => !IsHoming && State != PlayerState.Hit;
+    public bool CanEnterWind => !IsHoming && State != PlayerState.Hit && State != PlayerState.AirCurrent;
+    public bool CanEnterAirCurrent => State != PlayerState.Hit;
 
     public bool IsInWind =>
         State == PlayerState.Capturing || State == PlayerState.Floating ||
@@ -60,7 +62,7 @@ public sealed class PlayerStateMachine
     {
         this.wind = wind ?? throw new ArgumentNullException(nameof(wind));
 
-        states = new IPlayerState[] { new GroundedState(this), new AirborneState(this), new CapturingState(this, wind), new FloatingState(this, wind), new WindJumpState(this, wind), new GlidingState(this, glide), new AirDashingState(this, dash), new HomingState(this), new HitState(this, hit), new HomingWindupState(this) };
+        states = new IPlayerState[] { new GroundedState(this), new AirborneState(this), new CapturingState(this, wind), new FloatingState(this, wind), new WindJumpState(this, wind), new GlidingState(this, glide), new AirDashingState(this, dash), new HomingState(this), new HitState(this, hit), new HomingWindupState(this), new AirCurrentState(this) };
         Current = states[(int)PlayerState.Airborne];
         Current.Enter();
     }
@@ -152,7 +154,7 @@ public sealed class PlayerStateMachine
         if (frame.Body.Grounded || IsInWind)
             dash.Recharge();
 
-        if (State != PlayerState.Hit && !IsHoming && (frame.Input.JumpQueued && !result.JumpConsumed) && frame.Homing.HasHomingTarget)
+        if (!IsActionLocked && (frame.Input.JumpQueued && !result.JumpConsumed) && frame.Homing.HasHomingTarget)
             ChangeState(PlayerState.HomingWindup);
         else if ((State == PlayerState.Airborne || IsGliding) && !frame.Body.Grounded &&
                  !frame.Wind.HasWind && (frame.Input.DashQueued && !result.DashConsumed) && dash.TryStart(true, settings.Dash.AirDashDuration))
@@ -483,5 +485,22 @@ public sealed class HitState : PlayerStateBase
         result.JumpConsumed = true;
         result.DashConsumed = true;
         Machine.Current.Tick(frame, settings, ref result);
+    }
+}
+public sealed class AirCurrentState : PlayerStateBase
+{
+    public override PlayerState Id => PlayerState.AirCurrent;
+
+    public AirCurrentState(PlayerStateMachine machine) : base(machine) { }
+
+    public override void Tick(in PlayerFrame frame, in PlayerSettings settings, ref PlayerStepResult result)
+    {
+        if (!frame.AirCurrent.HasCurrent)
+            throw new InvalidOperationException("Air current state requires an active zone.");
+        result.SuppressGravity = true;
+        result.JumpConsumed = true;
+        result.DashConsumed = true;
+        PlayerAirCurrentLogic.Step(frame.AirCurrent, frame.Body.PositionX, frame.Body.PositionY,
+            frame.DeltaTime, ref result.VelocityX, ref result.VelocityY);
     }
 }

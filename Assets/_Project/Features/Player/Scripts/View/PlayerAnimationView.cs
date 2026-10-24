@@ -65,6 +65,7 @@ public sealed class PlayerAnimationView : MonoBehaviour
                 return Glide;
             case PlayerState.Hit:
                 return Damage;
+            case PlayerState.AirCurrent:
             case PlayerState.Airborne:
             case PlayerState.WindJump:
             // 専用クリップが用意されるまでは空中ポーズを使用する。

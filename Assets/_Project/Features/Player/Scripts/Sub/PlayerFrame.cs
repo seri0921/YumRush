@@ -6,6 +6,7 @@ public class PlayerFrame
     public PlayerInputSnapshot Input;
     public PlayerBodySnapshot Body;
     public PlayerWindSnapshot Wind;
+    public PlayerAirCurrentSnapshot AirCurrent;
     public PlayerHomingSnapshot Homing;
 }
 
@@ -35,6 +36,14 @@ public struct PlayerWindSnapshot
 {
     public bool HasWind;
     public float CenterX, CenterY, Period, Amplitude, BoostMultiplier, CaptureSpeed, CaptureAcceleration, CaptureArrivalDistance;
+}
+
+public struct PlayerAirCurrentSnapshot
+{
+    public bool HasCurrent;
+    public bool ResetLateralVelocity;
+    public float DirectionX, DirectionY, Acceleration, MaximumSpeed;
+    public float CenterX, CenterY, CaptureSpeed, CaptureAcceleration;
 }
 
 public struct PlayerHomingSnapshot
