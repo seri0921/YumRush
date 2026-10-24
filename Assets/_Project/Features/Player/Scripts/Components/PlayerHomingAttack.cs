@@ -83,6 +83,14 @@ public sealed class PlayerHomingAttack : MonoBehaviour
         position = valid ? (Vector2)targetCollider.bounds.center : Vector2.zero;
         return valid;
     }
+    // 表示側で対象の同一性を判別するための取得口。対象なしは正当な状態。
+    public bool TryGetTarget(out IEnemy currentTarget, out Vector2 position)
+    {
+        bool valid = TryGetTargetPosition(out position);
+        currentTarget = valid ? target : null;
+        return valid;
+    }
+
     public void ClearTarget()
     {
         target = null;

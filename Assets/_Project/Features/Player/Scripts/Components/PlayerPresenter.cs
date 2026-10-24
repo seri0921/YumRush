@@ -24,6 +24,8 @@ public class PlayerPresenter : MonoBehaviour
     private PlayerAirCurrentContact _airCurrentContact;
     private PlayerDamageReceiver _damageReceiver;
     private PlayerHomingAttack _homing;
+    // nullはレティクルの対象がない状態。
+    private IEnemy reticleTarget;
     // null while no external movement owns the player.
     private ScriptedMovement scriptedMovement;
 
@@ -71,6 +73,7 @@ public class PlayerPresenter : MonoBehaviour
             _input.Disable();
             homingAttackView.Hide();
             homingReticleView.Hide();
+            reticleTarget = null;
             _airCurrentContact.Clear();
             _machine.Reset();
             _homing?.ClearTarget();
@@ -122,9 +125,12 @@ public class PlayerPresenter : MonoBehaviour
             preparing = preparing && _homing.TryGetTargetPosition(out targetPosition);
             homingAttackView.Render(preparing, targetPosition);
             animationView.Render(State, _motor.Velocity.x, FacingDirection);
+            IEnemy currentTarget = null;
             bool showReticle = !_motor.IsScriptedMovement && State != PlayerState.Hit && State != PlayerState.AirCurrent &&
-                               _homing.TryGetTargetPosition(out targetPosition);
-            homingReticleView.Render(showReticle, targetPosition);
+                               _homing.TryGetTarget(out currentTarget, out targetPosition);
+            bool targetChanged = !ReferenceEquals(reticleTarget, currentTarget);
+            homingReticleView.Render(showReticle, targetPosition, targetChanged, Time.deltaTime);
+            reticleTarget = currentTarget;
         }
         
         public IDisposable LockOperation() => _input.LockOperation();
