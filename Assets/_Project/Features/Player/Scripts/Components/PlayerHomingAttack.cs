@@ -15,7 +15,7 @@ public sealed class PlayerHomingAttack : MonoBehaviour
 
     private ContactFilter2D targetFilter;
 
-    // 非追尾時・対象消失時はnull。
+    // 攻撃前は候補、攻撃準備・追尾中は確定対象。候補なし・対象消失時はnull。
     private IEnemy target;
     private Collider2D targetCollider;
 
@@ -45,7 +45,8 @@ public sealed class PlayerHomingAttack : MonoBehaviour
     {
         if (!isActiveAndEnabled)
             return;
-        if (!homing && frame.Input.JumpQueued)
+        // 攻撃前は候補を更新し、準備・追尾中は同じ対象を保持する。
+        if (!homing)
             FindNearestTarget();
         frame.Homing.HasHomingTarget = target != null && targetCollider != null &&
                                         !target.IsDefeated && targetCollider.enabled &&
@@ -69,14 +70,15 @@ public sealed class PlayerHomingAttack : MonoBehaviour
             target.ReceiveAttack();
         }
 
-        if (!homing)
+        // 命中した対象は解除し、次のSampleで候補を再取得する。
+        if (!homing && result.ApplyHomingAttack)
             ClearTarget();
     }
 
     // 対象の破棄・撃破は演出中にも発生する正当な中断条件。
     public bool TryGetTargetPosition(out Vector2 position)
     {
-        bool valid = target != null && targetCollider != null && 
+        bool valid = isActiveAndEnabled && target != null && targetCollider != null &&
                      !target.IsDefeated && targetCollider.enabled && targetCollider.gameObject.activeInHierarchy;
         position = valid ? (Vector2)targetCollider.bounds.center : Vector2.zero;
         return valid;
