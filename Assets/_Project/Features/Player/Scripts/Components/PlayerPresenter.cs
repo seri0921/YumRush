@@ -21,6 +21,7 @@ public class PlayerPresenter : MonoBehaviour
     private PlayerInput _input;
     private PlayerFrameSource _frames;
     private PlayerWindContact _windContact;
+    private PlayerAirCurrentContact _airCurrentContact;
     private PlayerDamageReceiver _damageReceiver;
     private PlayerHomingAttack _homing;
     // null while no external movement owns the player.
@@ -58,6 +59,7 @@ public class PlayerPresenter : MonoBehaviour
         TryGetComponent(out _homing);
         _frames = new PlayerFrameSource(config, _motor, _input);
         _windContact = new PlayerWindContact(_machine, _motor, config);
+        _airCurrentContact = new PlayerAirCurrentContact(_machine, _motor);
         _damageReceiver = new PlayerDamageReceiver(_machine, _motor, config, _input, _homing);
     }
 
@@ -69,6 +71,7 @@ public class PlayerPresenter : MonoBehaviour
             _input.Disable();
             homingAttackView.Hide();
             homingReticleView.Hide();
+            _airCurrentContact.Clear();
             _machine.Reset();
             _homing?.ClearTarget();
             _motor.RestoreGravity();
@@ -93,6 +96,7 @@ public class PlayerPresenter : MonoBehaviour
                 return;
 
             PlayerFrame frame = _frames.Sample(Time.fixedDeltaTime, FacingDirection);
+            _airCurrentContact.Sample(ref frame);
             _windContact.Sample(ref frame);
             _homing.Sample(ref frame, _machine.IsHoming);
             frame.Homing.WindupComplete = homingAttackView.IsComplete;
@@ -118,7 +122,7 @@ public class PlayerPresenter : MonoBehaviour
             preparing = preparing && _homing.TryGetTargetPosition(out targetPosition);
             homingAttackView.Render(preparing, targetPosition);
             animationView.Render(State, _motor.Velocity.x, FacingDirection);
-            bool showReticle = !_motor.IsScriptedMovement && State != PlayerState.Hit &&
+            bool showReticle = !_motor.IsScriptedMovement && State != PlayerState.Hit && State != PlayerState.AirCurrent &&
                                _homing.TryGetTargetPosition(out targetPosition);
             homingReticleView.Render(showReticle, targetPosition);
         }
@@ -154,8 +158,17 @@ public class PlayerPresenter : MonoBehaviour
         public void SetScriptedPosition(Vector2 position) => _motor.SetScriptedPosition(position);
 
         public bool ReceiveEnemyProjectile() => !_motor.IsScriptedMovement && _damageReceiver.Receive();
-        private void OnTriggerEnter2D(Collider2D other) => _windContact.Enter(other);
-        private void OnTriggerExit2D(Collider2D other) => _windContact.Exit(other);
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            _airCurrentContact.Enter(other);
+            if (!_motor.IsScriptedMovement)
+                _windContact.Enter(other);
+        }
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            _airCurrentContact.Exit(other);
+            _windContact.Exit(other);
+        }
 
         private sealed class ScriptedMovement : IDisposable
         {
