@@ -14,6 +14,7 @@ public class PlayerPresenter : MonoBehaviour
     [SerializeField] private PlayerAnimationView animationView;
     
     [SerializeField] private PlayerHomingAttackView homingAttackView;
+    [SerializeField] private HomingReticleView homingReticleView;
 
     private readonly PlayerStateMachine _machine = new PlayerStateMachine();
     private PlayerPhysicsMotor _motor;
@@ -47,6 +48,7 @@ public class PlayerPresenter : MonoBehaviour
     {
         UnityEngine.Assertions.Assert.IsNotNull(animationView);
         UnityEngine.Assertions.Assert.IsNotNull(homingAttackView);
+        UnityEngine.Assertions.Assert.IsNotNull(homingReticleView);
         config.Validate();
         
         _motor = new PlayerPhysicsMotor(GetComponent<Rigidbody2D>(), playerCollider,
@@ -66,6 +68,7 @@ public class PlayerPresenter : MonoBehaviour
             scriptedMovement?.Dispose();
             _input.Disable();
             homingAttackView.Hide();
+            homingReticleView.Hide();
             _machine.Reset();
             _homing?.ClearTarget();
             _motor.RestoreGravity();
@@ -115,6 +118,9 @@ public class PlayerPresenter : MonoBehaviour
             preparing = preparing && _homing.TryGetTargetPosition(out targetPosition);
             homingAttackView.Render(preparing, targetPosition);
             animationView.Render(State, _motor.Velocity.x, FacingDirection);
+            bool showReticle = !_motor.IsScriptedMovement && State != PlayerState.Hit &&
+                               _homing.TryGetTargetPosition(out targetPosition);
+            homingReticleView.Render(showReticle, targetPosition);
         }
         
         public IDisposable LockOperation() => _input.LockOperation();
@@ -130,6 +136,7 @@ public class PlayerPresenter : MonoBehaviour
             try
             {
                 homingAttackView.Hide();
+                homingReticleView.Hide();
                 _machine.ChangeState(PlayerState.Airborne);
                 _homing?.ClearTarget();
                 _motor.RestoreGravity();
