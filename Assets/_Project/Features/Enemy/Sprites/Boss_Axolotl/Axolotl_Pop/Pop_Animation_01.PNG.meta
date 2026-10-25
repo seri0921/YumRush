@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: 5384db74e10d45842a7ea12f35366d9d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6100440132028518081
+    second: Pop_Animation_01_0
+  - first:
+      213: 2454777404620494463
+    second: Pop_Animation_01_1
+  - first:
+      213: -1161563646177921011
+    second: Pop_Animation_01_2
+  - first:
+      213: 1233448773615527308
+    second: Pop_Animation_01_3
+  - first:
+      213: 199475353712732330
+    second: Pop_Animation_01_4
+  - first:
+      213: 3273639278418970477
+    second: Pop_Animation_01_5
+  - first:
+      213: -6847863096818005669
+    second: Pop_Animation_01_6
+  - first:
+      213: 1717959630280203813
+    second: Pop_Animation_01_7
+  - first:
+      213: -1406098512422751435
+    second: Pop_Animation_01_8
+  - first:
+      213: 3343235752556805166
+    second: Pop_Animation_01_9
+  - first:
+      213: 9061775107722974559
+    second: Pop_Animation_01_10
+  - first:
+      213: 5918054237142515911
+    second: Pop_Animation_01_11
+  - first:
+      213: -7554408684408653750
+    second: Pop_Animation_01_12
+  - first:
+      213: 1737425050512530572
+    second: Pop_Animation_01_13
+  - first:
+      213: 8353823267799041371
+    second: Pop_Animation_01_14
+  - first:
+      213: -8976338222103398919
+    second: Pop_Animation_01_15
+  - first:
+      213: 1849257950242874535
+    second: Pop_Animation_01_16
+  - first:
+      213: -5614978398948022834
+    second: Pop_Animation_01_17
+  - first:
+      213: -8404594062181070789
+    second: Pop_Animation_01_18
+  - first:
+      213: -6697431020409960783
+    second: Pop_Animation_01_19
+  - first:
+      213: -270390470143591135
+    second: Pop_Animation_01_20
+  - first:
+      213: -8124631527510191510
+    second: Pop_Animation_01_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pop_Animation_01_0
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 1860
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cec8138afd19a450800000000000000
+      internalID: 6100440132028518081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_1
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 1860
+        width: 23
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f765f052b0f111220800000000000000
+      internalID: 2454777404620494463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_2
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 1693
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d08be8d940c41efe0800000000000000
+      internalID: -1161563646177921011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_3
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 1661
+        width: 357
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c85aeffdf171e1110800000000000000
+      internalID: 1233448773615527308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_4
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 1672
+        width: 660
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa82e7ff6cda4c200800000000000000
+      internalID: 199475353712732330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1672
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d67cde8449d4e6d20800000000000000
+      internalID: 3273639278418970477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_6
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 1400
+        width: 231
+        height: 274
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5908a38bc087f0a0800000000000000
+      internalID: -6847863096818005669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_7
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1651
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52e105d7e2b67d710800000000000000
+      internalID: 1717959630280203813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_8
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 848
+        width: 180
+        height: 523
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53336df4ad88c7ce0800000000000000
+      internalID: -1406098512422751435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_9
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 1359
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2cb887243f856e20800000000000000
+      internalID: 3343235752556805166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f551e4af274e1cd70800000000000000
+      internalID: 9061775107722974559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_11
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1098
+        width: 356
+        height: 544
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0006639f6212250800000000000000
+      internalID: 5918054237142515911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_12
+      rect:
+        serializedVersion: 2
+        x: 1907
+        y: 1119
+        width: 12
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4832b59359592790800000000000000
+      internalID: -7554408684408653750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_13
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 1129
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8c1aafc0e29c1810800000000000000
+      internalID: 1737425050512530572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_14
+      rect:
+        serializedVersion: 2
+        x: 1802
+        y: 1087
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b550e89600ebee370800000000000000
+      internalID: 8353823267799041371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_15
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 274
+        width: 388
+        height: 492
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f5f3c712f3ad6380800000000000000
+      internalID: -8976338222103398919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_16
+      rect:
+        serializedVersion: 2
+        x: 1698
+        y: 535
+        width: 179
+        height: 492
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a42b46de42e9a910800000000000000
+      internalID: 1849257950242874535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_17
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 128
+        width: 826
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5263545e69312b0800000000000000
+      internalID: -5614978398948022834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_18
+      rect:
+        serializedVersion: 2
+        x: 1729
+        y: 347
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b38075ada32ec5b80800000000000000
+      internalID: -8404594062181070789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_19
+      rect:
+        serializedVersion: 2
+        x: 1729
+        y: 295
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b648c0b8f1fd03a0800000000000000
+      internalID: -6697431020409960783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_20
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 159
+        width: 347
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12db07ccc416f3cf0800000000000000
+      internalID: -270390470143591135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pop_Animation_01_21
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 148
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a62d0dffba28f3f80800000000000000
+      internalID: -8124631527510191510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 35faca14dcf10354187b39b6a57e5b4b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pop_Animation_01_0: 6100440132028518081
+      Pop_Animation_01_1: 2454777404620494463
+      Pop_Animation_01_10: 9061775107722974559
+      Pop_Animation_01_11: 5918054237142515911
+      Pop_Animation_01_12: -7554408684408653750
+      Pop_Animation_01_13: 1737425050512530572
+      Pop_Animation_01_14: 8353823267799041371
+      Pop_Animation_01_15: -8976338222103398919
+      Pop_Animation_01_16: 1849257950242874535
+      Pop_Animation_01_17: -5614978398948022834
+      Pop_Animation_01_18: -8404594062181070789
+      Pop_Animation_01_19: -6697431020409960783
+      Pop_Animation_01_2: -1161563646177921011
+      Pop_Animation_01_20: -270390470143591135
+      Pop_Animation_01_21: -8124631527510191510
+      Pop_Animation_01_3: 1233448773615527308
+      Pop_Animation_01_4: 199475353712732330
+      Pop_Animation_01_5: 3273639278418970477
+      Pop_Animation_01_6: -6847863096818005669
+      Pop_Animation_01_7: 1717959630280203813
+      Pop_Animation_01_8: -1406098512422751435
+      Pop_Animation_01_9: 3343235752556805166
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

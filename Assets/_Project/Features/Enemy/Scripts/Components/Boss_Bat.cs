@@ -22,6 +22,9 @@ public class Boss_Bat : EnemyBase
     [SerializeField] private Bat_Animation animationView;
     [SerializeField, Min(0.01f)] private float blinkDuration = 0.2f;
 
+    [Header("îÌíeéûñ≥ìGéûä‘")]
+    [SerializeField, Min(0.1f)] private float coolDown = 1.0f;
+
     [Header("éÀåÇê›íË")]
     [SerializeField] private EnemyBullet projectilePrefab;
     [SerializeField, Min(0.01f)] private float detectionRange = 12f;
@@ -31,8 +34,10 @@ public class Boss_Bat : EnemyBase
 
     private readonly EnemyFireLogic stateTimerLogic = new EnemyFireLogic();
     private readonly EnemyFireLogic attackPauseTimerLogic = new EnemyFireLogic();
+    private readonly EnemyFireLogic coolDownTimerLogic = new EnemyFireLogic();
     private BossState currentState = BossState.Normal;
     private bool isAttackPaused;
+    private bool isCool;
 
     protected override void OnInitialize()
     {
@@ -44,6 +49,14 @@ public class Boss_Bat : EnemyBase
 
     protected override void UpdateBehavior() 
     {
+        if (isCool)
+        {
+            if (coolDownTimerLogic.Tick(Time.deltaTime, 0f, 1f, coolDown))
+            {
+                SetCoolingDown(false);
+            }
+        }
+
         if (stateTimerLogic.Tick(Time.deltaTime, 0f, 1f, stateInterval))
         {
             currentState = (currentState == BossState.Normal) ? BossState.Protect : BossState.Normal;
@@ -75,8 +88,9 @@ public class Boss_Bat : EnemyBase
     }
     public override void ReceiveAttack() 
     {
-        if (IsDefeated) return;
+        if (IsDefeated || isCool) return;
 
+        SetCoolingDown(true);
         isAttackPaused = true;
 
         //âHÇèÙÇÒÇ≈Ç¢ÇÈÇ∆Ç´ÇÕê¬ì_ñ≈Ç≈ÉKÅ[ÉhÇ∆Ç©Ç…Ç»ÇËÇ‹ÇπÇÒÇ©
@@ -100,6 +114,15 @@ public class Boss_Bat : EnemyBase
             Destroy(gameObject);
         }
 
+    }
+
+    private void SetCoolingDown(bool setCool)
+    {
+        isCool = setCool;
+        if (hitCollider != null)
+        {
+            hitCollider.enabled = !setCool;
+        }
     }
 
 }
