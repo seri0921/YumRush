@@ -13,7 +13,8 @@ public enum PlayerState
     Homing,
     Hit,
     HomingWindup,
-    AirCurrent
+    AirCurrent,
+    FanGlide
 }
 
 public interface IPlayerState
@@ -32,6 +33,7 @@ public sealed class PlayerStateMachine
     private readonly PlayerGlideFlightLogic glide = new PlayerGlideFlightLogic();
     private readonly PlayerAirDashLogic dash = new PlayerAirDashLogic();
     private readonly PlayerHitLogic hit = new PlayerHitLogic();
+    private readonly PlayerFanGlideLogic fanGlide = new PlayerFanGlideLogic();
     private bool transitioning;
     private float dashX, dashY;
     private int facing = 1;
@@ -62,7 +64,7 @@ public sealed class PlayerStateMachine
     {
         this.wind = wind ?? throw new ArgumentNullException(nameof(wind));
 
-        states = new IPlayerState[] { new GroundedState(this), new AirborneState(this), new CapturingState(this, wind), new FloatingState(this, wind), new WindJumpState(this, wind), new GlidingState(this, glide), new AirDashingState(this, dash), new HomingState(this), new HitState(this, hit), new HomingWindupState(this), new AirCurrentState(this) };
+        states = new IPlayerState[] { new GroundedState(this), new AirborneState(this), new CapturingState(this, wind), new FloatingState(this, wind), new WindJumpState(this, wind), new GlidingState(this, glide), new AirDashingState(this, dash), new HomingState(this), new HitState(this, hit), new HomingWindupState(this), new AirCurrentState(this), new FanGlideState(this, fanGlide) };
         Current = states[(int)PlayerState.Airborne];
         Current.Enter();
     }
@@ -170,6 +172,14 @@ public sealed class PlayerStateMachine
         {
             ChangeState(PlayerState.Airborne);
             result.JumpConsumed = true;
+        }
+
+        if (!IsActionLocked && !frame.Body.Grounded && frame.FanWind.HasFanWind)
+        {
+            if (State == PlayerState.Airborne || State == PlayerState.Gliding)
+            {
+                ChangeState(PlayerState.FanGlide);
+            }
         }
 
         Current.Tick(frame, settings, ref result);
@@ -502,5 +512,47 @@ public sealed class AirCurrentState : PlayerStateBase
         result.DashConsumed = true;
         PlayerAirCurrentLogic.Step(frame.AirCurrent, frame.Body.PositionX, frame.Body.PositionY,
             frame.DeltaTime, ref result.VelocityX, ref result.VelocityY);
+    }
+}
+
+public sealed class FanGlideState : PlayerStateBase
+{
+    private readonly PlayerFanGlideLogic logic;
+    public override PlayerState Id => PlayerState.FanGlide;
+
+    public FanGlideState(PlayerStateMachine machine, PlayerFanGlideLogic logic) : base(machine)
+    {
+        this.logic = logic;
+    }
+
+    public override void Enter()
+    {
+        logic.Start();
+    }
+
+    public override void Exit()
+    {
+        logic.Stop();
+    }
+
+    public override void Tick(in PlayerFrame frame, in PlayerSettings settings, ref PlayerStepResult result)
+    {
+        if (frame.Body.Grounded)
+        {
+            Machine.ChangeState(PlayerState.Grounded);
+            Machine.Current.Tick(frame, settings, ref result);
+            return;
+        }
+
+        if (!frame.FanWind.HasFanWind)
+        {
+            Machine.ChangeState(PlayerState.Airborne);
+            Machine.Current.Tick(frame, settings, ref result);
+            return;
+        }
+
+        result.SuppressGravity = true;
+
+        logic.Step(frame, settings, ref result);
     }
 }
