@@ -10,11 +10,13 @@ public sealed class ChunkRespawnController : MonoBehaviour
 
     public void Configure(RespawnManager respawnManager, ChunkRespawnConfig chunkConfig)
     {
-        if (Application.isPlaying)
-            throw new InvalidOperationException("Configure Chunks before Play Mode.");
+        if (Application.isPlaying && (isActiveAndEnabled || logic != null))
+            throw new InvalidOperationException("Configure Chunks before activation and initialization.");
         manager = respawnManager != null ? respawnManager : throw new ArgumentNullException(nameof(respawnManager));
         config = chunkConfig != null ? chunkConfig : throw new ArgumentNullException(nameof(chunkConfig));
     }
+
+    public void Configure(RespawnManager respawnManager) => Configure(respawnManager, config);
 
     private void OnEnable()
     {
