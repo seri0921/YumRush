@@ -1,4 +1,5 @@
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class BackgroundAuto : MonoBehaviour
 {
@@ -11,16 +12,73 @@ public class BackgroundAuto : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private Vector3 currentVelocity;
+    private CinemachineBrain _cameraBrain;
+    private bool _needsInitialPosition = true;
 
-    private void Start()
+    public void Configure(PolygonCollider2D cameraBounds, Camera camera)
+    {
+        confinerCollider = cameraBounds != null ? cameraBounds : throw new System.ArgumentNullException(nameof(cameraBounds));
+        mainCam = camera != null ? camera : throw new System.ArgumentNullException(nameof(camera));
+        _cameraBrain = mainCam.GetComponent<CinemachineBrain>();
+        ResetFollowState();
+    }
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void OnEnable()
     {
         if (mainCam == null) mainCam = Camera.main;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        _cameraBrain = mainCam != null ? mainCam.GetComponent<CinemachineBrain>() : null;
+        ResetFollowState();
+        CinemachineCore.CameraUpdatedEvent.AddListener(OnCameraUpdated);
+    }
+
+    private void OnDisable()
+    {
+        CinemachineCore.CameraUpdatedEvent.RemoveListener(OnCameraUpdated);
+    }
+
+    private void ResetFollowState()
+    {
+        _needsInitialPosition = true;
+        currentVelocity = Vector3.zero;
+    }
+
+    private void OnCameraUpdated(CinemachineBrain brain)
+    {
+        if (brain == _cameraBrain && brain.OutputCamera == mainCam)
+            UpdatePosition();
     }
 
     private void LateUpdate()
     {
+        // Cinemachine supplies the final camera pose through OnCameraUpdated.
+        if (_cameraBrain == null || !_cameraBrain.isActiveAndEnabled)
+            UpdatePosition();
+    }
+
+    private void UpdatePosition()
+    {
         if (mainCam == null || confinerCollider == null || spriteRenderer == null) return;
+
+        Vector3 targetPosition = CalculateTargetPosition();
+        if (_needsInitialPosition)
+        {
+            // Match the first rendered camera pose without easing from the Prefab's saved position.
+            transform.position = targetPosition;
+            currentVelocity = Vector3.zero;
+            _needsInitialPosition = false;
+            return;
+        }
+
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothTime);
+    }
+
+    private Vector3 CalculateTargetPosition()
+    {
 
         // --------------------------------------------------
         // 1. ポリゴンコライダーの外枠限界 (Bounds) を取得
@@ -69,10 +127,6 @@ public class BackgroundAuto : MonoBehaviour
         float targetX = Mathf.Lerp(bgTargetXAtMin, bgTargetXAtMax, progressX);
         float targetY = Mathf.Lerp(bgTargetYAtMin, bgTargetYAtMax, progressY);
 
-        // --------------------------------------------------
-        // 8. SmoothDamp で滑らかに移動
-        // --------------------------------------------------
-        Vector3 targetPos = new Vector3(targetX, targetY, transform.position.z);
-        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref currentVelocity, smoothTime);
+        return new Vector3(targetX, targetY, transform.position.z);
     }
 }
