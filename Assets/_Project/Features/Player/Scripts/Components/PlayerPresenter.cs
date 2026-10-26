@@ -24,6 +24,7 @@ public class PlayerPresenter : MonoBehaviour
     private PlayerAirCurrentContact _airCurrentContact;
     private PlayerDamageReceiver _damageReceiver;
     private PlayerHomingAttack _homing;
+    private PlayerFanWindContact _fanWindContact;
     // nullはレティクルの対象がない状態。
     private IEnemy reticleTarget;
     // null while no external movement owns the player.
@@ -62,6 +63,7 @@ public class PlayerPresenter : MonoBehaviour
         _frames = new PlayerFrameSource(config, _motor, _input);
         _windContact = new PlayerWindContact(_machine, _motor, config);
         _airCurrentContact = new PlayerAirCurrentContact(_machine, _motor);
+        _fanWindContact = new PlayerFanWindContact(_machine);
         _damageReceiver = new PlayerDamageReceiver(_machine, _motor, config, _input, _homing);
     }
 
@@ -101,7 +103,8 @@ public class PlayerPresenter : MonoBehaviour
             PlayerFrame frame = _frames.Sample(Time.fixedDeltaTime, FacingDirection);
             _airCurrentContact.Sample(ref frame);
             _windContact.Sample(ref frame);
-            _homing.Sample(ref frame, _machine.IsHoming);
+       　 _fanWindContact.Sample(ref frame);
+       　 _homing.Sample(ref frame, _machine.IsHoming);
             frame.Homing.WindupComplete = homingAttackView.IsComplete;
             PlayerSettings settings = _frames.SampleSettings();
             PlayerStepResult result = _machine.Tick(frame, settings);
@@ -167,13 +170,15 @@ public class PlayerPresenter : MonoBehaviour
         private void OnTriggerEnter2D(Collider2D other)
         {
             _airCurrentContact.Enter(other);
-            if (!_motor.IsScriptedMovement)
+     　   _fanWindContact.Enter(other);
+　        if (!_motor.IsScriptedMovement)
                 _windContact.Enter(other);
         }
         private void OnTriggerExit2D(Collider2D other)
         {
             _airCurrentContact.Exit(other);
-            _windContact.Exit(other);
+  　     _fanWindContact.Exit(other);
+     　   _windContact.Exit(other);
         }
 
         private sealed class ScriptedMovement : IDisposable

@@ -29,6 +29,18 @@ public sealed class PlayerMovementConfig : ScriptableObject
     [Tooltip("気流へ入った瞬間に許容する最大落下速度（unit/秒）。")] [SerializeField, Min(0.1f)]
     private float entryMaxFallSpeed = 4f;
 
+    [Space(8)] [Header("方向性風（FanWind）")]
+    
+    [Tooltip("風に乗った時の最大水平速度。")]
+    
+    [SerializeField, Min(0.1f)] private float fanWindMaxSpeed = 25f;
+
+    [Tooltip("風の中での加速度。")]
+    [SerializeField, Min(0.1f)] private float fanWindAcceleration = 30f;
+
+    [Tooltip("逆風時の抵抗倍率。")]
+    [SerializeField, Min(0.1f)] private float fanWindResistance = 2.5f;
+
     [Space(8)] [Header("通常空中移動")] [Tooltip("空中で目標水平速度へ近づける加速度（unit/秒²）。")] [SerializeField, Min(0.1f)]
     private float airAcceleration = 14f;
 
@@ -99,6 +111,9 @@ public sealed class PlayerMovementConfig : ScriptableObject
     public float RecaptureHeight => recaptureHeight;
     public float WindMaxSpeed => windMaxSpeed;
     public float WindAcceleration => windAcceleration;
+    public float FanWindMaxSpeed => fanWindMaxSpeed;
+    public float FanWindAcceleration => fanWindAcceleration;
+    public float FanWindResistance => fanWindResistance;
     public float EntryMaxFallSpeed => entryMaxFallSpeed;
     public float AirAcceleration => airAcceleration;
     public float AirMaximumSpeed => airMaximumSpeed;
