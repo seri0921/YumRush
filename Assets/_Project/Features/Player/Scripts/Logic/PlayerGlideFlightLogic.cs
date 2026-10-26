@@ -113,6 +113,74 @@ public sealed class PlayerGlideFlightLogic
         return new PlayerGlideVelocity(x, y);
     }
 
+
+    public PlayerGlideVelocity StepWithFanWind(
+    PlayerGlideVelocity currentVelocity,
+    float horizontalInput,
+    float gravity,
+    float deltaTime,
+    PlayerGlideSettings settings,
+    PlayerFanWindSettings fanSettings,
+    in PlayerFanWindSnapshot fanWind)
+    {
+        PlayerGlideVelocity baseVelocity = Step(
+            currentVelocity, horizontalInput, gravity, deltaTime,
+            settings.GlideMaximumSpeed, settings.GlideLiftCoefficient,
+            settings.GlideDragCoefficient, settings.GlideMinimumLiftSpeed,
+            settings.GlidePullupStartSpeed, settings.GlidePullupStrength,
+            settings.GlideSteerAcceleration, settings.GlideTurnLoss);
+
+        float x = baseVelocity.X;
+        float y = baseVelocity.Y;
+
+        float windX = fanWind.WindVectorX;
+        float windY = fanWind.WindVectorY;
+        float updraftMult = fanWind.UpdraftMultiplier;
+
+        if (windX != 0f)
+        {
+            float moveDirX = horizontalInput != 0f ? Math.Sign(horizontalInput) : Math.Sign(x);
+            float windDirX = Math.Sign(windX);
+
+            if (moveDirX == windDirX && moveDirX != 0f)
+            {
+                //èáïó
+                float boostFactor = Math.Abs(windX) * fanSettings.Acceleration * 0.1f;
+                x += windDirX * boostFactor * deltaTime;
+            }
+            else if (moveDirX != 0f && moveDirX != windDirX)
+            {
+                // ãtïó
+                float resistance = Math.Abs(windX) * fanSettings.Resistance;
+                x = MoveTowards(x, 0f, resistance * deltaTime);
+            }
+        }
+
+        if (windY > 0f)
+        {
+            //è„è∏ãCó¨
+            float updraftForce = windY * updraftMult * 2.0f;
+            y += updraftForce * deltaTime;
+        }
+        else if (windY < 0f)
+        {
+            //â∫ç~ãCó¨
+            float downdraftForce = Math.Abs(windY) * updraftMult * 2.0f;
+            y -= downdraftForce * deltaTime;
+        }
+
+        return new PlayerGlideVelocity(x, y);
+    }
+
+    private static float MoveTowards(float current, float target, float maxDelta)
+    {
+        float difference = target - current;
+        return Math.Abs(difference) <= maxDelta
+            ? target
+            : current + Math.Sign(difference) * maxDelta;
+    }
+
+
     private static float Length(float x, float y) => (float)Math.Sqrt(x * x + y * y);
 
     private static bool Finite(float value) => !float.IsNaN(value) && !float.IsInfinity(value);
