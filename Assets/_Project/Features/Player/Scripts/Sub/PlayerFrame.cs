@@ -8,6 +8,7 @@ public class PlayerFrame
     public PlayerWindSnapshot Wind;
     public PlayerAirCurrentSnapshot AirCurrent;
     public PlayerHomingSnapshot Homing;
+    public PlayerFanWindSnapshot FanWind;
 }
 
 public struct PlayerSettings
@@ -17,6 +18,7 @@ public struct PlayerSettings
     public PlayerDashSettings Dash;
     public PlayerGlideSettings Glide;
     public PlayerHomingSettings Homing;
+    public PlayerFanWindSettings FanWind;
 }
 
 public struct PlayerInputSnapshot
@@ -52,6 +54,15 @@ public struct PlayerHomingSnapshot
     public float HomingDirectionX, HomingDirectionY;
 }
 
+public struct PlayerFanWindSnapshot
+{
+    public bool HasFanWind;
+    public float WindVectorX;
+    public float WindVectorY;
+    public float UpdraftMultiplier;
+}
+
+
 public struct PlayerMovementSettings
 {
     public float GroundSpeed, AirMaximumSpeed, AirAcceleration, AirDamping, JumpSpeed;
@@ -75,6 +86,13 @@ public struct PlayerGlideSettings
 public struct PlayerHomingSettings
 {
     public float HomingSpeed, SuccessUpwardSpeed;
+}
+
+public struct PlayerFanWindSettings
+{
+    public float MaxSpeed;
+    public float Acceleration;
+    public float Resistance;
 }
 
 public struct PlayerStepResult
