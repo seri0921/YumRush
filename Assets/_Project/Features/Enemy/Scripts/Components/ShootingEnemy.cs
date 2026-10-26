@@ -3,6 +3,18 @@ using UnityEngine;
 
 public sealed class ShootingEnemy : EnemyBase
 {
+    [Space(8)]
+    [Header("ビジュアル参照")]
+    [SerializeField] private MinorBat_Animation animationView;
+
+    [Space(8)]
+    [Header("移動・漂い設定")]
+    [Tooltip("左右に漂う速度")]
+    [SerializeField, Min(0.01f)] private float moveSpeed = 2.0f;
+
+    [Tooltip("左右に漂う幅")]
+    [SerializeField, Min(0.01f)] private float moveWidth = 1.5f;
+
 
     [Tooltip("発射する弾のPrefab。UpdraftEnemyProjectileが必要です。")]
     [SerializeField]
@@ -25,9 +37,16 @@ public sealed class ShootingEnemy : EnemyBase
     [Tooltip("敵の位置に加算する発射位置のオフセット（ワールド座標、unit）。")]
     [SerializeField]
     private Vector2 muzzleOffset = Vector2.zero;
-
+    private Vector3 initialPosition;
+    private float elapsedTime;
+    private bool isActivated;
+    private float initialDirectionX = 1f;
     protected override void OnInitialize()
     {
+        initialPosition = transform.position;
+
+        if (animationView == null)
+            animationView = GetComponentInChildren<MinorBat_Animation>();
         if (target == null || projectilePrefab == null)
             throw new InvalidOperationException($"{gameObject.name}: PlayerとProjectile Prefabが必要です。");
 
@@ -41,15 +60,35 @@ public sealed class ShootingEnemy : EnemyBase
     protected override void UpdateBehavior()
     {
         Vector2 origin = (Vector2)transform.position + muzzleOffset;
-
-        // 基底クラス（AttackerEnemyBase）の距離・方向判定を利用
         float sqrDistance = GetSqrDistanceToTarget(origin);
-        if (!fireLogic.Tick(Time.deltaTime, sqrDistance, detectionRange, fireInterval))
-            return;
+
+        if (!isActivated)
+        {
+            if (sqrDistance <= detectionRange * detectionRange)
+            {
+                isActivated = true;
+                Vector2 dirToTarget = GetDirectionToTarget(origin);
+                initialDirectionX = dirToTarget.x >= 0f ? 1f : -1f;
+            }
+            else
+            {
+                animationView.Render(isFlying: false, facingDirectionX: 0f);
+                return;
+            }
+        }
+
+        elapsedTime += Time.deltaTime;
+        float offsetScope = Mathf.Sin(elapsedTime * moveSpeed) * moveWidth * initialDirectionX;
+        transform.position = new Vector3(initialPosition.x + offsetScope, transform.position.y, transform.position.z);
 
         Vector2 direction = GetDirectionToTarget(origin);
-        EnemyBullet projectile = Instantiate(projectilePrefab, origin, Quaternion.identity);
-        projectile.Launch(direction, projectileSpeed);
+        if (fireLogic.Tick(Time.deltaTime, sqrDistance, detectionRange, fireInterval))
+        {
+            EnemyBullet projectile = Instantiate(projectilePrefab, origin, Quaternion.identity);
+            projectile.Launch(direction, projectileSpeed);
+        }
+
+        animationView.Render(isFlying: true, facingDirectionX: direction.x);
     }
 
     public override void ReceiveAttack()
