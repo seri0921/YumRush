@@ -105,6 +105,9 @@ public class PlayerPresenter : MonoBehaviour
             frame.Homing.WindupComplete = homingAttackView.IsComplete;
             PlayerSettings settings = _frames.SampleSettings();
             PlayerStepResult result = _machine.Tick(frame, settings);
+            if (_machine.IsHoming && frame.Homing.HasHomingTarget &&
+                Mathf.Abs(frame.Homing.HomingDirectionX) > 0.001f)
+                FacingDirection = frame.Homing.HomingDirectionX > 0f ? 1 : -1;
             if (result.SuppressGravity)
                 _motor.SetGravityScale(0f);
             else
