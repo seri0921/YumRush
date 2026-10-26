@@ -1990,9 +1990,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FanWindZone
   useLocalUpDirection: 0
-  customDirection: {x: 1, y: 0}
-  windStrength: 10
-  updraftMultiplier: 0
+  customDirection: {x: -1, y: 0}
+  windStrength: 7
+  updraftMultiplier: 1
   priority: 10
 --- !u!212 &1113134107
 SpriteRenderer:
@@ -2062,7 +2062,7 @@ Transform:
   m_GameObject: {fileID: 1113134104}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.5, y: 56.8, z: 0}
+  m_LocalPosition: {x: -66.4, y: 37.3, z: 0}
   m_LocalScale: {x: 26.15044, y: 7.798832, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2579,6 +2579,102 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6707039212686403705, guid: c7b4af0422d51fb4c90e69f9da775203, type: 3}
   m_PrefabInstance: {fileID: 1357094920}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1370638394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1370638397}
+  - component: {fileID: 1370638396}
+  - component: {fileID: 1370638395}
+  m_Layer: 0
+  m_Name: FanWindBiome
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1370638395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370638394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94fb25ccdb903d948825631b2779b053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FanWindBiome
+  coolTime: 3
+  windDuration: 3
+  windStrength: 8.5
+  updraftMultiplier: 1
+  priority: 0
+--- !u!61 &1370638396
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370638394}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -3.0026321, y: 0.3284092}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 81.4554, y: 45.57001}
+  m_EdgeRadius: 0
+--- !u!4 &1370638397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370638394}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -67.9, y: -6.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1413392180 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5138860505414824457, guid: a1ea6328bab470c4895ce9b3751141e0, type: 3}
@@ -3682,6 +3778,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7506355064604562539, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4428,3 +4528,4 @@ SceneRoots:
   - {fileID: 1538423017}
   - {fileID: 1113134108}
   - {fileID: 2107998785779636049}
+  - {fileID: 1370638397}

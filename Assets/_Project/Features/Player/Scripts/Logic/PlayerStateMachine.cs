@@ -13,8 +13,7 @@ public enum PlayerState
     Homing,
     Hit,
     HomingWindup,
-    AirCurrent,
-    FanGlide
+    AirCurrent
 }
 
 public interface IPlayerState
@@ -33,7 +32,6 @@ public sealed class PlayerStateMachine
     private readonly PlayerGlideFlightLogic glide = new PlayerGlideFlightLogic();
     private readonly PlayerAirDashLogic dash = new PlayerAirDashLogic();
     private readonly PlayerHitLogic hit = new PlayerHitLogic();
-    private readonly PlayerFanGlideLogic fanGlide = new PlayerFanGlideLogic();
     private bool transitioning;
     private float dashX, dashY;
     private int facing = 1;
@@ -64,7 +62,7 @@ public sealed class PlayerStateMachine
     {
         this.wind = wind ?? throw new ArgumentNullException(nameof(wind));
 
-        states = new IPlayerState[] { new GroundedState(this), new AirborneState(this), new CapturingState(this, wind), new FloatingState(this, wind), new WindJumpState(this, wind), new GlidingState(this, glide), new AirDashingState(this, dash), new HomingState(this), new HitState(this, hit), new HomingWindupState(this), new AirCurrentState(this), new FanGlideState(this, fanGlide) };
+        states = new IPlayerState[] { new GroundedState(this), new AirborneState(this), new CapturingState(this, wind), new FloatingState(this, wind), new WindJumpState(this, wind), new GlidingState(this, glide), new AirDashingState(this, dash), new HomingState(this), new HitState(this, hit), new HomingWindupState(this), new AirCurrentState(this) };
         Current = states[(int)PlayerState.Airborne];
         Current.Enter();
     }
@@ -174,14 +172,6 @@ public sealed class PlayerStateMachine
             result.JumpConsumed = true;
         }
 
-        if (!IsActionLocked && !frame.Body.Grounded && frame.FanWind.HasFanWind)
-        {
-            if (State == PlayerState.Airborne || State == PlayerState.Gliding)
-            {
-                ChangeState(PlayerState.FanGlide);
-            }
-        }
-
         Current.Tick(frame, settings, ref result);
         return result;
     }
@@ -249,7 +239,25 @@ public sealed class GroundedState : PlayerStateBase
             Machine.ChangeState(PlayerState.Airborne);
         else if (frame.Input.JumpQueued && !result.JumpConsumed)
         {
-            result.VelocityY = settings.Movement.JumpSpeed;
+            float baseJumpSpeed = settings.Movement.JumpSpeed;
+
+            if (frame.FanWind.HasFanWind)
+            {
+                float windY = frame.FanWind.WindVectorY;
+                float updraftMult = frame.FanWind.UpdraftMultiplier;
+
+                if (windY > 0f)
+                {
+                    baseJumpSpeed += windY * updraftMult * 0.5f; 
+                }
+                else if (windY < 0f)
+                {
+                    float suppressedSpeed = baseJumpSpeed + (windY * updraftMult * 0.5f);
+                    baseJumpSpeed = Math.Max(settings.Movement.JumpSpeed * 0.3f, suppressedSpeed); 
+                }
+            }
+
+            result.VelocityY = baseJumpSpeed;
             Machine.ChangeState(PlayerState.Airborne);
         }
     }
@@ -390,13 +398,31 @@ public sealed class GlidingState : PlayerStateBase
             return;
         }
 
-        PlayerGlideVelocity flight = glide.Step(new PlayerGlideVelocity(result.VelocityX, result.VelocityY), frame.Input.HorizontalInput,
-            frame.Body.Gravity, frame.DeltaTime, settings.Glide.GlideMaximumSpeed, settings.Glide.GlideLiftCoefficient,
-            settings.Glide.GlideDragCoefficient, settings.Glide.GlideMinimumLiftSpeed, settings.Glide.GlidePullupStartSpeed,
-            settings.Glide.GlidePullupStrength, settings.Glide.GlideSteerAcceleration, settings.Glide.GlideTurnLoss);
+        PlayerGlideVelocity currentVel = new PlayerGlideVelocity(result.VelocityX, result.VelocityY);
+        PlayerGlideVelocity nextVel;
+
+        if (frame.FanWind.HasFanWind)
+        {
+            // 風エリア内：風補正付きの滑空ロジックを実行
+            nextVel = glide.StepWithFanWind(
+                currentVel,
+                frame.Input.HorizontalInput,
+                frame.Body.Gravity,
+                frame.DeltaTime,
+                settings.Glide,
+                settings.FanWind,
+                frame.FanWind);
+        }
+        else
+        {
+            nextVel = glide.Step(new PlayerGlideVelocity(result.VelocityX, result.VelocityY), frame.Input.HorizontalInput,
+                frame.Body.Gravity, frame.DeltaTime, settings.Glide.GlideMaximumSpeed, settings.Glide.GlideLiftCoefficient,
+                settings.Glide.GlideDragCoefficient, settings.Glide.GlideMinimumLiftSpeed, settings.Glide.GlidePullupStartSpeed,
+                settings.Glide.GlidePullupStrength, settings.Glide.GlideSteerAcceleration, settings.Glide.GlideTurnLoss);
+        }
         result.SuppressGravity = true;
-        result.VelocityX = flight.X;
-        result.VelocityY = flight.Y;
+        result.VelocityX = nextVel.X;
+        result.VelocityY = nextVel.Y;
     }
 }
 
@@ -515,44 +541,3 @@ public sealed class AirCurrentState : PlayerStateBase
     }
 }
 
-public sealed class FanGlideState : PlayerStateBase
-{
-    private readonly PlayerFanGlideLogic logic;
-    public override PlayerState Id => PlayerState.FanGlide;
-
-    public FanGlideState(PlayerStateMachine machine, PlayerFanGlideLogic logic) : base(machine)
-    {
-        this.logic = logic;
-    }
-
-    public override void Enter()
-    {
-        logic.Start();
-    }
-
-    public override void Exit()
-    {
-        logic.Stop();
-    }
-
-    public override void Tick(in PlayerFrame frame, in PlayerSettings settings, ref PlayerStepResult result)
-    {
-        if (frame.Body.Grounded)
-        {
-            Machine.ChangeState(PlayerState.Grounded);
-            Machine.Current.Tick(frame, settings, ref result);
-            return;
-        }
-
-        if (!frame.FanWind.HasFanWind)
-        {
-            Machine.ChangeState(PlayerState.Airborne);
-            Machine.Current.Tick(frame, settings, ref result);
-            return;
-        }
-
-        result.SuppressGravity = true;
-
-        logic.Step(frame, settings, ref result);
-    }
-}
