@@ -1,10 +1,133 @@
 fileFormatVersion: 2
-guid: b43017553a1afc2479e02f605005aec7
+guid: f29bd5d234ac22e4385b056316e9dc0f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5843676733477182025
-    second: HomingReticle_0
+      213: -5431974562105811990
+    second: HomingReticle 1_0
+  - first:
+      213: 4542806465398831304
+    second: HomingReticle 1_1
+  - first:
+      213: 4046612472183181060
+    second: HomingReticle 1_2
+  - first:
+      213: 3547865230971211651
+    second: HomingReticle 1_3
+  - first:
+      213: 5985918711478356510
+    second: HomingReticle 1_4
+  - first:
+      213: -5717522291990518231
+    second: HomingReticle 1_5
+  - first:
+      213: -5167598969295227693
+    second: HomingReticle 1_6
+  - first:
+      213: -2541593980450027238
+    second: HomingReticle 1_7
+  - first:
+      213: -5069330957090919142
+    second: HomingReticle 1_8
+  - first:
+      213: -185017791847695022
+    second: HomingReticle 1_9
+  - first:
+      213: 2298077399857531463
+    second: HomingReticle 1_10
+  - first:
+      213: 1863430220497178673
+    second: HomingReticle 1_11
+  - first:
+      213: 7487402296023273495
+    second: HomingReticle 1_12
+  - first:
+      213: 7488720524133304472
+    second: HomingReticle 1_13
+  - first:
+      213: 4893209468613410969
+    second: HomingReticle 1_14
+  - first:
+      213: 3257443259029627242
+    second: HomingReticle 1_15
+  - first:
+      213: -6500497884310207226
+    second: HomingReticle 1_16
+  - first:
+      213: -1778333053164898641
+    second: HomingReticle 1_17
+  - first:
+      213: 6996780489078510475
+    second: HomingReticle 1_18
+  - first:
+      213: 6651006318977833162
+    second: HomingReticle 1_19
+  - first:
+      213: 8342386253892197458
+    second: HomingReticle 1_20
+  - first:
+      213: 5914518876017275699
+    second: HomingReticle 1_21
+  - first:
+      213: 7865537860923203326
+    second: HomingReticle 1_22
+  - first:
+      213: -2137465834169165211
+    second: HomingReticle 1_23
+  - first:
+      213: -6426330907749771516
+    second: HomingReticle 1_24
+  - first:
+      213: -3894423819544549276
+    second: HomingReticle 1_25
+  - first:
+      213: -599758103221615437
+    second: HomingReticle 1_26
+  - first:
+      213: -6820493008023009858
+    second: HomingReticle 1_27
+  - first:
+      213: 4690757725586031039
+    second: HomingReticle 1_28
+  - first:
+      213: -1829380426719961372
+    second: HomingReticle 1_29
+  - first:
+      213: -7218001933589052040
+    second: HomingReticle 1_30
+  - first:
+      213: 2449098814870743357
+    second: HomingReticle 1_31
+  - first:
+      213: -5676527475568783327
+    second: HomingReticle 1_32
+  - first:
+      213: -8400694151288372876
+    second: HomingReticle 1_33
+  - first:
+      213: 8044328556750204169
+    second: HomingReticle 1_34
+  - first:
+      213: -8786773414808815524
+    second: HomingReticle 1_35
+  - first:
+      213: 3795968964802893308
+    second: HomingReticle 1_36
+  - first:
+      213: -4016953087284178494
+    second: HomingReticle 1_37
+  - first:
+      213: 1172050134049019944
+    second: HomingReticle 1_38
+  - first:
+      213: 6651766849063832585
+    second: HomingReticle 1_39
+  - first:
+      213: -1126323427808782331
+    second: HomingReticle 1_40
+  - first:
+      213: -5591957923512431384
+    second: HomingReticle 1_41
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +174,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +198,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +223,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HomingReticle_0
+      name: HomingReticle 1_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 5
-        width: 118
-        height: 118
+        x: 30
+        y: 0
+        width: 1211
+        height: 1210
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +238,910 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 94a5f192709e81150800000000000000
-      internalID: 5843676733477182025
+      spriteID: aeb99b46aefbd94b0800000000000000
+      internalID: -5431974562105811990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1120
+        width: 64
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c8f175596a4b0f30800000000000000
+      internalID: 4542806465398831304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_2
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 1173
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40fc4248a94782830800000000000000
+      internalID: 4046612472183181060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_3
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 1167
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38f8ff251ac8c3130800000000000000
+      internalID: 3547865230971211651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_4
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 1100
+        width: 17
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1a08047a51421350800000000000000
+      internalID: 5985918711478356510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_5
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 1124
+        width: 66
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9262786a4c747a0b0800000000000000
+      internalID: -5717522291990518231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_6
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 1113
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d4bb75dd100948b0800000000000000
+      internalID: -5167598969295227693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_7
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 1098
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a194100adb17abcd0800000000000000
+      internalID: -2541593980450027238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_8
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 1108
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1d64bd5a5e16a9b0800000000000000
+      internalID: -5069330957090919142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_9
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 1100
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25d7acf6c4fae6df0800000000000000
+      internalID: -185017791847695022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_10
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 1105
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74a8cdc283964ef10800000000000000
+      internalID: 2298077399857531463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_11
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 1072
+        width: 63
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1305674a9eb3cd910800000000000000
+      internalID: 1863430220497178673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_12
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1092
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71059e0e7b898e760800000000000000
+      internalID: 7487402296023273495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_13
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 817
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8988427c3a74de760800000000000000
+      internalID: 7488720524133304472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_14
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 755
+        width: 69
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 990c74c161c28e340800000000000000
+      internalID: 4893209468613410969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_15
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 678
+        width: 170
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a61a37aa263c43d20800000000000000
+      internalID: 3257443259029627242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_16
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 775
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60503868d9799c5a0800000000000000
+      internalID: -6500497884310207226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_17
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 781
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa635c992871257e0800000000000000
+      internalID: -1778333053164898641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_18
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 710
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8398e6c8ce891160800000000000000
+      internalID: 6996780489078510475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_19
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 673
+        width: 61
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac85d81320f1d4c50800000000000000
+      internalID: 6651006318977833162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_20
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 642
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25c985a191c16c370800000000000000
+      internalID: 8342386253892197458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_21
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 496
+        width: 57
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3333a5ec497941250800000000000000
+      internalID: 5914518876017275699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_22
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 530
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efe96b7d201082d60800000000000000
+      internalID: 7865537860923203326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_23
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 533
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56a10da06223652e0800000000000000
+      internalID: -2137465834169165211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_24
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 533
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 407167a661611d6a0800000000000000
+      internalID: -6426330907749771516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_25
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 529
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4682a3f6b2a34f9c0800000000000000
+      internalID: -3894423819544549276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_26
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 470
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b4405ace2b3da7f0800000000000000
+      internalID: -599758103221615437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_27
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 377
+        width: 62
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb5c0c7eebdb851a0800000000000000
+      internalID: -6820493008023009858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_28
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 447
+        width: 49
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb189f87c4be81140800000000000000
+      internalID: 4690757725586031039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_29
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 475
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eedd42c13cbc96e0800000000000000
+      internalID: -1829380426719961372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_30
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 473
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8758758eb7184db90800000000000000
+      internalID: -7218001933589052040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_31
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 318
+        width: 81
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3963307562fcf120800000000000000
+      internalID: 2449098814870743357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_32
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 240
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1205af4265ce831b0800000000000000
+      internalID: -5676527475568783327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_33
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 126
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47141cd9d2dba6b80800000000000000
+      internalID: -8400694151288372876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_34
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 128
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90d60a1a33233af60800000000000000
+      internalID: 8044328556750204169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_35
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 139
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c587970322c1f0680800000000000000
+      internalID: -8786773414808815524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_36
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 126
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf5db7d59adfda430800000000000000
+      internalID: 3795968964802893308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_37
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 109
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c19409237ae048c0800000000000000
+      internalID: -4016953087284178494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_38
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 103
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 828d0fa1365f34010800000000000000
+      internalID: 1172050134049019944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_39
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 109
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90c4b27e4b2df4c50800000000000000
+      internalID: 6651766849063832585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_40
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 93
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 508d1475fce7e50f0800000000000000
+      internalID: -1126323427808782331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomingReticle 1_41
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 91
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ec4c1265ef5562b0800000000000000
+      internalID: -5591957923512431384
       vertices: []
       indices: 
       edges: []
@@ -135,7 +1160,48 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HomingReticle_0: 5843676733477182025
+      HomingReticle 1_0: -5431974562105811990
+      HomingReticle 1_1: 4542806465398831304
+      HomingReticle 1_10: 2298077399857531463
+      HomingReticle 1_11: 1863430220497178673
+      HomingReticle 1_12: 7487402296023273495
+      HomingReticle 1_13: 7488720524133304472
+      HomingReticle 1_14: 4893209468613410969
+      HomingReticle 1_15: 3257443259029627242
+      HomingReticle 1_16: -6500497884310207226
+      HomingReticle 1_17: -1778333053164898641
+      HomingReticle 1_18: 6996780489078510475
+      HomingReticle 1_19: 6651006318977833162
+      HomingReticle 1_2: 4046612472183181060
+      HomingReticle 1_20: 8342386253892197458
+      HomingReticle 1_21: 5914518876017275699
+      HomingReticle 1_22: 7865537860923203326
+      HomingReticle 1_23: -2137465834169165211
+      HomingReticle 1_24: -6426330907749771516
+      HomingReticle 1_25: -3894423819544549276
+      HomingReticle 1_26: -599758103221615437
+      HomingReticle 1_27: -6820493008023009858
+      HomingReticle 1_28: 4690757725586031039
+      HomingReticle 1_29: -1829380426719961372
+      HomingReticle 1_3: 3547865230971211651
+      HomingReticle 1_30: -7218001933589052040
+      HomingReticle 1_31: 2449098814870743357
+      HomingReticle 1_32: -5676527475568783327
+      HomingReticle 1_33: -8400694151288372876
+      HomingReticle 1_34: 8044328556750204169
+      HomingReticle 1_35: -8786773414808815524
+      HomingReticle 1_36: 3795968964802893308
+      HomingReticle 1_37: -4016953087284178494
+      HomingReticle 1_38: 1172050134049019944
+      HomingReticle 1_39: 6651766849063832585
+      HomingReticle 1_4: 5985918711478356510
+      HomingReticle 1_40: -1126323427808782331
+      HomingReticle 1_41: -5591957923512431384
+      HomingReticle 1_5: -5717522291990518231
+      HomingReticle 1_6: -5167598969295227693
+      HomingReticle 1_7: -2541593980450027238
+      HomingReticle 1_8: -5069330957090919142
+      HomingReticle 1_9: -185017791847695022
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
