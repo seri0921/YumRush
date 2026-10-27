@@ -5,6 +5,8 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public sealed class StageEventPresenter : MonoBehaviour
 {
+    public event Action<BiomeSlot> EventStarted;
+
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private Transform _player;
     [SerializeField] private BiomeSlot[] _slots;
@@ -146,6 +148,7 @@ public sealed class StageEventPresenter : MonoBehaviour
             throw new InvalidOperationException("Selected event placement is no longer available.");
         _activeChunks[eventIndex] = chunk;
         chunk.Begin();
+        EventStarted?.Invoke(_slots[location]);
     }
 
     private void HandleEnded(int eventIndex, int location)
