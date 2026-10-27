@@ -15,6 +15,7 @@ public sealed class StageEventPresenter : MonoBehaviour
     private EventChunk[] _activeChunks;
     private EventTiming[] _timings;
     private bool _subscribed;
+    private int _currentLocation = -1;
 
     private void Start()
     {
@@ -82,25 +83,46 @@ public sealed class StageEventPresenter : MonoBehaviour
 
     private void HandleTimeAdvanced(double elapsedSeconds)
     {
+        UpdatePlayerLocationAndRestore();
         if (_gameManager.Status == GameStatus.GameOver)
         {
             EndAllChunks();
             return;
         }
-        int currentLocation = -1;
+        _logic.Advance(elapsedSeconds, _currentLocation, CanHost);
+    }
+
+    private void Update()
+    {
+        // Terrain restoration also follows movement while the event clock is paused.
+        if (_logic != null) UpdatePlayerLocationAndRestore();
+    }
+
+    private void UpdatePlayerLocationAndRestore()
+    {
+        _currentLocation = -1;
+        // Scene teardown may destroy the player before this presenter's OnDisable.
+        if (_player == null) return;
         Vector2 position = _player.position;
         for (int index = 0; index < _slots.Length; index++)
         {
+            if (_slots[index] == null || _slots[index].CameraBounds == null)
+            {
+                _currentLocation = -1;
+                return;
+            }
             if (!_slots[index].CameraBounds.OverlapPoint(position)) continue;
             // Ambiguous room boundaries are treated as unknown, never guessed.
-            if (currentLocation >= 0)
+            if (_currentLocation >= 0)
             {
-                currentLocation = -1;
+                _currentLocation = -1;
                 break;
             }
-            currentLocation = index;
+            _currentLocation = index;
         }
-        _logic.Advance(elapsedSeconds, currentLocation, CanHost);
+        for (int location = 0; location < _chunks.Length; location++)
+            foreach (EventChunk chunk in _chunks[location])
+                if (chunk != null) chunk.RestoreIfPlayerIsElsewhere(location, _currentLocation);
     }
 
     private bool CanHost(int location, StageEventType type) => FindAvailableChunk(location, type) != null;
@@ -108,6 +130,8 @@ public sealed class StageEventPresenter : MonoBehaviour
     private EventChunk FindAvailableChunk(int location, StageEventType type)
     {
         if (!_slots[location].CurrentBiome.gameObject.activeInHierarchy) return null;
+        foreach (EventChunk chunk in _chunks[location])
+            if (chunk != null && chunk.IsBossReplacementShowing) return null;
         foreach (EventChunk chunk in _chunks[location])
             if (chunk != null && chunk.Type == type && chunk.IsAvailable &&
                 chunk.transform.parent != null && chunk.transform.parent.gameObject.activeInHierarchy)
@@ -127,7 +151,11 @@ public sealed class StageEventPresenter : MonoBehaviour
     private void HandleEnded(int eventIndex, int location)
     {
         EventChunk chunk = _activeChunks[eventIndex];
-        if (chunk != null) chunk.End();
+        if (chunk != null)
+        {
+            chunk.End();
+            chunk.RestoreIfPlayerIsElsewhere(location, _currentLocation);
+        }
         _activeChunks[eventIndex] = null;
     }
 
@@ -138,6 +166,8 @@ public sealed class StageEventPresenter : MonoBehaviour
 
     private void EndAllChunks()
     {
+        // Refresh position even if this is called from OnDisable rather than a clock tick.
+        if (_logic != null) UpdatePlayerLocationAndRestore();
         _logic?.EndActiveEvents();
     }
 }
