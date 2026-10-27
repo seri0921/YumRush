@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4a1642d6b9f9345a660df61df6c3f3, type: 3}
+  m_Name: Bonus_Spawn
+  m_EditorClassIdentifier: Assembly-CSharp::DElements
+  elementName: ScoreForBonus
+  prefab: {fileID: 2994425199152664405, guid: ecd380c8c78df1e489bb2f78544594c3, type: 3}
+  elementType: 3
+  minReachX: 15
+  maxReachX: 20
+  minReachY: 4
+  maxReachY: 8
+  extraUpwardBoost: 0
+  allowGlide: 0
+  diveMinY: -5
+  diveMaxX: 5
+  spawnWeight: 70
+  isFreeAnchor: 1

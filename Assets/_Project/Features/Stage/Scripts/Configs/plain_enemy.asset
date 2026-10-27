@@ -23,5 +23,5 @@ MonoBehaviour:
   allowGlide: 0
   diveMinY: -3
   diveMaxX: 5
-  spawnWeight: 35
+  spawnWeight: 25
   isFreeAnchor: 1

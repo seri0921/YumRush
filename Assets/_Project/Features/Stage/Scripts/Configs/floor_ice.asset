@@ -15,13 +15,13 @@ MonoBehaviour:
   elementName: floor_ice
   prefab: {fileID: 589945025998166475, guid: 7ad3e6926d8fa64489572d83aed0177f, type: 3}
   elementType: 0
-  minReachX: 2
-  maxReachX: 5
-  minReachY: 2
-  maxReachY: 5
+  minReachX: 3
+  maxReachX: 6
+  minReachY: 3
+  maxReachY: 6
   extraUpwardBoost: 0
   allowGlide: 1
   diveMinY: -3
-  diveMaxX: 5
-  spawnWeight: 10
+  diveMaxX: 10
+  spawnWeight: 35
   isFreeAnchor: 0
