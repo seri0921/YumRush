@@ -50,7 +50,7 @@ public struct PlayerAirCurrentSnapshot
 
 public struct PlayerHomingSnapshot
 {
-    public bool HasHomingTarget, TouchingHomingTarget, WindupComplete;
+    public bool HasHomingTarget, TouchingHomingTarget, WindupComplete, BlockedByObstacle;
     public float HomingDirectionX, HomingDirectionY;
 }
 
@@ -85,7 +85,7 @@ public struct PlayerGlideSettings
 
 public struct PlayerHomingSettings
 {
-    public float HomingSpeed, SuccessUpwardSpeed;
+    public float HomingSpeed, SuccessUpwardSpeed, MaximumDuration;
 }
 
 public struct PlayerFanWindSettings

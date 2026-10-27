@@ -95,6 +95,9 @@ public sealed class PlayerMovementConfig : ScriptableObject
     [Space(8)] [Header("追尾移動")] [Tooltip("対象へ向かう移動速度（unit/秒）。")] [SerializeField, Min(0.01f)]
     private float homingSpeed = 25f;
 
+    [Tooltip("追尾移動の制限時間（秒）。準備演出の時間は含みません。")] [SerializeField, Min(0.01f)]
+    private float homingMaximumDuration = 1f;
+
     [Tooltip("命中とみなすCollider間の距離（unit）。重なった場合も命中します。")] [SerializeField, Min(0f)]
     private float contactDistance = 0.15f;
 
@@ -133,6 +136,7 @@ public sealed class PlayerMovementConfig : ScriptableObject
     public float EnemyInvulnerabilityDuration => enemyInvulnerabilityDuration;
     public float AttackRange => attackRange;
     public float HomingSpeed => homingSpeed;
+    public float HomingMaximumDuration => homingMaximumDuration;
     public float ContactDistance => contactDistance;
     public float SuccessUpwardSpeed => successUpwardSpeed;
     public LayerMask TargetLayers => targetLayers;
@@ -164,6 +168,7 @@ public sealed class PlayerMovementConfig : ScriptableObject
         ValidateNumber(enemyInvulnerabilityDuration, nameof(enemyInvulnerabilityDuration), true);
         ValidateNumber(attackRange, nameof(attackRange), true);
         ValidateNumber(homingSpeed, nameof(homingSpeed), true);
+        ValidateNumber(homingMaximumDuration, nameof(homingMaximumDuration), true);
         ValidateNumber(contactDistance, nameof(contactDistance), false);
         ValidateNumber(successUpwardSpeed, nameof(successUpwardSpeed), false);
         

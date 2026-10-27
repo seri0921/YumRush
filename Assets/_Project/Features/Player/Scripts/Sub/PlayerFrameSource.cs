@@ -65,7 +65,12 @@ internal sealed class PlayerFrameSource
                 GlideSteerAcceleration = config.GlideSteerAcceleration,
                 GlideTurnLoss = config.GlideTurnLoss
             },
-            Homing = new PlayerHomingSettings { HomingSpeed = config.HomingSpeed, SuccessUpwardSpeed = config.SuccessUpwardSpeed },
+            Homing = new PlayerHomingSettings
+            {
+                HomingSpeed = config.HomingSpeed,
+                SuccessUpwardSpeed = config.SuccessUpwardSpeed,
+                MaximumDuration = config.HomingMaximumDuration
+            },
 
             FanWind = new PlayerFanWindSettings
             {

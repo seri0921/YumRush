@@ -11,6 +11,7 @@ public sealed class PlayerHomingAttack : MonoBehaviour
     [SerializeField] private PlayerMovementConfig config;
     [SerializeField] private Collider2D PlayerHomingAttackCollider;
     private readonly Collider2D[] hits = new Collider2D[64];
+    private readonly ContactPoint2D[] _contacts = new ContactPoint2D[64];
     private Rigidbody2D body;
 
     private ContactFilter2D targetFilter;
@@ -58,6 +59,25 @@ public sealed class PlayerHomingAttack : MonoBehaviour
         Vector2 direction = ((Vector2)targetCollider.bounds.center - body.position).normalized;
         frame.Homing.HomingDirectionX = direction.x;
         frame.Homing.HomingDirectionY = direction.y;
+        frame.Homing.BlockedByObstacle = IsBlockedByObstacle(direction);
+    }
+
+    private bool IsBlockedByObstacle(Vector2 direction)
+    {
+        int count = body.GetContacts(new ContactFilter2D { useTriggers = false }, _contacts);
+        for (int index = 0; index < count; index++)
+        {
+            ContactPoint2D contact = _contacts[index];
+            Collider2D obstacle = contact.collider.attachedRigidbody == body
+                ? contact.otherCollider : contact.collider;
+            if (obstacle.GetComponentInParent<IEnemy>() != null)
+                continue;
+
+            // 床から離れる移動や接触面に沿う移動は中断しない。
+            if (Vector2.Dot(contact.normal, direction) < -0.01f)
+                return true;
+        }
+        return false;
     }
 
     public void Resolve(in PlayerStepResult result, bool homing)
