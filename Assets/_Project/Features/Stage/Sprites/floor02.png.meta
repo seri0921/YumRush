@@ -599,10 +599,10 @@ TextureImporter:
       name: floor02_16
       rect:
         serializedVersion: 2
-        x: 685
-        y: 535
-        width: 61
-        height: 54
+        x: 687
+        y: 537
+        width: 55
+        height: 49
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -621,10 +621,10 @@ TextureImporter:
       name: floor02_17
       rect:
         serializedVersion: 2
-        x: 745
-        y: 535
-        width: 75
-        height: 54
+        x: 750
+        y: 537
+        width: 66
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -643,10 +643,10 @@ TextureImporter:
       name: floor02_18
       rect:
         serializedVersion: 2
-        x: 820
-        y: 494
-        width: 82
-        height: 95
+        x: 824
+        y: 497
+        width: 75
+        height: 89
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
