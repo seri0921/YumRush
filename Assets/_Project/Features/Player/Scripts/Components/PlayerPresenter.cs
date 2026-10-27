@@ -141,7 +141,7 @@ public class PlayerPresenter : MonoBehaviour
         
         public IDisposable LockOperation() => _input.LockOperation();
 
-        public IDisposable BeginScriptedMovement()
+        public ScriptedMovement BeginScriptedMovement()
         {
             if (!isActiveAndEnabled)
                 throw new InvalidOperationException("Scripted movement requires an active player.");
@@ -153,11 +153,17 @@ public class PlayerPresenter : MonoBehaviour
             {
                 homingAttackView.Hide();
                 homingReticleView.Hide();
-                _machine.ChangeState(PlayerState.Airborne);
+                // Keep location-independent actions alive without calling their Exit/Enter hooks.
+                bool preserveMotion = State == PlayerState.Airborne || State == PlayerState.Gliding ||
+                                      State == PlayerState.AirDashing;
+                if (!preserveMotion)
+                {
+                    _machine.ChangeState(PlayerState.Airborne);
+                    _motor.RestoreGravity();
+                }
                 _homing?.ClearTarget();
-                _motor.RestoreGravity();
                 _motor.BeginScriptedMovement();
-                scriptedMovement = new ScriptedMovement(this, inputLock);
+                scriptedMovement = new ScriptedMovement(this, inputLock, preserveMotion);
                 return scriptedMovement;
             }
             catch
@@ -184,26 +190,34 @@ public class PlayerPresenter : MonoBehaviour
      　   _windContact.Exit(other);
         }
 
-        private sealed class ScriptedMovement : IDisposable
+        public sealed class ScriptedMovement : IDisposable
         {
             // null means this handle has already been released.
             private PlayerPresenter owner;
             private readonly IDisposable inputLock;
+            private readonly bool preserveMotion;
 
-            public ScriptedMovement(PlayerPresenter owner, IDisposable inputLock)
+            internal ScriptedMovement(PlayerPresenter owner, IDisposable inputLock, bool preserveMotion)
             {
                 this.owner = owner;
                 this.inputLock = inputLock;
+                this.preserveMotion = preserveMotion;
             }
 
-            public void Dispose()
+            public void Complete() => Release(true);
+
+            public void Dispose() => Release(false);
+
+            private void Release(bool completed)
             {
                 if (ReferenceEquals(owner, null))
                     return;
 
                 try
                 {
-                    owner._motor.EndScriptedMovement();
+                    if (!completed)
+                        owner._machine.ChangeState(PlayerState.Airborne);
+                    owner._motor.EndScriptedMovement(completed && preserveMotion);
                 }
                 finally
                 {

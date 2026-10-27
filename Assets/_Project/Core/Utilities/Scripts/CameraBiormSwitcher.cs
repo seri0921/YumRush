@@ -1,97 +1,65 @@
 using System;
-using System.Threading;
-using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Unity.Cinemachine;
+
+// Observes the player's side of a biome boundary without changing player movement.
 public class CameraBiormSwitcher : MonoBehaviour
 {
-    [Header("�o�C�I�[���Ή��J����")]
+    [Header("バイオームごとのカメラ")]
     [SerializeField] private CinemachineCamera roomACamera;
     [SerializeField] private CinemachineCamera roomBCamera;
 
-    [Header("���o�ݒ�A��B")]
-    [SerializeField] private Vector2 pushDirectionToB = Vector2.up;
-    [SerializeField] private float pushDistance = 1.5f;
+    [Header("境界の判定設定")]
+    [FormerlySerializedAs("pushDirectionToB")]
+    [Tooltip("境界からバイオームBへ向かうワールド方向")]
+    [SerializeField] private Vector2 directionToB = Vector2.up;
+    [Tooltip("境界付近でカメラが頻繁に切り替わるのを防ぐ距離")]
+    [SerializeField, Min(0.01f)] private float switchMargin = 0.1f;
 
-    [Header("�J�������p���ݒ�")]
-    [Tooltip("���[����")]
+    [Header("カメラの切り替え設定")]
     [SerializeField] private CinemachineBlendDefinition.Styles blendStyle = CinemachineBlendDefinition.Styles.EaseInOut;
-    [Tooltip("���o�b")]
-    [SerializeField] private float transitionDuration = 0.8f;
+    [SerializeField, Min(0f)] private float transitionDuration = 0.8f;
 
-    private bool isTransitioning = false;
-    private void OnTriggerEnter2D(Collider2D other)
+    private Collider2D _boundary;
+    private PlayerPresenter _player;
+    private BiomeCameraSelection _cameraSelection;
+
+    private void Awake()
     {
-        if (isTransitioning)
-            return;
+        _boundary = GetComponent<Collider2D>();
+        if (_boundary == null || !_boundary.isTrigger || roomACamera == null || roomBCamera == null ||
+            directionToB.sqrMagnitude == 0f || switchMargin <= 0f)
+            throw new InvalidOperationException($"{name}: A boundary trigger, two cameras, direction and positive switch margin are required.");
 
-        PlayerPresenter player = other.GetComponentInParent<PlayerPresenter>();
-        // Non-player colliders can also enter this trigger.
-        if (player == null)
-            return;
-
-        TransitionAsync(player, destroyCancellationToken).Forget();
+        // All borders under the same parent share one set of biome cameras.
+        Transform borderGroup = transform.parent != null ? transform.parent : transform;
+        var cameras = new HashSet<CinemachineCamera>();
+        foreach (CameraBiormSwitcher border in borderGroup.GetComponentsInChildren<CameraBiormSwitcher>(true))
+        {
+            cameras.Add(border.roomACamera);
+            cameras.Add(border.roomBCamera);
+        }
+        _cameraSelection = new BiomeCameraSelection(cameras);
     }
 
-    private async UniTask TransitionAsync(PlayerPresenter player, CancellationToken ct = default)
+    private void LateUpdate()
     {
-        ct.ThrowIfCancellationRequested();
-        using var transitionCts = CancellationTokenSource.CreateLinkedTokenSource(ct, player.destroyCancellationToken);
-        ct = transitionCts.Token;
-        ct.ThrowIfCancellationRequested();
-        IDisposable movement = player.BeginScriptedMovement();
-        isTransitioning = true;
+        // Respawning can replace the player without entering a boundary trigger.
+        if (_player == null)
+            _player = FindFirstObjectByType<PlayerPresenter>();
+        if (_player == null || !_player.isActiveAndEnabled)
+            return;
 
-        try
-        {
-            Transform playerTransform = player.transform;
-            // 2. CinemachineBrain �̃u�����h�ݒ�
-            if (Camera.main != null)
-            {
-                CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
-                if (brain != null)
-                {
-                    brain.DefaultBlend = new CinemachineBlendDefinition(blendStyle, transitionDuration);
-                }
-            }
+        // Interpolated transforms lag behind the physics position at fast crossings.
+        Vector2 position = _player.GetComponent<Rigidbody2D>().position;
+        float signedDistance = Vector2.Dot(position - (Vector2)_boundary.bounds.center, directionToB.normalized);
+        if (Mathf.Abs(signedDistance) < switchMargin)
+            return;
 
-            // 3. �J�����D��x�؂�ւ�
-            bool isFromAToB = roomACamera.Priority >= roomBCamera.Priority;
-            CinemachineCamera targetCamera = isFromAToB ? roomBCamera : roomACamera;
-            CinemachineCamera currentCamera = isFromAToB ? roomACamera : roomBCamera;
-
-            Vector3 moveDirection = (Vector3)(isFromAToB ? pushDirectionToB.normalized : -pushDirectionToB.normalized);
-
-            targetCamera.Priority = 20;
-            currentCamera.Priority = 0;
-
-            // 4. �v���C���[�̈ړ�����
-            Vector3 startPos = playerTransform.position;
-            Vector3 targetPos = startPos + (moveDirection * pushDistance);
-
-            float elapsed = 0f;
-            while (elapsed < transitionDuration)
-            {
-                elapsed += Time.deltaTime;
-                float t = elapsed / transitionDuration;
-
-                if (!player.isActiveAndEnabled)
-                    throw new OperationCanceledException("Player was disabled during scripted movement.", ct);
-
-                player.SetScriptedPosition(Vector3.Lerp(startPos, targetPos, t));
-                await UniTask.NextFrame(PlayerLoopTiming.Update, ct);
-            }
-
-            if (!player.isActiveAndEnabled)
-                throw new OperationCanceledException("Player was disabled during scripted movement.", ct);
-
-            player.SetScriptedPosition(targetPos);
-
-        }
-        finally
-        {
-            movement.Dispose();
-            isTransitioning = false;
-        }
+        CinemachineCamera targetCamera = signedDistance > 0f ? roomBCamera : roomACamera;
+        _cameraSelection.Select(targetCamera, position, switchMargin,
+            new CinemachineBlendDefinition(blendStyle, transitionDuration));
     }
 }
