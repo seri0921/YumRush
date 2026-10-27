@@ -20,6 +20,16 @@ public class PlatformController : MonoBehaviour
     // インスペクターで値が変更された時に呼ばれる
     private void OnValidate()
     {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.delayCall -= ExecuteUpdateInEditor;
+        UnityEditor.EditorApplication.delayCall += ExecuteUpdateInEditor;
+#endif
+    }
+
+    private void ExecuteUpdateInEditor()
+    {
+        if (this == null) return;
+
         UpdatePlatform();
     }
 
