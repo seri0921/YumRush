@@ -544,8 +544,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BiomeCameraTrigger
   roomACamera: {fileID: 2917525679660384078}
   roomBCamera: {fileID: 8131164661748645703}
-  pushDirectionToB: {x: 3, y: 0}
-  pushDistance: 2
+  directionToB: {x: 3, y: 0}
+  switchMargin: 0.1
   blendStyle: 1
   transitionDuration: 0.7
 --- !u!1 &1739259573826081132
@@ -1126,8 +1126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BiomeCameraTrigger
   roomACamera: {fileID: 7099527931090530980}
   roomBCamera: {fileID: 3224108626994112351}
-  pushDirectionToB: {x: 3, y: 0}
-  pushDistance: 2
+  directionToB: {x: 3, y: 0}
+  switchMargin: 0.1
   blendStyle: 1
   transitionDuration: 0.7
 --- !u!1 &4468345911219011760
@@ -1672,8 +1672,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BiomeCameraTrigger
   roomACamera: {fileID: 3224108626994112351}
   roomBCamera: {fileID: 8131164661748645703}
-  pushDirectionToB: {x: 0, y: -3}
-  pushDistance: 6
+  directionToB: {x: 0, y: -3}
+  switchMargin: 0.1
   blendStyle: 1
   transitionDuration: 0.7
 --- !u!1 &7730373910579236071
@@ -1852,8 +1852,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BiomeCameraTrigger
   roomACamera: {fileID: 7099527931090530980}
   roomBCamera: {fileID: 2917525679660384078}
-  pushDirectionToB: {x: 0, y: -3}
-  pushDistance: 6
+  directionToB: {x: 0, y: -3}
+  switchMargin: 0.1
   blendStyle: 1
   transitionDuration: 0.7
 --- !u!1 &8592115504680318190
