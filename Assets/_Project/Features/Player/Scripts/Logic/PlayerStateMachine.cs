@@ -479,18 +479,24 @@ public sealed class HomingWindupState : PlayerStateBase
 public sealed class HomingState : PlayerStateBase
 {
     public override PlayerState Id => PlayerState.Homing;
+    private float _elapsedTime;
 
     public HomingState(PlayerStateMachine machine) : base(machine)
     {
     }
 
+    public override void Enter() => _elapsedTime = 0f;
+
     public override void Tick(in PlayerFrame frame, in PlayerSettings settings, ref PlayerStepResult result)
     {
-        if (!frame.Homing.HasHomingTarget || frame.Homing.TouchingHomingTarget)
+        _elapsedTime += frame.DeltaTime;
+        if (!frame.Homing.HasHomingTarget || frame.Homing.TouchingHomingTarget ||
+            frame.Homing.BlockedByObstacle || _elapsedTime >= settings.Homing.MaximumDuration)
         {
             result.ApplyHomingAttack = frame.Homing.HasHomingTarget && frame.Homing.TouchingHomingTarget;
             result.VelocityX = 0f;
             result.VelocityY = result.ApplyHomingAttack ? settings.Homing.SuccessUpwardSpeed : 0f;
+            result.SuppressGravity = false;
             if (result.ApplyHomingAttack)
                 Machine.RechargeDash();
             Machine.ChangeState(PlayerState.Airborne);
