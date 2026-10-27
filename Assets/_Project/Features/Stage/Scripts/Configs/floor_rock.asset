@@ -15,10 +15,10 @@ MonoBehaviour:
   elementName: floor_rock
   prefab: {fileID: 71155098979194110, guid: a2f79c996078ddf4ea2ead285ca984c0, type: 3}
   elementType: 0
-  minReachX: 2
-  maxReachX: 5
-  minReachY: 2
-  maxReachY: 5
+  minReachX: 3
+  maxReachX: 6
+  minReachY: 3
+  maxReachY: 6
   extraUpwardBoost: 0
   allowGlide: 1
   diveMinY: -3
