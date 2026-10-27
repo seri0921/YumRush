@@ -22,6 +22,6 @@ MonoBehaviour:
   extraUpwardBoost: 6
   allowGlide: 0
   diveMinY: -3
-  diveMaxX: 5
-  spawnWeight: 55
+  diveMaxX: 8
+  spawnWeight: 45
   isFreeAnchor: 0

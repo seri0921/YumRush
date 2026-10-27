@@ -27,7 +27,7 @@ public class DDDD : MonoBehaviour
     public int maxAdjustAttempts = 10;
 
     [Header("ï€ë∂ê›íË")]
-    public string savePath = "Assets/Project/JumpUp/Sandbox/SavePrefabs/";
+    public string savePath = "Assets/_Project/Features/Stage/ShunkData/";
 
     private Transform currentChunkContainer;
     private const float AIR_DASH_DISTANCE = 3.24f;

@@ -20,7 +20,7 @@ MonoBehaviour:
   minReachY: 20
   maxReachY: 30
   extraUpwardBoost: 20
-  allowGlide: 1
+  allowGlide: 0
   diveMinY: -6
   diveMaxX: 8
   spawnWeight: 3
