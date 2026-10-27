@@ -12,6 +12,8 @@ public class PlayerPhysicsMotor
     private readonly ContactFilter2D groundFilter;
     private readonly float groundProbeDistance;
     private RigidbodyType2D originalBodyType;
+    private Vector2 originalVelocity;
+    private float originalGravityScale;
     public bool IsScriptedMovement { get; private set; }
     
     public float NormalGravityScale { get; }
@@ -42,6 +44,8 @@ public class PlayerPhysicsMotor
             throw new InvalidOperationException("Scripted movement is already active.");
 
         originalBodyType = body.bodyType;
+        originalVelocity = body.linearVelocity;
+        originalGravityScale = body.gravityScale;
         body.linearVelocity = Vector2.zero;
         body.bodyType = RigidbodyType2D.Kinematic;
         IsScriptedMovement = true;
@@ -55,7 +59,7 @@ public class PlayerPhysicsMotor
         body.position = position;
     }
 
-    public void EndScriptedMovement()
+    public void EndScriptedMovement(bool restoreMotion = false)
     {
         if (!IsScriptedMovement)
             throw new InvalidOperationException("Scripted movement is not active.");
@@ -64,7 +68,8 @@ public class PlayerPhysicsMotor
         if (body != null)
         {
             body.bodyType = originalBodyType;
-            body.linearVelocity = Vector2.zero;
+            body.linearVelocity = restoreMotion ? originalVelocity : Vector2.zero;
+            body.gravityScale = restoreMotion ? originalGravityScale : NormalGravityScale;
         }
         IsScriptedMovement = false;
     }

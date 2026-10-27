@@ -1068,6 +1068,10 @@ PrefabInstance:
       propertyPath: _respawnManager
       value: 
       objectReference: {fileID: 394759145}
+    - target: {fileID: 7718531351295898499, guid: b11c4ced77b55354fb757453580da830, type: 3}
+      propertyPath: _randomizeOnStart
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8131164661748645703, guid: b11c4ced77b55354fb757453580da830, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
