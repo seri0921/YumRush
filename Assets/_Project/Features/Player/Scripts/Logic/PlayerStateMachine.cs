@@ -154,7 +154,8 @@ public sealed class PlayerStateMachine
         if (frame.Body.Grounded || IsInWind)
             dash.Recharge();
 
-        if (!IsActionLocked && (frame.Input.JumpQueued && !result.JumpConsumed) && frame.Homing.HasHomingTarget)
+        if (!IsActionLocked && State != PlayerState.Capturing && State != PlayerState.Floating &&
+            (frame.Input.JumpQueued && !result.JumpConsumed) && frame.Homing.HasHomingTarget)
             ChangeState(PlayerState.HomingWindup);
         else if ((State == PlayerState.Airborne || IsGliding) && !frame.Body.Grounded &&
                  !frame.Wind.HasWind && (frame.Input.DashQueued && !result.DashConsumed) && dash.TryStart(true, settings.Dash.AirDashDuration))

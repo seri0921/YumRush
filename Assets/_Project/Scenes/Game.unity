@@ -1019,6 +1019,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 125380010695187466, guid: b11c4ced77b55354fb757453580da830, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -45
+      objectReference: {fileID: 0}
     - target: {fileID: 727560701600720197, guid: b11c4ced77b55354fb757453580da830, type: 3}
       propertyPath: m_Name
       value: Stage
@@ -1143,6 +1147,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 394759145}
+    - target: {fileID: 8693281453605220352, guid: b11c4ced77b55354fb757453580da830, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8984447630150785050, guid: b11c4ced77b55354fb757453580da830, type: 3}
       propertyPath: manager
       value: 
@@ -1732,8 +1740,8 @@ SceneRoots:
   - {fileID: 6914844075869597990}
   - {fileID: 235091322}
   - {fileID: 1655759823}
-  - {fileID: 2368439079890998133}
   - {fileID: 8719822471740913098}
   - {fileID: 3869397930330457023}
   - {fileID: 162013136}
+  - {fileID: 2368439079890998133}
   - {fileID: 1126715353}
