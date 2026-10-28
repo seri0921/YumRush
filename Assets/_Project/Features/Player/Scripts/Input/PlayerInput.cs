@@ -28,7 +28,9 @@ internal sealed class PlayerInput : IDisposable
             .With("Left", "<Keyboard>/leftArrow").With("Right", "<Keyboard>/rightArrow");
         move.AddBinding("<Gamepad>/leftStick");
         jump.AddBinding("<Gamepad>/buttonSouth");
-        dash.AddBinding("<Gamepad>/buttonEast");
+        jump.AddBinding("<Gamepad>/buttonEast");
+        dash.AddBinding("<Gamepad>/buttonNorth");
+        dash.AddBinding("<Gamepad>/buttonWest");
     }
 
     public void Enable()
