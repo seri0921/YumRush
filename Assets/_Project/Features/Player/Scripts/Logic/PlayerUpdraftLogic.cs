@@ -61,8 +61,10 @@ public class PlayerUpdraftLogic
         _phase += deltaTime * 2f * (float)Math.PI / period;
         if ((int)(_phase / (2f * (float)Math.PI)) > (int)(_previousPhase / (2f * (float)Math.PI)))
             _cycle++;
-        LiftVelocity = amplitude * 2f * (float)Math.PI / period * (float)Math.Cos(_phase);
-        return amplitude * (float)Math.Sin(_phase);
+        // 高さとジャンプ強化量を同じ周期に合わせ、捕捉位置から滑らかに往復する。
+        float strength = (1f - (float)Math.Cos(_phase)) * 0.5f;
+        LiftVelocity = amplitude * 2f * (float)Math.PI / period * strength;
+        return amplitude * strength;
     }
     
     public bool TryWindJump(float baseSpeed, float boostMultiplier, out float jumpSpeed)
