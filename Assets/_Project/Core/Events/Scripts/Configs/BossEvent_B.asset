@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BossEvent_B
   m_EditorClassIdentifier: Assembly-CSharp::TimedEventConfig
   _type: 1
-  _startSeconds: 5
-  _durationSeconds: 15
+  _startSeconds: 45
+  _durationSeconds: 30

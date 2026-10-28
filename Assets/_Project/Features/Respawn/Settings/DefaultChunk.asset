@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DefaultChunk
   m_EditorClassIdentifier: Project.Respawn::ChunkRespawnConfig
   automaticRespawn: 0
-  intervalSeconds: 60
+  intervalSeconds: 100
