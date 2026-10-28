@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DefaultIndividual
   m_EditorClassIdentifier: Project.Respawn::RespawnConfig
   automaticRespawn: 1
-  delaySeconds: 10
+  delaySeconds: 50

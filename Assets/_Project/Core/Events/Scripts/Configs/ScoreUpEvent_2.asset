@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a35f54d459348778670887a7e9c5e2a, type: 3}
-  m_Name: BiormAScoreUpEvent
+  m_Name: ScoreUpEvent_2
   m_EditorClassIdentifier: Assembly-CSharp::TimedEventConfig
   _type: 0
-  _startSeconds: 10
-  _durationSeconds: 15
+  _startSeconds: 120
+  _durationSeconds: 20

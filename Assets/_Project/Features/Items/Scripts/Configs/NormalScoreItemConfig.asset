@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db4a89869fa5e7641a97fdf3c0812a95, type: 3}
-  m_Name: DefaultScoreItemConfig
+  m_Name: NormalScoreItemConfig
   m_EditorClassIdentifier: Assembly-CSharp::ScoreItemConfig
   points: 100
