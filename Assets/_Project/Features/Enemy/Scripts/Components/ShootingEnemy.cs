@@ -5,7 +5,7 @@ public sealed class ShootingEnemy : EnemyBase
 {
     [Space(8)]
     [Header("ビジュアル参照")]
-    [SerializeField] private MinorBat_Animation animationView;
+    [SerializeField] private ShooterEnemyAnimationBase animationView;
 
     [Space(8)]
     [Header("移動・漂い設定")]
@@ -46,7 +46,7 @@ public sealed class ShootingEnemy : EnemyBase
         initialPosition = transform.position;
 
         if (animationView == null)
-            animationView = GetComponentInChildren<MinorBat_Animation>();
+            animationView = GetComponentInChildren<ShooterEnemyAnimationBase>();
         if (target == null || projectilePrefab == null)
             throw new InvalidOperationException($"{gameObject.name}: PlayerとProjectile Prefabが必要です。");
 
@@ -72,7 +72,11 @@ public sealed class ShootingEnemy : EnemyBase
             }
             else
             {
-                animationView.Render(isFlying: false, facingDirectionX: 0f);
+                animationView.Render(new ShooterAnimationState(
+                                    isActivated: false,
+                                    isFiring: false,
+                                    facingDirectionX: 0f
+                                ));
                 return;
             }
         }
@@ -82,13 +86,18 @@ public sealed class ShootingEnemy : EnemyBase
         transform.position = new Vector3(initialPosition.x + offsetScope, transform.position.y, transform.position.z);
 
         Vector2 direction = GetDirectionToTarget(origin);
-        if (fireLogic.Tick(Time.deltaTime, sqrDistance, detectionRange, fireInterval))
+        bool isFiring = fireLogic.Tick(Time.deltaTime, sqrDistance, detectionRange, fireInterval);
+        if (isFiring)
         {
             EnemyBullet projectile = Instantiate(projectilePrefab, origin, Quaternion.identity);
             projectile.Launch(direction, projectileSpeed);
         }
 
-        animationView.Render(isFlying: true, facingDirectionX: direction.x);
+        animationView.Render(new ShooterAnimationState(
+                    isActivated: true,
+                    isFiring: isFiring,
+                    facingDirectionX: direction.x
+                ));
     }
 
     public override void ReceiveAttack()
