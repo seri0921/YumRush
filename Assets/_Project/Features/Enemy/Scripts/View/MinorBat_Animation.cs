@@ -1,20 +1,30 @@
 using UnityEngine;
 
-public class MinorBat_Animation : EnemyAnimationViewBase
+public class MinorBat_Animation : ShooterEnemyAnimationBase
 {
-    private static readonly int StateIdle = Animator.StringToHash("MinorBat_Idle");
-    private static readonly int StateFly = Animator.StringToHash("MinorBat_Fly");
+    [Header("ƒXƒe[ƒg–¼(ŒëŽš–hŽ~)")]
+    [SerializeField] private string StateIdle = "MinorBat_Idle";
+    [SerializeField] private string StateFly = "MinorBat_Fly";
 
-    public void Render(bool isFlying, float facingDirectionX)
+    private int stateIdleHash;
+    private int stateFlyHash;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        stateIdleHash = Animator.StringToHash(StateIdle);
+        stateFlyHash = Animator.StringToHash(StateFly);
+    }
+    public override void Render(ShooterAnimationState state)
     {
         ApplyBaseColor();
 
-        if (spriteRenderer != null && facingDirectionX != 0f)
+        if (spriteRenderer != null && state.FacingDirectionX != 0f)
         {
-            spriteRenderer.flipX = facingDirectionX > 0f;
+            spriteRenderer.flipX = state.FacingDirectionX > 0f;
         }
 
-        PlayAnimation(isFlying ? StateFly : StateIdle);
+        PlayAnimation(state.IsActivated ? stateFlyHash : stateIdleHash);
     }
 }
 

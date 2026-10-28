@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0141e3fff13e6844580f1af3044b9e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
-  prefab: {fileID: 9142794752739895050, guid: 16476bf5120271f479e4368b5d5ac072, type: 3}
+  prefab: {fileID: 104461753368829296, guid: 87260d7a20ab51843ab638a549282e4f, type: 3}
   config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
 --- !u!1 &451290011994600341
 GameObject:
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0141e3fff13e6844580f1af3044b9e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
-  prefab: {fileID: 9142794752739895050, guid: 16476bf5120271f479e4368b5d5ac072, type: 3}
+  prefab: {fileID: 104461753368829296, guid: 87260d7a20ab51843ab638a549282e4f, type: 3}
   config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
 --- !u!1 &1711902538725004954
 GameObject:
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0141e3fff13e6844580f1af3044b9e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
-  prefab: {fileID: 9142794752739895050, guid: 16476bf5120271f479e4368b5d5ac072, type: 3}
+  prefab: {fileID: 104461753368829296, guid: 87260d7a20ab51843ab638a549282e4f, type: 3}
   config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
 --- !u!1 &4207810153262247459
 GameObject:
@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0141e3fff13e6844580f1af3044b9e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
-  prefab: {fileID: 9142794752739895050, guid: 16476bf5120271f479e4368b5d5ac072, type: 3}
+  prefab: {fileID: 104461753368829296, guid: 87260d7a20ab51843ab638a549282e4f, type: 3}
   config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
 --- !u!1 &4482539876608062441
 GameObject:
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0141e3fff13e6844580f1af3044b9e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
-  prefab: {fileID: 9142794752739895050, guid: 16476bf5120271f479e4368b5d5ac072, type: 3}
+  prefab: {fileID: 104461753368829296, guid: 87260d7a20ab51843ab638a549282e4f, type: 3}
   config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
 --- !u!1 &7454584232704640734
 GameObject:
@@ -751,7 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0141e3fff13e6844580f1af3044b9e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
-  prefab: {fileID: 9142794752739895050, guid: 16476bf5120271f479e4368b5d5ac072, type: 3}
+  prefab: {fileID: 104461753368829296, guid: 87260d7a20ab51843ab638a549282e4f, type: 3}
   config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
 --- !u!1 &8595037074377848606
 GameObject:
