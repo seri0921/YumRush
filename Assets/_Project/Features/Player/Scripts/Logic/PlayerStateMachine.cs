@@ -472,6 +472,7 @@ public sealed class HomingWindupState : PlayerStateBase
         }
         else if (frame.Homing.WindupComplete)
         {
+            result.HomingWindupCompleted = true;
             Machine.ChangeState(PlayerState.Homing);
             Machine.Current.Tick(frame, settings, ref result);
         }

@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: 4519793774378064390}
   - component: {fileID: 8418799946129534624}
   - component: {fileID: 3650304632088744768}
+  - component: {fileID: 661124214725901518}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -502,6 +503,7 @@ MonoBehaviour:
   animationView: {fileID: 3173836140214170867}
   homingAttackView: {fileID: 3650304632088744768}
   homingReticleView: {fileID: 4382107971251952405}
+  attackEffectView: {fileID: 661124214725901518}
 --- !u!50 &7351893078428763372
 Rigidbody2D:
   serializedVersion: 5
@@ -596,6 +598,19 @@ MonoBehaviour:
   attackRenderer: {fileID: 5903822178168622345}
   referenceLength: 4.9
   thickness: 1.5
+--- !u!114 &661124214725901518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506355064604562539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3490f2db7416bcb40ab14d420ab6df61, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackEffectView
+  _windupCompletePrefab: {fileID: 2865088839825052438, guid: 8c620b4d74f4e9a4da44fa87280f40f8, type: 3}
 --- !u!1001 &2217208165225442936
 PrefabInstance:
   m_ObjectHideFlags: 0

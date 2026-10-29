@@ -99,5 +99,6 @@ public struct PlayerStepResult
 {
     public float VelocityX, VelocityY;
     public bool SuppressGravity, ApplyHomingAttack;
+    public bool HomingWindupCompleted;
     public bool JumpConsumed, DashConsumed;
 }
