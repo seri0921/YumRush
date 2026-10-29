@@ -5,6 +5,15 @@ TextureImporter:
   - first:
       213: 8737760906514479441
     second: character_eat_2_0
+  - first:
+      213: 1305075420957238367
+    second: character_eat_2_1
+  - first:
+      213: -645476589995997285
+    second: character_eat_2_2
+  - first:
+      213: -8533018356071786714
+    second: character_eat_2_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,11 +55,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.2579079, y: 0.48972264}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -72,7 +81,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -103,12 +112,12 @@ TextureImporter:
       name: character_eat_2_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 0
-        width: 499
-        height: 256
-      alignment: 9
-      pivot: {x: -0.00046920968, y: 0.43396723}
+        x: 257
+        y: 469
+        width: 195
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -121,12 +130,78 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: character_eat_2_1
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 524
+        width: 35
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f54ef374e2f8c1210800000000000000
+      internalID: 1305075420957238367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character_eat_2_2
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 442
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b974576167eca07f0800000000000000
+      internalID: -645476589995997285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character_eat_2_3
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 437
+        width: 31
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6271478d301a49980800000000000000
+      internalID: -8533018356071786714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f42114c2feb7c1346bc6352bf9153ec7
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -136,6 +211,9 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       character_eat_2_0: 8737760906514479441
+      character_eat_2_1: 1305075420957238367
+      character_eat_2_2: -645476589995997285
+      character_eat_2_3: -8533018356071786714
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

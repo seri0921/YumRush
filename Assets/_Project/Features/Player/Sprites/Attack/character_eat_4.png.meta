@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 7017661574051139428
     second: character_eat_4_0
+  - first:
+      213: -4842963478066711572
+    second: character_eat_4_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,11 +49,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.25676602, y: 0.48858067}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -72,7 +75,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -103,12 +106,12 @@ TextureImporter:
       name: character_eat_4_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 0
-        width: 499
-        height: 256
+        x: 257
+        y: 458
+        width: 366
+        height: 149
       alignment: 9
-      pivot: {x: 0.00043416454, y: 0.4313259}
+      pivot: {x: -0.00077044376, y: 0.22026257}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -121,12 +124,34 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: character_eat_4_1
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 433
+        width: 43
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce3b4a530665accb0800000000000000
+      internalID: -4842963478066711572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7247e557aed34ce4dba973c96e28130b
-    internalID: 0
+    spriteID: 98cf1a36bf5681842b9e850197f3e179
+    internalID: -389296179
     vertices: []
     indices: 
     edges: []
@@ -136,6 +161,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       character_eat_4_0: 7017661574051139428
+      character_eat_4_1: -4842963478066711572
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

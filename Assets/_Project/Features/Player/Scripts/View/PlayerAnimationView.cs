@@ -7,6 +7,7 @@ public sealed class PlayerAnimationView : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer glideEffectRenderer;
     [Tooltip("元画像が右向きならオン、左向きならオフにします。")]
     [SerializeField] private bool spriteFacesRight = true;
     [SerializeField, Min(0f)] private float walkSpeedThreshold = 0.1f;
@@ -26,6 +27,7 @@ public sealed class PlayerAnimationView : MonoBehaviour
     {
         Assert.IsNotNull(animator);
         Assert.IsNotNull(spriteRenderer);
+        Assert.IsNotNull(glideEffectRenderer);
         if (!animator.HasState(0, Idle) || !animator.HasState(0, Walk) ||
             !animator.HasState(0, Jump) || !animator.HasState(0, AirDash) ||
             !animator.HasState(0, Glide) || !animator.HasState(0, Damage) ||
@@ -33,13 +35,21 @@ public sealed class PlayerAnimationView : MonoBehaviour
             throw new InvalidOperationException("Player Animator requires Idle, Walk, Jump, AirDash, Glide, Damage and Homing in Base Layer.");
     }
 
-    private void OnEnable() => hasAnimation = false;
+    private void OnEnable()
+    {
+        hasAnimation = false;
+        glideEffectRenderer.enabled = false;
+    }
+
+    private void OnDisable() => glideEffectRenderer.enabled = false;
 
     public void Render(PlayerState state, float horizontalVelocity, int facingDirection)
     {
         int nextAnimation = ResolveAnimation(state, horizontalVelocity);
         bool facesRight = facingDirection > 0;
         spriteRenderer.flipX = facesRight != spriteFacesRight;
+        glideEffectRenderer.flipX = spriteRenderer.flipX;
+        glideEffectRenderer.enabled = state == PlayerState.Gliding;
         if (hasAnimation && currentAnimation == nextAnimation)
             return;
         
