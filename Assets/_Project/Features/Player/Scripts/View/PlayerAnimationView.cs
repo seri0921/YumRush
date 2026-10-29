@@ -53,6 +53,7 @@ public sealed class PlayerAnimationView : MonoBehaviour
         switch (state)
         {
             case PlayerState.Grounded:
+            case PlayerState.IceGrounded:
                 return Mathf.Abs(horizontalVelocity) > walkSpeedThreshold ? Walk : Idle;
             case PlayerState.AirDashing:
                 return AirDash;

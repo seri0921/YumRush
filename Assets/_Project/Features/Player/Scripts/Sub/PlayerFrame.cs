@@ -19,6 +19,7 @@ public struct PlayerSettings
     public PlayerGlideSettings Glide;
     public PlayerHomingSettings Homing;
     public PlayerFanWindSettings FanWind;
+    public PlayerIceSettings Ice;
 }
 
 public struct PlayerInputSnapshot
@@ -32,6 +33,7 @@ public struct PlayerBodySnapshot
 {
     public float VelocityX, VelocityY, PositionX, PositionY, Gravity;
     public bool Grounded;
+    public bool IsIce;
 }
 
 public struct PlayerWindSnapshot
@@ -95,9 +97,18 @@ public struct PlayerFanWindSettings
     public float Resistance;
 }
 
+public struct PlayerIceSettings
+{
+    public float GroundSpeed;
+    public float Acceleration;
+    public float MaxDeceleration;
+    public float FrictionFactor;
+}
+
 public struct PlayerStepResult
 {
     public float VelocityX, VelocityY;
     public bool SuppressGravity, ApplyHomingAttack;
     public bool JumpConsumed, DashConsumed;
 }
+

@@ -104,6 +104,21 @@ public sealed class PlayerMovementConfig : ScriptableObject
     [Tooltip("攻撃成功後の上向き速度（unit/秒）。")] [SerializeField, Min(0f)]
     private float successUpwardSpeed = 40f;
 
+    [Space(8)]
+    [Header("氷上処理")]
+    [Tooltip("氷上最高速度")] [SerializeField, Min(0.1f)]
+    private float iceGroundSpeed = 12f;
+
+    [Tooltip("氷上加速度")] [SerializeField, Min(0.1f)]
+    private float iceAcceleration = 8f;
+
+    [Tooltip("減速上限")] [SerializeField, Min(0.1f)]
+    private float iceMaxDeceleration = 15f;
+
+    [Tooltip("二乗減速摩擦係数")] [SerializeField, Min(0.01f)]
+    private float iceFrictionFactor = 0.05f;
+
+
     [Space(8)] [Header("対象フィルター")] [Tooltip("追尾対象の検索に含めるレイヤー。")] [SerializeField]
     private LayerMask targetLayers = ~0;
 
@@ -139,6 +154,10 @@ public sealed class PlayerMovementConfig : ScriptableObject
     public float HomingMaximumDuration => homingMaximumDuration;
     public float ContactDistance => contactDistance;
     public float SuccessUpwardSpeed => successUpwardSpeed;
+    public float GroundSpeed => iceGroundSpeed;
+    public float Acceleration => iceAcceleration;
+    public float MaxDeceleration => iceMaxDeceleration;
+    public float FrictionFactor => iceFrictionFactor;
     public LayerMask TargetLayers => targetLayers;
 
     public void Validate()
@@ -171,7 +190,11 @@ public sealed class PlayerMovementConfig : ScriptableObject
         ValidateNumber(homingMaximumDuration, nameof(homingMaximumDuration), true);
         ValidateNumber(contactDistance, nameof(contactDistance), false);
         ValidateNumber(successUpwardSpeed, nameof(successUpwardSpeed), false);
-        
+        ValidateNumber(iceGroundSpeed, nameof(iceGroundSpeed), true);
+        ValidateNumber(iceAcceleration, nameof(iceAcceleration), true);
+        ValidateNumber(iceMaxDeceleration, nameof(iceMaxDeceleration), true);
+        ValidateNumber(iceFrictionFactor, nameof(iceFrictionFactor), true);
+
         if (glidePullupStartSpeed < glideMinimumLiftSpeed)
             throw new InvalidOperationException("PlayerConfig: 引き起こし開始速度は最低揚力速度以上にしてください。");
     }

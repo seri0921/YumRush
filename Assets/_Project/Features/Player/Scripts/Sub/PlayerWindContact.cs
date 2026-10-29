@@ -41,7 +41,7 @@ internal sealed class PlayerWindContact : IDisposable
         if (activeZone == null || other.GetComponentInParent<UpdraftZone>() != activeZone)
             return;
         activeZone = null;
-        machine.LeaveWind(motor.IsGrounded() && motor.Velocity.y <= 0f);
+        machine.LeaveWind(motor.IsGrounded(out bool isIce) && motor.Velocity.y <= 0f);
         motor.RestoreGravity();
     }
 
