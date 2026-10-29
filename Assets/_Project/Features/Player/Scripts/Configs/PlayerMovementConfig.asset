@@ -22,6 +22,9 @@ MonoBehaviour:
   windMaxSpeed: 10
   windAcceleration: 14
   entryMaxFallSpeed: 4
+  fanWindMaxSpeed: 25
+  fanWindAcceleration: 30
+  fanWindResistance: 2.5
   airAcceleration: 14
   airMaximumSpeed: 8
   airDamping: 0.5
@@ -40,8 +43,13 @@ MonoBehaviour:
   enemyInvulnerabilityDuration: 1
   attackRange: 7
   homingSpeed: 25
+  homingMaximumDuration: 1
   contactDistance: 0.15
   successUpwardSpeed: 25
+  iceGroundSpeed: 12
+  iceAcceleration: 20
+  iceMaxDeceleration: 0.5
+  iceFrictionFactor: 0.01
   targetLayers:
     serializedVersion: 2
     m_Bits: 4294967295

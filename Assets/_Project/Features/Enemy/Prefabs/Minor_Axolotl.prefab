@@ -87,7 +87,7 @@ MonoBehaviour:
   animationView: {fileID: 0}
   moveSpeed: 2
   moveWidth: 1.5
-  projectilePrefab: {fileID: 7283737766679034423, guid: 4e358d6e97881e14999c66ca03ebc115, type: 3}
+  projectilePrefab: {fileID: 2243205415511806741, guid: 53067e92ccac34340862bf94b5c39f60, type: 3}
   detectionRange: 15
   fireInterval: 1.5
   projectileSpeed: 8

@@ -53,7 +53,8 @@ MonoBehaviour:
   attackPauseDuration: 1.5
   animationView: {fileID: 0}
   blinkDuration: 0.2
-  projectilePrefab: {fileID: 7283737766679034423, guid: 4e358d6e97881e14999c66ca03ebc115, type: 3}
+  coolDown: 1
+  projectilePrefab: {fileID: 6995831708355477994, guid: 84b11e0f9e5f42e4793b64f48fb8db80, type: 3}
   detectionRange: 12
   fireInterval: 1
   projectileSpeed: 10
