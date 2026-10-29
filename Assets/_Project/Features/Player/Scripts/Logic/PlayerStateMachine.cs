@@ -4,6 +4,7 @@ using System;
 public enum PlayerState
 {
     Grounded,
+    IceGrounded,
     Airborne,
     Capturing,
     Floating,
@@ -62,7 +63,7 @@ public sealed class PlayerStateMachine
     {
         this.wind = wind ?? throw new ArgumentNullException(nameof(wind));
 
-        states = new IPlayerState[] { new GroundedState(this), new AirborneState(this), new CapturingState(this, wind), new FloatingState(this, wind), new WindJumpState(this, wind), new GlidingState(this, glide), new AirDashingState(this, dash), new HomingState(this), new HitState(this, hit), new HomingWindupState(this), new AirCurrentState(this) };
+        states = new IPlayerState[] { new GroundedState(this), new IceGroundedState(this), new AirborneState(this), new CapturingState(this, wind), new FloatingState(this, wind), new WindJumpState(this, wind), new GlidingState(this, glide), new AirDashingState(this, dash), new HomingState(this), new HitState(this, hit), new HomingWindupState(this), new AirCurrentState(this) };
         Current = states[(int)PlayerState.Airborne];
         Current.Enter();
     }
@@ -234,6 +235,13 @@ public sealed class GroundedState : PlayerStateBase
 
     public override void Tick(in PlayerFrame frame, in PlayerSettings settings, ref PlayerStepResult result)
     {
+        if (frame.Body.Grounded && frame.Body.IsIce)
+        {
+            Machine.ChangeState(PlayerState.IceGrounded);
+            Machine.Current.Tick(frame, settings, ref result);
+            return;
+        }
+
         StepHorizontal(frame, settings.Movement, ref result);
         if (!frame.Body.Grounded)
             Machine.ChangeState(PlayerState.Airborne);
@@ -262,6 +270,57 @@ public sealed class GroundedState : PlayerStateBase
         }
     }
 }
+public sealed class IceGroundedState : PlayerStateBase
+{
+    public override PlayerState Id => PlayerState.IceGrounded; // ※PlayerState enum に IceGrounded を追加
+
+
+    public IceGroundedState(PlayerStateMachine machine) : base(machine)
+    {
+    }
+
+    public override void Tick(in PlayerFrame frame, in PlayerSettings settings, ref PlayerStepResult result)
+    {
+        // X軸の移動処理を氷上用ロジックで計算
+        result.VelocityX = PlayerIceGroundLogic.StepHorizontal(
+            result.VelocityX,
+            frame.Input.HorizontalInput,
+            settings.Ice,
+            frame.DeltaTime);
+
+        // 地面から離れたら空中へ
+        if (!frame.Body.Grounded)
+        {
+            Machine.ChangeState(PlayerState.Airborne);
+        }
+        // ジャンプ処理（風補正付きのジャンプ処理もそのまま利用可能）
+        else if (frame.Input.JumpQueued && !result.JumpConsumed)
+        {
+            float baseJumpSpeed = settings.Movement.JumpSpeed;
+
+            if (frame.FanWind.HasFanWind)
+            {
+                float windY = frame.FanWind.WindVectorY;
+                float updraftMult = frame.FanWind.UpdraftMultiplier;
+
+                if (windY > 0f)
+                {
+                    baseJumpSpeed += windY * updraftMult * 0.5f;
+                }
+                else if (windY < 0f)
+                {
+                    float suppressedSpeed = baseJumpSpeed + (windY * updraftMult * 0.5f);
+                    baseJumpSpeed = Math.Max(settings.Movement.JumpSpeed * 0.3f, suppressedSpeed);
+                }
+            }
+
+            result.VelocityY = baseJumpSpeed;
+            result.JumpConsumed = true;
+            Machine.ChangeState(PlayerState.Airborne);
+        }
+    }
+}
+
 
 public sealed class AirborneState : PlayerStateBase
 {
@@ -283,11 +342,11 @@ public sealed class AirborneState : PlayerStateBase
         StepHorizontal(frame, settings.Movement, ref result);
         if (!frame.Body.Grounded)
             return;
-        Machine.ChangeState(PlayerState.Grounded);
-        if ((frame.Input.JumpQueued && !result.JumpConsumed))
+        if (frame.Body.Grounded)
         {
-            result.VelocityY = settings.Movement.JumpSpeed;
-            Machine.ChangeState(PlayerState.Airborne);
+            PlayerState nextState = frame.Body.IsIce ? PlayerState.IceGrounded : PlayerState.Grounded;
+            Machine.ChangeState(nextState);
+            Machine.Current.Tick(frame, settings, ref result);
         }
     }
 }

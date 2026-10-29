@@ -34,8 +34,9 @@ internal sealed class PlayerFrameSource
                 VelocityY = velocity.y,
                 PositionX = motor.Position.x,
                 PositionY = motor.Position.y,
-                Grounded = motor.IsGrounded() && velocity.y <= 0f,
-                Gravity = -Physics2D.gravity.y * motor.NormalGravityScale
+                Grounded = motor.IsGrounded(out bool isIce) && velocity.y <= 0f,
+                Gravity = -Physics2D.gravity.y * motor.NormalGravityScale,
+                IsIce = isIce
             }
         };
     }
@@ -77,6 +78,15 @@ internal sealed class PlayerFrameSource
                 MaxSpeed = config.FanWindMaxSpeed,
                 Acceleration = config.FanWindAcceleration,
                 Resistance = config.FanWindResistance
+            },
+
+            Ice = new PlayerIceSettings
+            {
+                GroundSpeed = config.GroundSpeed,
+                Acceleration = config.Acceleration,
+                MaxDeceleration = config.MaxDeceleration,
+                FrictionFactor = config.FrictionFactor
             }
+
         };
 }

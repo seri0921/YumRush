@@ -76,12 +76,21 @@ public class PlayerPhysicsMotor
     public void SetGravityScale(float scale) => body.gravityScale = scale;
     public void RestoreGravity() => SetGravityScale(NormalGravityScale);
     
-    public bool IsGrounded()
+    public bool IsGrounded(out bool isIce)
     {
+        isIce = false;
+        bool grounded = false;
         int count = playerCollider.Cast(Vector2.down, groundFilter, groundHits, groundProbeDistance);
         for (int i = 0; i < count; i++)
             if (groundHits[i].normal.y > 0.65f)
-                return true;
-        return false;
+            {
+                grounded = true;
+                var col = groundHits[i].collider;
+                if (col != null && col.CompareTag("Ice"))
+                {
+                    isIce = true;
+                }
+            }
+        return grounded;
     }
 }

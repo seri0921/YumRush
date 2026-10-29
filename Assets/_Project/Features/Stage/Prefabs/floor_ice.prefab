@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1072222836412361021}
   m_Layer: 3
   m_Name: floor_ice
-  m_TagString: Untagged
+  m_TagString: Ice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,7 +65,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c91d04d7758d53740be890fa8c78492d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
