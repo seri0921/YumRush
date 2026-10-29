@@ -595,7 +595,7 @@ MonoBehaviour:
   attackAnimator: {fileID: 4241890469549474266}
   attackRenderer: {fileID: 5903822178168622345}
   referenceLength: 4.9
-  thickness: 1
+  thickness: 1.5
 --- !u!1001 &2217208165225442936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -610,7 +610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1654167212574217655, guid: 97c2e9c9a29f7444695cfec25fb34f4c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5163748567126221721, guid: 97c2e9c9a29f7444695cfec25fb34f4c, type: 3}
       propertyPath: m_LocalScale.x
