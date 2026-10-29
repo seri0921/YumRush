@@ -1,0 +1,59 @@
+{
+  "format": "meshflow-settings",
+  "version": 3,
+  "geometryFile": "mesh.fbx",
+  "name": "Flat Ring",
+  "uv": {
+    "offsetU": 0,
+    "offsetV": 0,
+    "tileU": 1,
+    "tileV": 1,
+    "rotation": 0,
+    "flipU": false,
+    "flipV": false,
+    "wrapU": "repeat",
+    "wrapV": "repeat"
+  },
+  "uv2": {
+    "enabled": false,
+    "tileU": 1,
+    "tileV": 1,
+    "offsetU": 0,
+    "offsetV": 0,
+    "rotation": 0
+  },
+  "motion": {
+    "speedU": 0.6,
+    "speedV": 0,
+    "duration": 8,
+    "mode": "linear",
+    "rate": 1
+  },
+  "flipbook": {
+    "enabled": false,
+    "columns": 4,
+    "rows": 4,
+    "fps": 12
+  },
+  "material": {
+    "blend": "additive",
+    "tint": "#ffffff",
+    "opacity": 1,
+    "alphaCutoff": 0.01,
+    "side": "double",
+    "shading": "unlit",
+    "fadeU": 0.1,
+    "fadeV": 0,
+    "filter": "linear",
+    "normals": "mesh"
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "modifiers": [],
+  "units": "meters",
+  "uvTransformBaked": true,
+  "initialAnimationTime": 0
+}

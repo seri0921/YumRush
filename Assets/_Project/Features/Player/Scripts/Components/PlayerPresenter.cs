@@ -15,6 +15,7 @@ public class PlayerPresenter : MonoBehaviour
     
     [SerializeField] private PlayerHomingAttackView homingAttackView;
     [SerializeField] private HomingReticleView homingReticleView;
+    [SerializeField] private PlayerAttackEffectView attackEffectView;
 
     private readonly PlayerStateMachine _machine = new PlayerStateMachine();
     private PlayerPhysicsMotor _motor;
@@ -53,6 +54,7 @@ public class PlayerPresenter : MonoBehaviour
         UnityEngine.Assertions.Assert.IsNotNull(animationView);
         UnityEngine.Assertions.Assert.IsNotNull(homingAttackView);
         UnityEngine.Assertions.Assert.IsNotNull(homingReticleView);
+        UnityEngine.Assertions.Assert.IsNotNull(attackEffectView);
         config.Validate();
         
         _motor = new PlayerPhysicsMotor(GetComponent<Rigidbody2D>(), playerCollider,
@@ -108,6 +110,9 @@ public class PlayerPresenter : MonoBehaviour
             frame.Homing.WindupComplete = homingAttackView.IsComplete;
             PlayerSettings settings = _frames.SampleSettings();
             PlayerStepResult result = _machine.Tick(frame, settings);
+            // 攻撃適用で対象が破棄される前に、その位置で準備完了の演出を再生する。
+            if (result.HomingWindupCompleted && _homing.TryGetTargetPosition(out Vector2 effectPosition))
+                attackEffectView.PlayWindupComplete(effectPosition);
             if (_machine.IsHoming && frame.Homing.HasHomingTarget &&
                 Mathf.Abs(frame.Homing.HomingDirectionX) > 0.001f)
                 FacingDirection = frame.Homing.HomingDirectionX > 0f ? 1 : -1;

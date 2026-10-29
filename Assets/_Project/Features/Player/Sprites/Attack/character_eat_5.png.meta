@@ -46,11 +46,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.25904992, y: 0.48972264}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -103,12 +103,12 @@ TextureImporter:
       name: character_eat_5_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 0
-        width: 499
+        x: 257
+        y: 381
+        width: 422
         height: 256
       alignment: 9
-      pivot: {x: 0.0067577823, y: 0.42340198}
+      pivot: {x: -0.0019682392, y: 0.4219377}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,8 +125,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 80aea80a0f36bf4499697ef5676e848a
-    internalID: 0
+    spriteID: f1722ee7ee0967e4ea5f045525d42ff7
+    internalID: 1229161561
     vertices: []
     indices: 
     edges: []

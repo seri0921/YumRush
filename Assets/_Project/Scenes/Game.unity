@@ -1547,6 +1547,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpdraftGauage
       objectReference: {fileID: 0}
+    - target: {fileID: 3660874291873189719, guid: 31c1e3f441f187a48888e610f0f6a4bc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8274384135146218623, guid: 31c1e3f441f187a48888e610f0f6a4bc, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -1572,6 +1576,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 857058986418816037, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4836797312251591171, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -46.32

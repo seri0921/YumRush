@@ -31,7 +31,7 @@ public sealed class HomingReticleView : MonoBehaviour
 
         Transform image = reticleRenderer.transform;
         image.position = new Vector3(targetPosition.x, targetPosition.y, image.position.z);
-        if (targetChanged || !reticleRenderer.enabled)
+        if (targetChanged || !image.gameObject.activeSelf || !reticleRenderer.enabled)
             acquireElapsed = 0f;
         else
             acquireElapsed = Mathf.Min(acquireElapsed + deltaTime, acquireDuration);
@@ -41,6 +41,8 @@ public sealed class HomingReticleView : MonoBehaviour
         float multiplier = 1f + (acquireScaleMultiplier - 1f) * remaining * remaining * remaining;
         image.localScale = normalScale * multiplier;
         reticleRenderer.enabled = true;
+        if (!image.gameObject.activeSelf)
+            image.gameObject.SetActive(true);
     }
 
     public void Hide()
@@ -48,6 +50,9 @@ public sealed class HomingReticleView : MonoBehaviour
         reticleRenderer.enabled = false;
         reticleRenderer.transform.localScale = normalScale;
         acquireElapsed = 0f;
+        // 子エフェクトも隠す。同じオブジェクトのOnDisableからの再呼び出しでは無効化しない。
+        if (reticleRenderer.gameObject.activeSelf)
+            reticleRenderer.gameObject.SetActive(false);
     }
 
     private void OnDisable() => Hide();
