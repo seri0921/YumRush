@@ -129,6 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MinorBat_Animation
   animator: {fileID: 5084910205608999851}
   spriteRenderer: {fileID: 8941262978420540663}
+  StateIdle: MinorBat_Idle
+  StateFly: MinorBat_Fly
 --- !u!1 &9142794752739895050
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +225,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShootingEnemy
   target: {fileID: 0}
   HP: 0
-  projectilePrefab: {fileID: 7283737766679034423, guid: 4e358d6e97881e14999c66ca03ebc115, type: 3}
+  animationView: {fileID: 0}
+  moveSpeed: 2
+  moveWidth: 1.5
+  projectilePrefab: {fileID: 818750863766786038, guid: 7db98172aded44d4da0c65373bea3644, type: 3}
   detectionRange: 15
   fireInterval: 1.5
   projectileSpeed: 8
