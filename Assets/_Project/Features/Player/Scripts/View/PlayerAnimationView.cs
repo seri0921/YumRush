@@ -20,7 +20,9 @@ public sealed class PlayerAnimationView : MonoBehaviour
     private static readonly int Glide = Animator.StringToHash("Base Layer.Glide");
     private static readonly int Damage = Animator.StringToHash("Base Layer.Damage");
     private static readonly int Homing = Animator.StringToHash("Base Layer.Homing");
-    
+    private static readonly int Freezing = Animator.StringToHash("Base Layer.Freeze");
+
+
     private int currentAnimation;
     private bool hasAnimation;
 
@@ -90,6 +92,8 @@ public sealed class PlayerAnimationView : MonoBehaviour
             case PlayerState.Capturing:
             case PlayerState.Floating:
                 return Jump;
+            case PlayerState.Freezing:
+                return Freezing;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }

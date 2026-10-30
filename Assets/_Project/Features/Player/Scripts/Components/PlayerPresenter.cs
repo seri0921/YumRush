@@ -179,8 +179,13 @@ public class PlayerPresenter : MonoBehaviour
         }
 
         public void SetScriptedPosition(Vector2 position) => _motor.SetScriptedPosition(position);
+    public bool ReceiveEnemyFreeze()
+    {
+        return !_motor.IsScriptedMovement &&
+           _machine.TryReceiveFreeze(config.FreezeDuration, config.EnemyInvulnerabilityDuration);
+    }
 
-        public bool ReceiveEnemyProjectile() => !_motor.IsScriptedMovement && _damageReceiver.Receive();
+    public bool ReceiveEnemyProjectile() => !_motor.IsScriptedMovement && _damageReceiver.Receive();
         private void OnTriggerEnter2D(Collider2D other)
         {
             _airCurrentContact.Enter(other);

@@ -19,6 +19,14 @@ public sealed class PlayerHitLogic
         invulnerableRemaining = invulnerableDuration;
     }
 
+    public void SetInvulnerable(float duration)
+    {
+        if (duration <= 0f || float.IsNaN(duration))
+            throw new ArgumentOutOfRangeException(nameof(duration));
+
+        invulnerableRemaining = duration;
+    }
+
     public void Tick(float deltaTime)
     {
         if (deltaTime < 0f || float.IsNaN(deltaTime))

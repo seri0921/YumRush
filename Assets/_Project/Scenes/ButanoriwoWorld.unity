@@ -17171,6 +17171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2246765255341613418, guid: 26e9fc18cba6dc3468561cf916fe6d78, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 5318658732976685287, guid: 77ff4a72fb8709f4589284dfc176545e, type: 3}
     - target: {fileID: 7619958432364079944, guid: 26e9fc18cba6dc3468561cf916fe6d78, type: 3}
       propertyPath: m_Name
       value: Boss_Penguin
