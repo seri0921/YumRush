@@ -29,8 +29,12 @@ public class Boss_Owl : EnemyBase
     [Tooltip("クールダウン")]
     [SerializeField, Min(0.01f)] private float attackCooldown = 2.0f;
 
-    [Tooltip("発射方向")]
-    [SerializeField] private Vector2 fireDirection = Vector2.down;
+    [Tooltip("散弾設定")]
+    [SerializeField, Range(0f, 180f)] private float spreadAngle = 30f;
+    [Tooltip("最小弾速")]
+    [SerializeField, Min(0.01f)] private float minProjectileSpeed = 6f;
+    [Tooltip("最大弾速")]
+    [SerializeField, Min(0.01f)] private float maxProjectileSpeed = 10f;
 
     [Header("アニメーション")]
     [SerializeField] private Owl_Animation animationView;
@@ -38,7 +42,6 @@ public class Boss_Owl : EnemyBase
 
     [Header("射撃設定")]
     [SerializeField] private EnemyBullet projectilePrefab;
-    [SerializeField, Min(0.01f)] private float projectileSpeed = 8f;
     [SerializeField] private Vector2 muzzleOffset = Vector2.zero;
 
     private readonly EnemyFireLogic phaseTimerLogic = new EnemyFireLogic();
@@ -48,6 +51,7 @@ public class Boss_Owl : EnemyBase
     private AttackPhase currentPhase = AttackPhase.Idle;
     private int currentBurstFired;
     private bool isCool;
+    private float lastFacingDirectionX = -1f;
 
     protected override void OnInitialize()
     {
@@ -67,6 +71,12 @@ public class Boss_Owl : EnemyBase
 
         Vector2 origin = (Vector2)transform.position + muzzleOffset;
         float sqrDistance = GetSqrDistanceToTarget(origin);
+        Vector2 dirToTarget = GetDirectionToTarget(origin);
+
+        if (dirToTarget.x != 0f)
+        {
+            lastFacingDirectionX = dirToTarget.x;
+        }
 
         switch (currentPhase)
         {
@@ -88,7 +98,7 @@ public class Boss_Owl : EnemyBase
             case AttackPhase.Bursting:
                 if (burstTimerLogic.Tick(Time.deltaTime, 0f, 1f, burstInterval))
                 {
-                    FireBullet(origin);
+                    FireBullet(origin, dirToTarget);
                     currentBurstFired++;
 
                     if (currentBurstFired >= burstCount)
@@ -107,7 +117,7 @@ public class Boss_Owl : EnemyBase
         }
 
         bool isAttacking = (currentPhase == AttackPhase.Windup || currentPhase == AttackPhase.Bursting);
-        animationView.Render(isAttacking);
+        animationView.Render(isAttacking, lastFacingDirectionX);
     }
 
     public override void ReceiveAttack()
@@ -130,15 +140,17 @@ public class Boss_Owl : EnemyBase
         }
     }
 
-    private void FireBullet(Vector2 origin)
+    private void FireBullet(Vector2 origin, Vector2 baseDirection)
     {
         if (projectilePrefab == null) return;
 
-        Vector2 direction = fireDirection.normalized;
-        if (direction.sqrMagnitude < 0.001f) direction = Vector2.down; // 未設定時のフォールバック
+        float randomAngle = Random.Range(-spreadAngle * 0.5f, spreadAngle * 0.5f);
+        Vector2 shotDirection = Quaternion.Euler(0f, 0f, randomAngle) * baseDirection;
+
+        float speed = Random.Range(minProjectileSpeed, maxProjectileSpeed);
 
         EnemyBullet projectile = Instantiate(projectilePrefab, origin, Quaternion.identity);
-        projectile.Launch(direction, projectileSpeed);
+        projectile.Launch(shotDirection, speed);
     }
 
     private void SetCoolingDown(bool setCool)
