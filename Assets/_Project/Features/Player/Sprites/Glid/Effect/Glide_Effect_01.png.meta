@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: a9893ece84aa6c7479d47aacc368e029
+guid: bcb2cb78bed53514cad44fa0ac700f75
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 885690387533087377
-    second: Glide_Effects_02_0
+      213: 2524978649340393867
+    second: Glide_Effect_01_0
   - first:
-      213: -6623186261975442239
-    second: Glide_Effects_02_1
+      213: -3999379126208205532
+    second: Glide_Effect_01_1
   - first:
-      213: 2278741251864660540
-    second: Glide_Effects_02_2
+      213: -6058828684584975245
+    second: Glide_Effect_01_2
   - first:
-      213: -8751454585231959684
-    second: Glide_Effects_02_3
+      213: 1691341718400482531
+    second: Glide_Effect_01_3
+  - first:
+      213: 1360337670891079416
+    second: Glide_Effect_01_4
+  - first:
+      213: -8105994156298796747
+    second: Glide_Effect_01_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -59,7 +65,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.23, y: 0.83}
+  spritePivot: {x: 0.1, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -109,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Glide_Effects_02_0
+      name: Glide_Effect_01_0
       rect:
         serializedVersion: 2
-        x: 264
-        y: 362
-        width: 189
-        height: 204
+        x: 108
+        y: 53
+        width: 27
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 19243e107ba9a4c00800000000000000
-      internalID: 885690387533087377
+      spriteID: b89316324b68a0320800000000000000
+      internalID: 2524978649340393867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Glide_Effects_02_1
+      name: Glide_Effect_01_1
       rect:
         serializedVersion: 2
-        x: 378
-        y: 491
-        width: 107
-        height: 75
+        x: 122
+        y: 37
+        width: 33
+        height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1ccd4b59f27b514a0800000000000000
-      internalID: -6623186261975442239
+      spriteID: 42d6f34dfd95f78c0800000000000000
+      internalID: -3999379126208205532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Glide_Effects_02_2
+      name: Glide_Effect_01_2
       rect:
         serializedVersion: 2
-        x: 499
-        y: 386
-        width: 172
-        height: 148
+        x: 118
+        y: 25
+        width: 22
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3a0c646817bf9f10800000000000000
-      internalID: 2278741251864660540
+      spriteID: 3748d549967baeba0800000000000000
+      internalID: -6058828684584975245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Glide_Effects_02_3
+      name: Glide_Effect_01_3
       rect:
         serializedVersion: 2
-        x: 540
-        y: 451
-        width: 196
-        height: 188
+        x: 140
+        y: 25
+        width: 19
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +196,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c7919430c669c8680800000000000000
-      internalID: -8751454585231959684
+      spriteID: 3ec3f0fe45ad87710800000000000000
+      internalID: 1691341718400482531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glide_Effect_01_4
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 16
+        width: 31
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f68b0087e3e0e210800000000000000
+      internalID: 1360337670891079416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glide_Effect_01_5
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 16
+        width: 30
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5310b622349b18f80800000000000000
+      internalID: -8105994156298796747
       vertices: []
       indices: 
       edges: []
@@ -210,10 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Glide_Effects_02_0: 885690387533087377
-      Glide_Effects_02_1: -6623186261975442239
-      Glide_Effects_02_2: 2278741251864660540
-      Glide_Effects_02_3: -8751454585231959684
+      Glide_Effect_01_0: 2524978649340393867
+      Glide_Effect_01_1: -3999379126208205532
+      Glide_Effect_01_2: -6058828684584975245
+      Glide_Effect_01_3: 1691341718400482531
+      Glide_Effect_01_4: 1360337670891079416
+      Glide_Effect_01_5: -8105994156298796747
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

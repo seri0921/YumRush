@@ -35,8 +35,7 @@ public sealed class UIUpdraftTimingLogic
             float.IsNaN(maximumLiftVelocity) || float.IsInfinity(maximumLiftVelocity))
             throw new ArgumentOutOfRangeException(nameof(liftVelocity));
 
-        bool visible = state == PlayerState.Capturing ||
-                       state == PlayerState.Floating;
+        bool visible = state == PlayerState.Floating;
         if (!visible)
             return new UpdraftTimingPresentation(false, false, false, 0f);
         if (maximumLiftVelocity <= 0f)
