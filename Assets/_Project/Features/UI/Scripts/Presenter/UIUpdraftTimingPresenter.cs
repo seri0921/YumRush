@@ -15,17 +15,40 @@ public sealed class UIUpdraftTimingPresenter : MonoBehaviour
     private float optimalThreshold = 0.8f;
 
     private UIUpdraftTimingLogic logic;
+    private Collider2D _playerCollider;
+    private Camera _worldCamera;
+    private Vector3 _circleCenter;
+    private float _circleDiameter;
+    private PlayerState _previousState;
+    private bool _wasVisible;
 
     private void Awake()
     {
         if (player == null || view == null)
             throw new InvalidOperationException("UpdraftTimingDisplay の参照を設定してください。");
         logic = new UIUpdraftTimingLogic(optimalThreshold);
+        _playerCollider = player.GetComponent<Collider2D>();
+        _worldCamera = Camera.main;
+        if (_playerCollider == null || _worldCamera == null)
+            throw new InvalidOperationException("タイミング円にはプレイヤーのCollider2DとMainCameraが必要です。");
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        view.Render(logic.Evaluate(player.State, player.CurrentLiftVelocity,
-            player.MaximumLiftVelocity, player.CanWindJump));
+        UpdraftTimingPresentation presentation = logic.Evaluate(player.State, player.CurrentLiftVelocity,
+            player.MaximumLiftVelocity, player.CanWindJump);
+        if (presentation.Visible && (!_wasVisible ||
+            player.State == PlayerState.Floating && _previousState != PlayerState.Floating))
+        {
+            // 浮遊開始位置を保存し、プレイヤーの上下動には追従しない。
+            Bounds bounds = _playerCollider.bounds;
+            _circleCenter = bounds.center;
+            _circleDiameter = Mathf.Max(bounds.size.x, bounds.size.y);
+        }
+        Vector3 screenCenter = _worldCamera.WorldToScreenPoint(_circleCenter);
+        Vector3 screenEdge = _worldCamera.WorldToScreenPoint(_circleCenter + Vector3.up * _circleDiameter);
+        view.Render(presentation, screenCenter, Vector2.Distance(screenCenter, screenEdge));
+        _wasVisible = presentation.Visible;
+        _previousState = player.State;
     }
 }

@@ -4,59 +4,51 @@ using UnityEngine;
 
 public sealed class UIUpdraftTimingView : MonoBehaviour
 {
-    [Space(8)]
-    [Header("UI参照")] [Tooltip("ゲージ全体の表示・非表示を切り替えるGameObject。")] [SerializeField] 
-    private GameObject content;
-
-    [Tooltip("タイミングの進行度をfillAmountで表示するImage。")] [SerializeField] 
-    private UnityEngine.UI.Image fill;
-
-    [Tooltip("ゲージ内を上下に移動するマーカーのRectTransform。")] [SerializeField] 
-    private RectTransform marker;
-
-    [Tooltip("状態に応じて色を変更するマーカーのImage。")] [SerializeField] 
-    private UnityEngine.UI.Image markerImage;
-
-    [Tooltip("READYING・JUMP!・SPACEを表示するテキスト。")] [SerializeField] 
-    private TMP_Text statusLabel;
-
-    [Space(8)] [Header("表示色")] [Tooltip("ジャンプ可能で、最適タイミング以外のときの色。")] [SerializeField] 
-    private Color normalColor = new Color(0.28f, 0.8f, 1f);
-
-    [Tooltip("最適なジャンプタイミングの色。")] [SerializeField] 
-    private Color optimalColor = new Color(0.92f, 1f, 0.35f);
-
-    [Tooltip("ジャンプできないときの色。")] [SerializeField] 
-    private Color unavailableColor = new Color(0.5f, 0.56f, 0.62f);
+    [Header("UI参照")]
+    [SerializeField] private GameObject content;
+    [SerializeField] private RectTransform marker;
+    [SerializeField] private UIUpdraftRingGraphic markerImage;
+    [SerializeField] private RectTransform referenceCircle;
+    [SerializeField] private TMP_Text statusLabel;
+    [Header("円の表示")]
+    [SerializeField, Min(1f)] private float _maximumScale = 2.5f;
+    [SerializeField] private Color normalColor = new Color(0.28f, 0.8f, 1f);
+    [SerializeField] private Color optimalColor = new Color(0.92f, 1f, 0.35f);
+    [SerializeField] private Color unavailableColor = new Color(0.5f, 0.56f, 0.62f);
+    private Canvas _canvas;
+    private RectTransform _contentRect;
 
     private void Awake()
     {
-        if (content == null || fill == null || marker == null ||
-            markerImage == null || statusLabel == null)
+        if (content == null || marker == null || markerImage == null ||
+            referenceCircle == null || statusLabel == null)
             throw new InvalidOperationException("UpdraftTimingView のUI参照を設定してください。");
-
+        _canvas = GetComponentInParent<Canvas>();
+        _contentRect = (RectTransform)content.transform;
         content.SetActive(false);
     }
 
-    public void Render(UpdraftTimingPresentation presentation)
+    public void Render(UpdraftTimingPresentation presentation, Vector2 screenCenter, float screenDiameter)
     {
         if (content.activeSelf != presentation.Visible)
             content.SetActive(presentation.Visible);
-
         if (!presentation.Visible)
             return;
-
-        fill.fillAmount = presentation.Fill;
-        marker.anchorMin = new Vector2(0.5f, presentation.Fill);
-        marker.anchorMax = marker.anchorMin;
-        marker.anchoredPosition = Vector2.zero;
-
+        Camera uiCamera = _canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _canvas.worldCamera;
+        RectTransform parent = (RectTransform)_contentRect.parent;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(parent, screenCenter, uiCamera, out Vector2 localCenter);
+        _contentRect.localPosition = new Vector3(localCenter.x, localCenter.y, 0f);
+        _contentRect.localScale = Vector3.one;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(parent,
+            screenCenter + Vector2.up * screenDiameter, uiCamera, out Vector2 localEdge);
+        float diameter = Vector2.Distance(localCenter, localEdge);
+        referenceCircle.sizeDelta = Vector2.one * diameter;
+        marker.sizeDelta = Vector2.one * diameter * Mathf.Lerp(_maximumScale, 1f, presentation.Fill);
+        statusLabel.rectTransform.anchoredPosition = new Vector2(0f, -diameter * _maximumScale * 0.5f - 20f);
         Color color = !presentation.Ready ? unavailableColor :
             presentation.Optimal ? optimalColor : normalColor;
-        fill.color = color;
         markerImage.color = color;
-        statusLabel.text = !presentation.Ready ? "READYING" :
-            presentation.Optimal ? "JUMP!" : "SPACE";
+        statusLabel.text = !presentation.Ready ? "READYING" : presentation.Optimal ? "JUMP!" : "SPACE";
         statusLabel.color = color;
     }
 }

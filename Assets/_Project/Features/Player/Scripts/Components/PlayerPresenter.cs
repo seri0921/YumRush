@@ -12,6 +12,7 @@ public class PlayerPresenter : MonoBehaviour
     private Collider2D playerCollider;
 
     [SerializeField] private PlayerAnimationView animationView;
+    [SerializeField] private PlayerWindEffectView windEffectView;
     
     [SerializeField] private PlayerHomingAttackView homingAttackView;
     [SerializeField] private HomingReticleView homingReticleView;
@@ -52,6 +53,7 @@ public class PlayerPresenter : MonoBehaviour
     private void Awake()
     {
         UnityEngine.Assertions.Assert.IsNotNull(animationView);
+        UnityEngine.Assertions.Assert.IsNotNull(windEffectView);
         UnityEngine.Assertions.Assert.IsNotNull(homingAttackView);
         UnityEngine.Assertions.Assert.IsNotNull(homingReticleView);
         UnityEngine.Assertions.Assert.IsNotNull(attackEffectView);
@@ -75,6 +77,7 @@ public class PlayerPresenter : MonoBehaviour
         {
             scriptedMovement?.Dispose();
             _input.Disable();
+            windEffectView.Hide();
             homingAttackView.Hide();
             homingReticleView.Hide();
             reticleTarget = null;
@@ -136,6 +139,7 @@ public class PlayerPresenter : MonoBehaviour
             preparing = preparing && _homing.TryGetTargetPosition(out targetPosition);
             homingAttackView.Render(preparing, targetPosition);
             animationView.Render(State, _motor.Velocity.x, FacingDirection);
+            windEffectView.Render(State, FacingDirection);
             IEnemy currentTarget = null;
             bool showReticle = !_motor.IsScriptedMovement && State != PlayerState.Hit && State != PlayerState.AirCurrent &&
                                _homing.TryGetTarget(out currentTarget, out targetPosition);
