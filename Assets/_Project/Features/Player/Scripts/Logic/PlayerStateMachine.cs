@@ -14,7 +14,8 @@ public enum PlayerState
     Homing,
     Hit,
     HomingWindup,
-    AirCurrent
+    AirCurrent,
+    Freezing
 }
 
 public interface IPlayerState
@@ -33,13 +34,14 @@ public sealed class PlayerStateMachine
     private readonly PlayerGlideFlightLogic glide = new PlayerGlideFlightLogic();
     private readonly PlayerAirDashLogic dash = new PlayerAirDashLogic();
     private readonly PlayerHitLogic hit = new PlayerHitLogic();
+    private readonly PlayerFreezingLogic freezing = new PlayerFreezingLogic();
     private bool transitioning;
     private float dashX, dashY;
     private int facing = 1;
 
     public IPlayerState Current { get; private set; }
     public PlayerState State => Current.Id;
-    public bool IsActionLocked => State == PlayerState.Hit || IsHoming || State == PlayerState.AirCurrent;
+    public bool IsActionLocked => State == PlayerState.Hit || IsHoming || State == PlayerState.AirCurrent || State == PlayerState.Freezing;
     public bool IsHoming => State == PlayerState.Homing || State == PlayerState.HomingWindup;
     public bool IsGliding => State == PlayerState.Gliding;
     public bool CanWindJump => State == PlayerState.Floating && wind.CanWindJump;
@@ -63,7 +65,11 @@ public sealed class PlayerStateMachine
     {
         this.wind = wind ?? throw new ArgumentNullException(nameof(wind));
 
-        states = new IPlayerState[] { new GroundedState(this), new IceGroundedState(this), new AirborneState(this), new CapturingState(this, wind), new FloatingState(this, wind), new WindJumpState(this, wind), new GlidingState(this, glide), new AirDashingState(this, dash), new HomingState(this), new HitState(this, hit), new HomingWindupState(this), new AirCurrentState(this) };
+        states = new IPlayerState[] { new GroundedState(this), 
+            new IceGroundedState(this), new AirborneState(this), new CapturingState(this, wind),
+            new FloatingState(this, wind), new WindJumpState(this, wind), new GlidingState(this, glide),
+            new AirDashingState(this, dash), new HomingState(this), new HitState(this, hit),
+            new HomingWindupState(this), new AirCurrentState(this), new FreezingState(this, freezing) };
         Current = states[(int)PlayerState.Airborne];
         Current.Enter();
     }
@@ -186,6 +192,17 @@ public sealed class PlayerStateMachine
         result.VelocityX = dashX * settings.Dash.AirDashSpeed;
         result.VelocityY = dashY * settings.Dash.AirDashSpeed;
         dash.Tick(frame.DeltaTime);
+    }
+
+    public bool TryReceiveFreeze(float freezeDuration, float invulnerableDuration)
+    {
+        if (IsInvulnerable())
+            return false;
+
+        freezing.Freeze(freezeDuration);
+        hit.SetInvulnerable(invulnerableDuration);
+        ChangeState(PlayerState.Freezing);
+        return true;
     }
 
     internal void RechargeDash() => dash.Recharge();
@@ -605,6 +622,39 @@ public sealed class AirCurrentState : PlayerStateBase
         result.DashConsumed = true;
         PlayerAirCurrentLogic.Step(frame.AirCurrent, frame.Body.PositionX, frame.Body.PositionY,
             frame.DeltaTime, ref result.VelocityX, ref result.VelocityY);
+    }
+}
+
+public sealed class FreezingState : PlayerStateBase
+{
+    private readonly PlayerFreezingLogic freezeLogic;
+
+    public override PlayerState Id => PlayerState.Freezing;
+
+    public FreezingState(PlayerStateMachine machine, PlayerFreezingLogic freezeLogic) : base(machine)
+    {
+        this.freezeLogic = freezeLogic;
+    }
+
+    public override void Tick(in PlayerFrame frame, in PlayerSettings settings, ref PlayerStepResult result)
+    {
+        freezeLogic.Tick(frame.DeltaTime);
+
+        result.VelocityX = 0f;
+        result.VelocityY = 0f;
+        result.SuppressGravity = true;
+        result.JumpConsumed = true;
+        result.DashConsumed = true;
+
+        if (!freezeLogic.IsFreezing)
+        {
+            result.SuppressGravity = false;
+            PlayerState nextState = frame.Body.Grounded ?
+                (frame.Body.IsIce ? PlayerState.IceGrounded : PlayerState.Grounded) : PlayerState.Airborne;
+
+            Machine.ChangeState(nextState);
+            Machine.Current.Tick(frame, settings, ref result);
+        }
     }
 }
 

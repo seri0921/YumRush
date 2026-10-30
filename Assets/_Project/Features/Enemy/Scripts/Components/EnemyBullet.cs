@@ -13,6 +13,10 @@ public sealed class EnemyBullet : MonoBehaviour
     [SerializeField] private float offsetAngle = 0f;
     [Header("ランダムビジュアル")]
     [SerializeField] private List<Sprite> candidateSprites = new List<Sprite>();
+    [Space(8)]
+    [Header("弾の属性")]
+    [Tooltip("氷弾orNot")]
+    [SerializeField] private bool isIceBullet = false;
 
     private Rigidbody2D body;
     private Vector2 velocity;
@@ -58,7 +62,16 @@ public sealed class EnemyBullet : MonoBehaviour
     {
         if (!other.TryGetComponent<PlayerPresenter>(out var player))
             return;
-        player.ReceiveEnemyProjectile();
+
+        if (isIceBullet)
+        {
+            player.ReceiveEnemyFreeze();
+        }
+        else
+        {
+            player.ReceiveEnemyProjectile();
+        }
+
         Destroy(gameObject);
     }
 

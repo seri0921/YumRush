@@ -89,6 +89,10 @@ public sealed class PlayerMovementConfig : ScriptableObject
     [Tooltip("被弾後に次の敵弾を無効にする時間（秒）。")] [SerializeField, Min(0.01f)]
     private float enemyInvulnerabilityDuration = 1f;
 
+    [Tooltip("氷弾による停止時間")]
+    [SerializeField, Min(0.01f)]
+    private float freezeDuration = 1.5f;
+
     [Space(8)] [Header("対象検出")] [Tooltip("追尾攻撃の対象を探す半径（unit）。")] [SerializeField, Min(0.01f)]
     private float attackRange = 7f;
 
@@ -149,6 +153,7 @@ public sealed class PlayerMovementConfig : ScriptableObject
     public float EnemyKnockbackSpeed => enemyKnockbackSpeed;
     public float EnemyControlLockDuration => enemyControlLockDuration;
     public float EnemyInvulnerabilityDuration => enemyInvulnerabilityDuration;
+    public float FreezeDuration => freezeDuration;
     public float AttackRange => attackRange;
     public float HomingSpeed => homingSpeed;
     public float HomingMaximumDuration => homingMaximumDuration;
@@ -185,6 +190,7 @@ public sealed class PlayerMovementConfig : ScriptableObject
         ValidateNumber(enemyKnockbackSpeed, nameof(enemyKnockbackSpeed), true);
         ValidateNumber(enemyControlLockDuration, nameof(enemyControlLockDuration), true);
         ValidateNumber(enemyInvulnerabilityDuration, nameof(enemyInvulnerabilityDuration), true);
+        ValidateNumber(freezeDuration, nameof(freezeDuration), true);
         ValidateNumber(attackRange, nameof(attackRange), true);
         ValidateNumber(homingSpeed, nameof(homingSpeed), true);
         ValidateNumber(homingMaximumDuration, nameof(homingMaximumDuration), true);
