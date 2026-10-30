@@ -84,18 +84,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss_Owl
   target: {fileID: 0}
-  HP: 1
+  HP: 5
   coolDownDuration: 1
   detectionRange: 15
   windupDuration: 0.8
-  burstCount: 5
+  burstCount: 8
   burstInterval: 0.1
   attackCooldown: 2
-  fireDirection: {x: -1, y: 0}
+  spreadAngle: 35
+  minProjectileSpeed: 6
+  maxProjectileSpeed: 10
   animationView: {fileID: 0}
   blinkDuration: 0.2
-  projectilePrefab: {fileID: 7283737766679034423, guid: 4e358d6e97881e14999c66ca03ebc115, type: 3}
-  projectileSpeed: 8
+  projectilePrefab: {fileID: 2030677132026575659, guid: 1e01d63f50704a5479efdcb1e5ed0823, type: 3}
   muzzleOffset: {x: 0, y: 0}
 --- !u!1 &3545374671984990001
 GameObject:
@@ -226,3 +227,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Owl_Animation
   animator: {fileID: 1630844938752861563}
   spriteRenderer: {fileID: 3786478141050396913}
+  idleStateName: Owl_Idle
+  attackStateName: Owl_Attack

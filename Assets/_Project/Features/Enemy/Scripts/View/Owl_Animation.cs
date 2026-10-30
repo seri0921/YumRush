@@ -4,12 +4,31 @@ using UnityEngine.Assertions;
 public sealed class Owl_Animation : EnemyAnimationViewBase
 {
     // Animatorのステートハッシュ
-    private static readonly int StateIdle = Animator.StringToHash("Base Layer.Owl_Idle");
-    private static readonly int StateAttack = Animator.StringToHash("Base Layer.Owl_Attack");
+    [SerializeField] private string idleStateName = "Owl_Idle";
+    [SerializeField] private string attackStateName = "Owl_Attack";
 
-    public void Render(bool isAttacking)
+    private int stateIdleHash;
+    private int stateAttackHash;
+
+    protected override void Awake()
     {
-        if (!isAttacking) ApplyBaseColor(); 
-        PlayAnimation(isAttacking ? StateAttack : StateIdle);
+        base.Awake();
+        stateIdleHash = Animator.StringToHash(idleStateName);
+        stateAttackHash = Animator.StringToHash(attackStateName);
+ 
     }
+
+    public void Render(bool isAttacking, float facingDirectionX)
+    {
+        ApplyBaseColor();
+
+        if (spriteRenderer != null && facingDirectionX != 0f)
+        {
+            spriteRenderer.flipX = facingDirectionX > 0f;
+        }
+
+        PlayAnimation(isAttacking ? stateAttackHash : stateIdleHash);
+    }
+
+
 }
