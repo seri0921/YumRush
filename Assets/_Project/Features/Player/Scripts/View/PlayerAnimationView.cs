@@ -8,6 +8,7 @@ public sealed class PlayerAnimationView : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private SpriteRenderer glideEffectRenderer;
+    [SerializeField] private SpriteRenderer airDashEffectRenderer;
     [Tooltip("元画像が右向きならオン、左向きならオフにします。")]
     [SerializeField] private bool spriteFacesRight = true;
     [SerializeField, Min(0f)] private float walkSpeedThreshold = 0.1f;
@@ -28,6 +29,7 @@ public sealed class PlayerAnimationView : MonoBehaviour
         Assert.IsNotNull(animator);
         Assert.IsNotNull(spriteRenderer);
         Assert.IsNotNull(glideEffectRenderer);
+        Assert.IsNotNull(airDashEffectRenderer);
         if (!animator.HasState(0, Idle) || !animator.HasState(0, Walk) ||
             !animator.HasState(0, Jump) || !animator.HasState(0, AirDash) ||
             !animator.HasState(0, Glide) || !animator.HasState(0, Damage) ||
@@ -39,9 +41,14 @@ public sealed class PlayerAnimationView : MonoBehaviour
     {
         hasAnimation = false;
         glideEffectRenderer.enabled = false;
+        airDashEffectRenderer.enabled = false;
     }
 
-    private void OnDisable() => glideEffectRenderer.enabled = false;
+    private void OnDisable()
+    {
+        glideEffectRenderer.enabled = false;
+        airDashEffectRenderer.enabled = false;
+    }
 
     public void Render(PlayerState state, float horizontalVelocity, int facingDirection)
     {
@@ -50,6 +57,8 @@ public sealed class PlayerAnimationView : MonoBehaviour
         spriteRenderer.flipX = facesRight != spriteFacesRight;
         glideEffectRenderer.flipX = spriteRenderer.flipX;
         glideEffectRenderer.enabled = state == PlayerState.Gliding;
+        airDashEffectRenderer.flipX = spriteRenderer.flipX;
+        airDashEffectRenderer.enabled = state == PlayerState.AirDashing;
         if (hasAnimation && currentAnimation == nextAnimation)
             return;
         
