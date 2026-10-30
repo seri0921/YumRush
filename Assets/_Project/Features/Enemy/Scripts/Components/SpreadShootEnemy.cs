@@ -43,18 +43,24 @@ public sealed class SpreadShootEnemy : EnemyBase
     [Header("éÀåÇê›íË")]
     [SerializeField] private EnemyBullet projectilePrefab;
     [SerializeField] private Vector2 muzzleOffset = Vector2.zero;
+    [Header("à⁄ìÆê›íË")]
+    [SerializeField] private float moveSpeed = 0f;   // ë¨ìx
+    [SerializeField] private float moveWidth = 0f;   //ç∂âEà⁄ìÆãóó£
+
 
     private readonly EnemyFireLogic phaseTimerLogic = new EnemyFireLogic();
     private readonly EnemyFireLogic burstTimerLogic = new EnemyFireLogic();
     private readonly EnemyFireLogic coolDownTimerLogic = new EnemyFireLogic();
 
     private AttackPhase currentPhase = AttackPhase.Idle;
+    private Vector3 initialPosition;
     private int currentBurstFired;
     private bool isCool;
     private float lastFacingDirectionX = -1f;
 
     protected override void OnInitialize()
     {
+        initialPosition = transform.position;
         if (animationView == null)
             animationView = GetComponentInChildren<Owl_Animation>();
     }
@@ -68,6 +74,9 @@ public sealed class SpreadShootEnemy : EnemyBase
                 SetCoolingDown(false);
             }
         }
+
+        float newX = initialPosition.x + Mathf.Sin(Time.time * moveSpeed) * moveWidth;
+        transform.position = new Vector3(newX, transform.position.y, transform.position.z);
 
         Vector2 origin = (Vector2)transform.position + muzzleOffset;
         float sqrDistance = GetSqrDistanceToTarget(origin);

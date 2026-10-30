@@ -41,7 +41,9 @@ MonoBehaviour:
   enemyKnockbackSpeed: 12
   enemyControlLockDuration: 0.35
   enemyInvulnerabilityDuration: 1
-  freezeDuration: 1
+  freezeDuration: 0.5
+  freezeKnockbackSpeed: 15
+  freezeKnockbackDuration: 0.2
   attackRange: 7
   homingSpeed: 25
   homingMaximumDuration: 1

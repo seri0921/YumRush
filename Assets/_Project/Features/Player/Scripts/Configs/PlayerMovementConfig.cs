@@ -89,9 +89,14 @@ public sealed class PlayerMovementConfig : ScriptableObject
     [Tooltip("被弾後に次の敵弾を無効にする時間（秒）。")] [SerializeField, Min(0.01f)]
     private float enemyInvulnerabilityDuration = 1f;
 
-    [Tooltip("氷弾による停止時間")]
-    [SerializeField, Min(0.01f)]
+    [Tooltip("氷弾による停止時間")] [SerializeField, Min(0.01f)]
     private float freezeDuration = 1.5f;
+
+    [Tooltip("氷弾ノックバック速度")] [SerializeField, Min(0.1f)]
+    private float freezeKnockbackSpeed = 10f;
+
+    [Tooltip("氷弾後操作硬直時間")] [SerializeField, Min(0.1f)]
+    private float freezeKnockbackDuration = 0.3f;
 
     [Space(8)] [Header("対象検出")] [Tooltip("追尾攻撃の対象を探す半径（unit）。")] [SerializeField, Min(0.01f)]
     private float attackRange = 7f;
@@ -109,8 +114,7 @@ public sealed class PlayerMovementConfig : ScriptableObject
     private float successUpwardSpeed = 40f;
 
     [Space(8)]
-    [Header("氷上処理")]
-    [Tooltip("氷上最高速度")] [SerializeField, Min(0.1f)]
+    [Header("氷上処理")] [Tooltip("氷上最高速度")] [SerializeField, Min(0.1f)]
     private float iceGroundSpeed = 12f;
 
     [Tooltip("氷上加速度")] [SerializeField, Min(0.1f)]
@@ -154,6 +158,8 @@ public sealed class PlayerMovementConfig : ScriptableObject
     public float EnemyControlLockDuration => enemyControlLockDuration;
     public float EnemyInvulnerabilityDuration => enemyInvulnerabilityDuration;
     public float FreezeDuration => freezeDuration;
+    public float FreezeKnockbackSpeed => freezeKnockbackSpeed;
+    public float FreezeKnockbackDuration => freezeKnockbackDuration;
     public float AttackRange => attackRange;
     public float HomingSpeed => homingSpeed;
     public float HomingMaximumDuration => homingMaximumDuration;
@@ -191,6 +197,8 @@ public sealed class PlayerMovementConfig : ScriptableObject
         ValidateNumber(enemyControlLockDuration, nameof(enemyControlLockDuration), true);
         ValidateNumber(enemyInvulnerabilityDuration, nameof(enemyInvulnerabilityDuration), true);
         ValidateNumber(freezeDuration, nameof(freezeDuration), true);
+        ValidateNumber(freezeKnockbackSpeed, nameof(freezeKnockbackSpeed), true);
+        ValidateNumber(freezeKnockbackDuration, nameof(freezeKnockbackDuration), true);
         ValidateNumber(attackRange, nameof(attackRange), true);
         ValidateNumber(homingSpeed, nameof(homingSpeed), true);
         ValidateNumber(homingMaximumDuration, nameof(homingMaximumDuration), true);

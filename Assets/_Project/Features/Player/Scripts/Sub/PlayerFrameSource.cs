@@ -86,6 +86,13 @@ internal sealed class PlayerFrameSource
                 Acceleration = config.Acceleration,
                 MaxDeceleration = config.MaxDeceleration,
                 FrictionFactor = config.FrictionFactor
+            },
+
+            Freeze = new PlayerFreezeSettings
+            {
+                FreezeDuration = config.FreezeDuration,
+                KnockbackSpeed = config.FreezeKnockbackSpeed,
+                KnockbackDuration = config.FreezeKnockbackDuration
             }
 
         };
