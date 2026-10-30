@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Boss_Owl : EnemyBase
+public sealed class SpreadShootEnemy : EnemyBase
 {
     private enum AttackPhase
     {
