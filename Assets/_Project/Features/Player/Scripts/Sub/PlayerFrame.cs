@@ -20,6 +20,7 @@ public struct PlayerSettings
     public PlayerHomingSettings Homing;
     public PlayerFanWindSettings FanWind;
     public PlayerIceSettings Ice;
+    public PlayerFreezeSettings Freeze;
 }
 
 public struct PlayerInputSnapshot
@@ -113,3 +114,9 @@ public struct PlayerStepResult
     public bool JumpConsumed, DashConsumed;
 }
 
+public struct PlayerFreezeSettings
+{
+    public float FreezeDuration;
+    public float KnockbackSpeed;
+    public float KnockbackDuration;
+}

@@ -65,7 +65,10 @@ public sealed class EnemyBullet : MonoBehaviour
 
         if (isIceBullet)
         {
-            player.ReceiveEnemyFreeze();
+            Vector2 dir = velocity.sqrMagnitude > 0.001f
+                    ? velocity.normalized
+                    : (Vector2)(other.transform.position - transform.position).normalized;
+            player.ReceiveEnemyFreeze(dir.x, dir.y);
         }
         else
         {

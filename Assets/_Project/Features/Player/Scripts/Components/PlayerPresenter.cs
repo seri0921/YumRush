@@ -179,10 +179,15 @@ public class PlayerPresenter : MonoBehaviour
         }
 
         public void SetScriptedPosition(Vector2 position) => _motor.SetScriptedPosition(position);
-    public bool ReceiveEnemyFreeze()
+    public bool ReceiveEnemyFreeze(float directionX, float directionY)
     {
         return !_motor.IsScriptedMovement &&
-           _machine.TryReceiveFreeze(config.FreezeDuration, config.EnemyInvulnerabilityDuration);
+                   _machine.TryReceiveFreeze(
+                       config.FreezeDuration,
+                       config.FreezeKnockbackDuration,
+                       config.EnemyInvulnerabilityDuration,
+                       directionX,
+                       directionY);
     }
 
     public bool ReceiveEnemyProjectile() => !_motor.IsScriptedMovement && _damageReceiver.Receive();

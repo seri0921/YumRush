@@ -194,12 +194,12 @@ public sealed class PlayerStateMachine
         dash.Tick(frame.DeltaTime);
     }
 
-    public bool TryReceiveFreeze(float freezeDuration, float invulnerableDuration)
+    public bool TryReceiveFreeze(float freezeDuration, float knockbackDuration, float invulnerableDuration, float directionX, float directionY)
     {
         if (IsInvulnerable())
             return false;
 
-        freezing.Freeze(freezeDuration);
+        freezing.Freeze(freezeDuration, knockbackDuration, directionX, directionY);
         hit.SetInvulnerable(invulnerableDuration);
         ChangeState(PlayerState.Freezing);
         return true;
@@ -628,7 +628,6 @@ public sealed class AirCurrentState : PlayerStateBase
 public sealed class FreezingState : PlayerStateBase
 {
     private readonly PlayerFreezingLogic freezeLogic;
-
     public override PlayerState Id => PlayerState.Freezing;
 
     public FreezingState(PlayerStateMachine machine, PlayerFreezingLogic freezeLogic) : base(machine)
@@ -640,13 +639,23 @@ public sealed class FreezingState : PlayerStateBase
     {
         freezeLogic.Tick(frame.DeltaTime);
 
-        result.VelocityX = 0f;
-        result.VelocityY = 0f;
-        result.SuppressGravity = true;
         result.JumpConsumed = true;
         result.DashConsumed = true;
 
-        if (!freezeLogic.IsFreezing)
+        if (freezeLogic.IsFreezing)
+        {
+            //氷結
+            result.VelocityX = 0f;
+            result.VelocityY = 0f;
+            result.SuppressGravity = true;
+        }
+        else if (freezeLogic.IsKnockback)
+        {
+            result.SuppressGravity = false;
+            result.VelocityX = freezeLogic.KnockbackX * settings.Freeze.KnockbackSpeed;
+            result.VelocityY = freezeLogic.KnockbackY * settings.Freeze.KnockbackSpeed;
+        }
+        else
         {
             result.SuppressGravity = false;
             PlayerState nextState = frame.Body.Grounded ?
