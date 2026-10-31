@@ -30,7 +30,7 @@ public abstract class EnemyBase : MonoBehaviour, IEnemy
 
     protected virtual void Update()
     {
-        if (IsDefeated)
+        if (IsDefeated || Time.timeScale == 0f)
             return;
 
         UpdateBehavior();

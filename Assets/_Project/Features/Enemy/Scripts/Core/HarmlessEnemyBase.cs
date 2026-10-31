@@ -13,7 +13,7 @@ public abstract class HarmlessEnemyBase : MonoBehaviour, IEnemy
 
     protected virtual void Update()
     {
-        if (IsDefeated)
+        if (IsDefeated || Time.timeScale == 0f)
             return;
 
         UpdateBehavior();

@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 
 // プレイヤーのの進行を担当。入力を集め、状態判断を呼び出し、結果を物理へ反映する
+[RequireComponent(typeof(HitStopPresenter))]
 public class PlayerPresenter : MonoBehaviour
 {
     // フィールド
@@ -21,6 +22,7 @@ public class PlayerPresenter : MonoBehaviour
     private readonly PlayerStateMachine _machine = new PlayerStateMachine();
     private PlayerPhysicsMotor _motor;
     private PlayerInput _input;
+    private HitStopPresenter _hitStop;
     private PlayerFrameSource _frames;
     private PlayerWindContact _windContact;
     private PlayerAirCurrentContact _airCurrentContact;
@@ -48,6 +50,9 @@ public class PlayerPresenter : MonoBehaviour
     public Vector2 FlightVelocity => _motor.Velocity;
     public float Altitude => _motor.Position.y;
     public float GlideMaximumSpeed => config.GlideMaximumSpeed;
+
+    public event Action AttackEffectPlayed;
+    public event Action DamageReceived;
     
     
     private void Awake()
@@ -63,6 +68,7 @@ public class PlayerPresenter : MonoBehaviour
             config.GroundLayers, config.GroundProbeDistance);
         
         _input = new PlayerInput();
+        _hitStop = GetComponent<HitStopPresenter>();
         TryGetComponent(out _homing);
         _frames = new PlayerFrameSource(config, _motor, _input);
         _windContact = new PlayerWindContact(_machine, _motor, config);
@@ -95,7 +101,9 @@ public class PlayerPresenter : MonoBehaviour
         
         private void Update()
         {
-            _input.Sample(_machine.IsActionLocked);
+            _input.Sample(_machine.IsActionLocked || HitStopPresenter.IsStopping);
+            if (HitStopPresenter.IsStopping)
+                return;
             if (_input.Direction.x != 0f)
                 FacingDirection = _input.Direction.x > 0f ? 1 : -1;
         }
@@ -115,7 +123,11 @@ public class PlayerPresenter : MonoBehaviour
             PlayerStepResult result = _machine.Tick(frame, settings);
             // 攻撃適用で対象が破棄される前に、その位置で準備完了の演出を再生する。
             if (result.HomingWindupCompleted && _homing.TryGetTargetPosition(out Vector2 effectPosition))
+            {
                 attackEffectView.PlayWindupComplete(effectPosition);
+                _hitStop.Request();
+                AttackEffectPlayed?.Invoke();
+            }
             if (_machine.IsHoming && frame.Homing.HasHomingTarget &&
                 Mathf.Abs(frame.Homing.HomingDirectionX) > 0.001f)
                 FacingDirection = frame.Homing.HomingDirectionX > 0f ? 1 : -1;
@@ -185,16 +197,25 @@ public class PlayerPresenter : MonoBehaviour
         public void SetScriptedPosition(Vector2 position) => _motor.SetScriptedPosition(position);
     public bool ReceiveEnemyFreeze(float directionX, float directionY)
     {
-        return !_motor.IsScriptedMovement &&
-                   _machine.TryReceiveFreeze(
+        bool received = !_motor.IsScriptedMovement &&
+                        _machine.TryReceiveFreeze(
                        config.FreezeDuration,
                        config.FreezeKnockbackDuration,
                        config.EnemyInvulnerabilityDuration,
                        directionX,
                        directionY);
+        if (received)
+            DamageReceived?.Invoke();
+        return received;
     }
 
-    public bool ReceiveEnemyProjectile() => !_motor.IsScriptedMovement && _damageReceiver.Receive();
+    public bool ReceiveEnemyProjectile()
+    {
+        bool received = !_motor.IsScriptedMovement && _damageReceiver.Receive();
+        if (received)
+            DamageReceived?.Invoke();
+        return received;
+    }
         private void OnTriggerEnter2D(Collider2D other)
         {
             _airCurrentContact.Enter(other);

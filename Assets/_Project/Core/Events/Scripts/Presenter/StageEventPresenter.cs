@@ -97,7 +97,7 @@ public sealed class StageEventPresenter : MonoBehaviour
     private void Update()
     {
         // Terrain restoration also follows movement while the event clock is paused.
-        if (_logic != null) UpdatePlayerLocationAndRestore();
+        if (_logic != null && Time.timeScale > 0f) UpdatePlayerLocationAndRestore();
     }
 
     private void UpdatePlayerLocationAndRestore()
