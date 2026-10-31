@@ -555,6 +555,7 @@ GameObject:
   - component: {fileID: 3650304632088744768}
   - component: {fileID: 661124214725901518}
   - component: {fileID: 5412940697107092260}
+  - component: {fileID: 1881735933824412521}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -879,3 +880,16 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3403081286354135863, guid: 52fa4020afe755043ab31ad87e8301bd, type: 3}
   m_PrefabInstance: {fileID: 5281245194012867016}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1881735933824412521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506355064604562539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f546eafc42cb42c7aa4886ba1dd744b3, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::HitStopPresenter
+  _durationSeconds: 0.08

@@ -59,7 +59,7 @@ public class FanWindBiome : MonoBehaviour, IFanField
     private void Update()
     {
         // エリア内にプレイヤーがいない場合はタイマーを進めない
-        if (playerInsideCount <= 0)
+        if (playerInsideCount <= 0 || Time.timeScale == 0f)
             return;
 
         timer += Time.deltaTime;
