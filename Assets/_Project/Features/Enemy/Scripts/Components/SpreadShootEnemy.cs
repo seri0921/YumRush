@@ -142,7 +142,7 @@ public sealed class SpreadShootEnemy : EnemyBase
         {
             if (!defeatLogic.TryDefeat())
                 return;
-
+            DropItem();
             hitCollider.enabled = false;
             gameObject.SetActive(false);
             Destroy(gameObject);

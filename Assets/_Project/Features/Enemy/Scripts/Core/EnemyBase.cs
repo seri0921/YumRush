@@ -9,6 +9,10 @@ public abstract class EnemyBase : MonoBehaviour, IEnemy
     [SerializeField]
     protected PlayerPresenter target;
 
+    [Space(8)]
+    [Header("ƒhƒƒbƒv")]
+    [SerializeField] private ScoreItem dropItemPrefab;
+
     protected readonly EnemyDefeatLogic defeatLogic = new EnemyDefeatLogic();
     protected readonly EnemyFireLogic fireLogic = new EnemyFireLogic();
 
@@ -49,6 +53,11 @@ public abstract class EnemyBase : MonoBehaviour, IEnemy
         return displacement.sqrMagnitude > 0f ? displacement.normalized : Vector2.down;
     }
 
+    protected void DropItem()
+    {
+        if (dropItemPrefab == null) return;
+        Instantiate(dropItemPrefab, transform.position, Quaternion.identity);
+    }
 
     protected abstract void UpdateBehavior();
     public abstract void ReceiveAttack();

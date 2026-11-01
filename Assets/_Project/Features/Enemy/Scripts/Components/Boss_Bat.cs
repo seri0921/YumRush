@@ -108,7 +108,7 @@ public class Boss_Bat : EnemyBase
         {
             if (!defeatLogic.TryDefeat())
                 return;
-
+            DropItem();
             hitCollider.enabled = false;
             gameObject.SetActive(false);
             Destroy(gameObject);
