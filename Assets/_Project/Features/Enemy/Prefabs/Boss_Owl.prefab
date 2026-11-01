@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss_Owl
   target: {fileID: 0}
+  dropItemPrefab: {fileID: 7256732667052693698, guid: 37c71ae2e0ffab44b8ea60c780cfa9af, type: 3}
   HP: 5
   coolDownDuration: 1
   detectionRange: 15
@@ -98,6 +99,8 @@ MonoBehaviour:
   blinkDuration: 0.2
   projectilePrefab: {fileID: 2030677132026575659, guid: 1e01d63f50704a5479efdcb1e5ed0823, type: 3}
   muzzleOffset: {x: 0, y: 0}
+  moveSpeed: 0
+  moveWidth: 0
 --- !u!1 &3545374671984990001
 GameObject:
   m_ObjectHideFlags: 0
