@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7859211477830029223}
   m_Layer: 0
-  m_Name: Chunk_20261030_114625
+  m_Name: Boss_Owl_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
