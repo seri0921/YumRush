@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 301630266046301178}
   - component: {fileID: 5903822178168622345}
   - component: {fileID: 4241890469549474266}
+  - component: {fileID: 3762361841869602178}
   m_Layer: 0
   m_Name: AttackImage
   m_TagString: Untagged
@@ -150,7 +151,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 079d8a5bc3e3b464b8fe33731ed74763, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -416,6 +417,7 @@ GameObject:
   - component: {fileID: 2306825707834230475}
   - component: {fileID: 3925915009504061811}
   - component: {fileID: 3173836140214170867}
+  - component: {fileID: 4804640364183994761}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -466,7 +468,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 079d8a5bc3e3b464b8fe33731ed74763, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -893,3 +895,27 @@ MonoBehaviour:
   m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::HitStopPresenter
   _durationSeconds: 0.08
+--- !u!114 &3762361841869602178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857058986418816037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca91629275f2e249b3367c3070eb7cc, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteOutlineView
+--- !u!114 &4804640364183994761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6755025624729656573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca91629275f2e249b3367c3070eb7cc, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteOutlineView
