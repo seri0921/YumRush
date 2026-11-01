@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TimedEventConfig
   _type: 0
   _startSeconds: 120
-  _durationSeconds: 20
+  _durationSeconds: 30

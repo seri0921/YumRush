@@ -1,5 +1,6 @@
 public enum StageEventType
 {
     BonusTime,
-    Boss
+    Boss,
+    ItemRain
 }
