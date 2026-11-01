@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8941262978420540663}
   - component: {fileID: 5084910205608999851}
   - component: {fileID: 4612696089300221642}
+  - component: {fileID: 8937148864279870842}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -60,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 079d8a5bc3e3b464b8fe33731ed74763, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -233,3 +234,15 @@ MonoBehaviour:
   fireInterval: 1.5
   projectileSpeed: 8
   muzzleOffset: {x: 0, y: 0}
+--- !u!114 &8937148864279870842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078473170009667109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca91629275f2e249b3367c3070eb7cc, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteOutlineView
