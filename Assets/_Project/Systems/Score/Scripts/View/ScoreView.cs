@@ -8,8 +8,13 @@ public sealed class ScoreView : MonoBehaviour
 
     public void Render(int score)
     {
+        Render(score, false);
+    }
+
+    public void Render(int score, bool isHidden)
+    {
         if (scoreText == null)
             throw new InvalidOperationException("ScoreView requires score text.");
-        scoreText.text = "SCORE  " + score.ToString("N0");
+        scoreText.text = "SCORE  " + (isHidden ? "????" : score.ToString("N0"));
     }
 }
