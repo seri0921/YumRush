@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7256732667052693698}
   - component: {fileID: 771691042565686131}
   - component: {fileID: -8214703681699257241}
+  - component: {fileID: 1721658433632147499}
   m_Layer: 0
   m_Name: ScoreItemFall
   m_TagString: Untagged
@@ -115,6 +116,19 @@ MonoBehaviour:
   initialSpeed: 12
   acceleration: 20
   maxSpeed: 30
+--- !u!114 &1721658433632147499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994425199152664405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46626961fb531ab4aa74e50933cfe899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemCollectEffectView
+  _effectPrefab: {fileID: 8269325874030298811, guid: 5080e0a538edcba45a549192d13e550d, type: 3}
 --- !u!1 &7038033186050824278
 GameObject:
   m_ObjectHideFlags: 0

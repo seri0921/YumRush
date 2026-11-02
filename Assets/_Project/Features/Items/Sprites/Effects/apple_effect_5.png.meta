@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: 1928a24ace3d1174591aa0519ea69ace
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8951049232334173315
+    second: apple_effect_5_0
+  - first:
+      213: 3543475190571013026
+    second: apple_effect_5_1
+  - first:
+      213: -5835573241601745141
+    second: apple_effect_5_2
+  - first:
+      213: 1489107849465193030
+    second: apple_effect_5_3
+  - first:
+      213: 1864553306832563141
+    second: apple_effect_5_4
+  - first:
+      213: 1218932662685787686
+    second: apple_effect_5_5
+  - first:
+      213: -819359414330097977
+    second: apple_effect_5_6
+  - first:
+      213: -2264439222642841261
+    second: apple_effect_5_7
+  - first:
+      213: 8434717395528925717
+    second: apple_effect_5_8
+  - first:
+      213: 2736953332300853352
+    second: apple_effect_5_9
+  - first:
+      213: -975200814381048352
+    second: apple_effect_5_10
+  - first:
+      213: -1798922032484717218
+    second: apple_effect_5_11
+  - first:
+      213: -3051343002806864035
+    second: apple_effect_5_12
+  - first:
+      213: -5008698293940857562
+    second: apple_effect_5_13
+  - first:
+      213: 2237313724219224327
+    second: apple_effect_5_14
+  - first:
+      213: -2186282998209348273
+    second: apple_effect_5_15
+  - first:
+      213: 6963687538678167576
+    second: apple_effect_5_16
+  - first:
+      213: 1533737634895924786
+    second: apple_effect_5_17
+  - first:
+      213: 6979048608647743008
+    second: apple_effect_5_18
+  - first:
+      213: 1520308494934927194
+    second: apple_effect_5_19
+  - first:
+      213: 6455561606743911382
+    second: apple_effect_5_20
+  - first:
+      213: 8369910111329847988
+    second: apple_effect_5_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: apple_effect_5_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 45
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 384bf442ad3883c70800000000000000
+      internalID: 8951049232334173315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 68
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a3156469e3fc2130800000000000000
+      internalID: 3543475190571013026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 76
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0f9d811e01e30fa0800000000000000
+      internalID: -5835573241601745141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_3
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 85
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6426e9f03bf5aa410800000000000000
+      internalID: 1489107849465193030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_4
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 73
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cbe88e8a5930e910800000000000000
+      internalID: 1864553306832563141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_5
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 72
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 626e18c6cc48ae010800000000000000
+      internalID: 1218932662685787686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_6
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 43
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ce7b7d24fc01a4f0800000000000000
+      internalID: -819359414330097977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_7
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 63
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35969e646881390e0800000000000000
+      internalID: -2264439222642841261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_8
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 55
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5124f4d38c22e0570800000000000000
+      internalID: 8434717395528925717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_9
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 62
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8603d920e8c9bf520800000000000000
+      internalID: 2736953332300853352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_10
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 61
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed5522b6046772f0800000000000000
+      internalID: -975200814381048352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_11
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 48
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5def1b41f1f807e0800000000000000
+      internalID: -1798922032484717218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_12
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 50
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57b2d5a4b377a5d0800000000000000
+      internalID: -3051343002806864035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_13
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 44
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 625dc8a50778d7ab0800000000000000
+      internalID: -5008698293940857562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_14
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 49
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70171377af88c0f10800000000000000
+      internalID: 2237313724219224327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_15
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 49
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4d71415233c8a1e0800000000000000
+      internalID: -2186282998209348273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_16
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 23
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 818f9b5dbecf3a060800000000000000
+      internalID: 6963687538678167576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_17
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 17
+        width: 25
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23e8e9ab04ee84510800000000000000
+      internalID: 1533737634895924786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_18
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 34
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02602a4abbf8ad060800000000000000
+      internalID: 6979048608647743008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_19
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 23
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a57ea9d6588391510800000000000000
+      internalID: 1520308494934927194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_20
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 20
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dbee9b0413c69950800000000000000
+      internalID: 6455561606743911382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple_effect_5_21
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 22
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ba04cb86e4e72470800000000000000
+      internalID: 8369910111329847988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      apple_effect_5_0: 8951049232334173315
+      apple_effect_5_1: 3543475190571013026
+      apple_effect_5_10: -975200814381048352
+      apple_effect_5_11: -1798922032484717218
+      apple_effect_5_12: -3051343002806864035
+      apple_effect_5_13: -5008698293940857562
+      apple_effect_5_14: 2237313724219224327
+      apple_effect_5_15: -2186282998209348273
+      apple_effect_5_16: 6963687538678167576
+      apple_effect_5_17: 1533737634895924786
+      apple_effect_5_18: 6979048608647743008
+      apple_effect_5_19: 1520308494934927194
+      apple_effect_5_2: -5835573241601745141
+      apple_effect_5_20: 6455561606743911382
+      apple_effect_5_21: 8369910111329847988
+      apple_effect_5_3: 1489107849465193030
+      apple_effect_5_4: 1864553306832563141
+      apple_effect_5_5: 1218932662685787686
+      apple_effect_5_6: -819359414330097977
+      apple_effect_5_7: -2264439222642841261
+      apple_effect_5_8: 8434717395528925717
+      apple_effect_5_9: 2736953332300853352
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
