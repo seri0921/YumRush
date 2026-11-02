@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6438841918948688205}
   - component: {fileID: 337611542278785935}
   - component: {fileID: 7256732667052693698}
+  - component: {fileID: 7325322787859890116}
   m_Layer: 0
   m_Name: ScoreItem
   m_TagString: Untagged
@@ -83,6 +84,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreItem
   config: {fileID: 11400000, guid: 9f4417b1b264995439e0ff79f75ace50, type: 2}
+--- !u!114 &7325322787859890116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994425199152664405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c62deab3727fa84c8eddadb1d92d11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreItemMagnet
+  detectRange: 3
+  initialSpeed: 12
+  acceleration: 20
+  maxSpeed: 30
 --- !u!1 &7038033186050824278
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,5 +225,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fca91629275f2e249b3367c3070eb7cc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteOutlineView

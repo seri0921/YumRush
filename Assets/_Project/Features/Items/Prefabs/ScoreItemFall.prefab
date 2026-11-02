@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 337611542278785935}
   - component: {fileID: 7256732667052693698}
   - component: {fileID: 771691042565686131}
+  - component: {fileID: -8214703681699257241}
   m_Layer: 0
   m_Name: ScoreItemFall
   m_TagString: Untagged
@@ -98,6 +99,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScoreItemFalling
   fallSpeed: 8
   maxFallDistance: 60
+--- !u!114 &-8214703681699257241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994425199152664405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c62deab3727fa84c8eddadb1d92d11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreItemMagnet
+  detectRange: 4
+  initialSpeed: 12
+  acceleration: 20
+  maxSpeed: 30
 --- !u!1 &7038033186050824278
 GameObject:
   m_ObjectHideFlags: 0
