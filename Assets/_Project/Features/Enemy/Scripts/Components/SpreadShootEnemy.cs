@@ -140,7 +140,7 @@ public sealed class SpreadShootEnemy : EnemyBase
 
         if (HP <= 0)
         {
-            if (!defeatLogic.TryDefeat())
+            if (!TryDefeat())
                 return;
             DropItem();
             hitCollider.enabled = false;

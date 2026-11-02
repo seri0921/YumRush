@@ -102,7 +102,7 @@ public sealed class ShootingEnemy : EnemyBase
 
     public override void ReceiveAttack()
     {
-        if (!defeatLogic.TryDefeat())
+        if (!TryDefeat())
             return;
         hitCollider.enabled = false;
         if (TryGetComponent<RespawnTarget>(out var respawnTarget))

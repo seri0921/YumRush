@@ -750,6 +750,7 @@ GameObject:
   - component: {fileID: 661124214725901518}
   - component: {fileID: 5412940697107092260}
   - component: {fileID: 1881735933824412521}
+  - component: {fileID: 957163592208784650}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -931,6 +932,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitStopPresenter
   _durationSeconds: 0.08
+--- !u!114 &957163592208784650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506355064604562539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9731f44f2c6552c41a1997f3ef28c300, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreGainPresenter
+  _scorePresenter: {fileID: 0}
+  _gainPrefab: {fileID: 7961025782547092969, guid: 2a7a1c149e38a0c4882fb496743c6837, type: 3}
+  _positionOffset: {x: 0, y: 1.5, z: 0}
+  _stackOffset: {x: 0.25, y: 0.8, z: 0}
 --- !u!1001 &2217208165225442936
 PrefabInstance:
   m_ObjectHideFlags: 0

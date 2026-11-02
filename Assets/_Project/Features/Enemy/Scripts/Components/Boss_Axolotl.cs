@@ -115,7 +115,7 @@ public class Boss_Axolotl : EnemyBase
 
         if (HP <= 0)
         {
-            if (!defeatLogic.TryDefeat())
+            if (!TryDefeat())
                 return;
             DropItem();
             hitCollider.enabled = false;
