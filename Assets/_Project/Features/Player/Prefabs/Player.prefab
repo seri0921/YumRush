@@ -172,7 +172,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: dfc4eab122be9d94aa718e5b7cd2e9ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -569,8 +569,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -793,6 +793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPresenter
   config: {fileID: 11400000, guid: 730eb522207cb4141a71319df3de0853, type: 2}
   playerCollider: {fileID: 8418799946129534624}
+  startCameraController: {fileID: 0}
   animationView: {fileID: 3173836140214170867}
   windEffectView: {fileID: 5412940697107092260}
   homingAttackView: {fileID: 3650304632088744768}
@@ -942,7 +943,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9731f44f2c6552c41a1997f3ef28c300, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreGainPresenter
   _scorePresenter: {fileID: 0}
   _gainPrefab: {fileID: 7961025782547092969, guid: 2a7a1c149e38a0c4882fb496743c6837, type: 3}

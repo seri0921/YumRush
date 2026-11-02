@@ -21,6 +21,8 @@ public sealed class ScoreItem : MonoBehaviour, ICollectibleItem
 
         collector.AddScore(config.Points);
         collected = true;
+        if (TryGetComponent<ItemCollectEffectView>(out var effectView))
+            effectView.Play(transform.position);
         if (TryGetComponent<RespawnTarget>(out var respawnTarget))
             respawnTarget.NotifyConsumed();
         gameObject.SetActive(false);
