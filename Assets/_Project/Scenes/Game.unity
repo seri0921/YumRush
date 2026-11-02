@@ -1562,6 +1562,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1393514353}
+    - target: {fileID: 711545004428095899, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 711545004428095899, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 711545004428095899, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 711545004428095899, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 787218903571667113, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
       propertyPath: _eventSource
       value: 
@@ -1582,9 +1598,33 @@ PrefabInstance:
       propertyPath: '_slots.Array.data[3]'
       value: 
       objectReference: {fileID: 2109584055}
+    - target: {fileID: 1118991017013185130, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118991017013185130, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2143834820221378182, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
       propertyPath: m_Name
       value: MinimapCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756914905881509058, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756914905881509058, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756914905881509058, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756914905881509058, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5539020456876155181, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
       propertyPath: m_Pivot.x
@@ -1665,6 +1705,34 @@ PrefabInstance:
     - target: {fileID: 5539020456876155181, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731563043522541177, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: edba1f04c328787429a46dfd41c009c4, type: 3}
+    - target: {fileID: 5731563043522541177, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731563043522541177, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731563043522541177, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731563043522541177, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 079d8a5bc3e3b464b8fe33731ed74763, type: 2}
+    - target: {fileID: 5976371841116832147, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 325
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976371841116832147, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 225
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

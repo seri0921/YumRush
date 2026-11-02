@@ -1,0 +1,5 @@
+# Keep Unity serialized text files consistent with the Editor's LF output.
+*.prefab text=auto eol=lf
+*.unity text=auto eol=lf
+*.asset text=auto eol=lf
+*.meta text=auto eol=lf
