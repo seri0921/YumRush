@@ -19675,6 +19675,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AppleRain
       objectReference: {fileID: 0}
+    - target: {fileID: 6923838264699678897, guid: c2e5af1c449040d459b9ea5f71da9781, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
