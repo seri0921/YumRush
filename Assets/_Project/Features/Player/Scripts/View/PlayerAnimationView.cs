@@ -91,6 +91,7 @@ public sealed class PlayerAnimationView : MonoBehaviour
             // 専用クリップが用意されるまでは空中ポーズを使用する。
             case PlayerState.Capturing:
             case PlayerState.Floating:
+            case PlayerState.GameOpening:
                 return Jump;
             case PlayerState.Freezing:
                 return Freezing;

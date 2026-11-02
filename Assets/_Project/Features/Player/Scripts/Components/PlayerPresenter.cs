@@ -12,6 +12,9 @@ public class PlayerPresenter : MonoBehaviour
     [Header("プレイヤー本体のコライダー")] [SerializeField] 
     private Collider2D playerCollider;
 
+    [Header("カメラ関連")]
+    [SerializeField] private StartCameraController startCameraController;
+
     [SerializeField] private PlayerAnimationView animationView;
     [SerializeField] private PlayerWindEffectView windEffectView;
     
@@ -77,10 +80,14 @@ public class PlayerPresenter : MonoBehaviour
         _damageReceiver = new PlayerDamageReceiver(_machine, _motor, config, _input, _homing);
     }
 
-        private void OnEnable() => _input.Enable();
-        
-        private void OnDisable()
+    private void OnEnable()
+    {
+            _input.Enable();
+            _machine.StateChanged += OnStateChanged;
+     }
+    private void OnDisable()
         {
+            _machine.StateChanged -= OnStateChanged;
             scriptedMovement?.Dispose();
             _input.Disable();
             windEffectView.Hide();
@@ -159,8 +166,20 @@ public class PlayerPresenter : MonoBehaviour
             homingReticleView.Render(showReticle, targetPosition, targetChanged, Time.deltaTime);
             reticleTarget = currentTarget;
         }
-        
-        public IDisposable LockOperation() => _input.LockOperation();
+
+    private void OnStateChanged(PlayerState previousState, PlayerState newState)
+    {
+        if (previousState == PlayerState.GameOpening)
+        {
+            if (startCameraController != null)
+            {
+                startCameraController.ReleaseStartCamera();
+            }
+        }
+    }
+
+
+    public IDisposable LockOperation() => _input.LockOperation();
 
         public ScriptedMovement BeginScriptedMovement()
         {
