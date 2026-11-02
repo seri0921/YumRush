@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss_Bat
   target: {fileID: 0}
+  _scoreConfig: {fileID: 11400000, guid: fc026dc76a1c4eeca65ac5da5f14ecf7, type: 2}
+  _scorePresenter: {fileID: 0}
   dropItemPrefab: {fileID: 7256732667052693698, guid: 37c71ae2e0ffab44b8ea60c780cfa9af, type: 3}
   HP: 2
   maxHP: 3

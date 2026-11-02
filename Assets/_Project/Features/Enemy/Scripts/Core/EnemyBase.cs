@@ -13,6 +13,9 @@ public abstract class EnemyBase : MonoBehaviour, IEnemy
     [Header("ÉhÉçÉbÉv")]
     [SerializeField] private ScoreItem dropItemPrefab;
 
+    [SerializeField] private EnemyScoreConfig _scoreConfig;
+    [SerializeField] private ScorePresenter _scorePresenter;
+
     protected readonly EnemyDefeatLogic defeatLogic = new EnemyDefeatLogic();
     protected readonly EnemyFireLogic fireLogic = new EnemyFireLogic();
 
@@ -26,6 +29,13 @@ public abstract class EnemyBase : MonoBehaviour, IEnemy
         hitCollider = GetComponent<Collider2D>();
         if (target == null)
             target = FindFirstObjectByType<PlayerPresenter>();
+
+        if (_scoreConfig == null)
+            throw new InvalidOperationException($"{name} requires an EnemyScoreConfig.");
+        if (_scorePresenter == null)
+            _scorePresenter = FindFirstObjectByType<ScorePresenter>();
+        if (_scorePresenter == null)
+            throw new InvalidOperationException($"{name} requires a ScorePresenter in the scene.");
 
         OnInitialize();
     }
@@ -51,6 +61,15 @@ public abstract class EnemyBase : MonoBehaviour, IEnemy
         if (!HasTarget) return Vector2.down;
         Vector2 displacement = (Vector2)target.transform.position - origin;
         return displacement.sqrMagnitude > 0f ? displacement.normalized : Vector2.down;
+    }
+
+    protected bool TryDefeat()
+    {
+        if (!defeatLogic.TryDefeat())
+            return false;
+
+        _scorePresenter.Add(_scoreConfig.Points);
+        return true;
     }
 
     protected void DropItem()
