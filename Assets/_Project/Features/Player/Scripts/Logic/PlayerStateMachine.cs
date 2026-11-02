@@ -15,7 +15,8 @@ public enum PlayerState
     Hit,
     HomingWindup,
     AirCurrent,
-    Freezing
+    Freezing,
+    GameOpening
 }
 
 public interface IPlayerState
@@ -69,8 +70,8 @@ public sealed class PlayerStateMachine
             new IceGroundedState(this), new AirborneState(this), new CapturingState(this, wind),
             new FloatingState(this, wind), new WindJumpState(this, wind), new GlidingState(this, glide),
             new AirDashingState(this, dash), new HomingState(this), new HitState(this, hit),
-            new HomingWindupState(this), new AirCurrentState(this), new FreezingState(this, freezing) };
-        Current = states[(int)PlayerState.Airborne];
+            new HomingWindupState(this), new AirCurrentState(this), new FreezingState(this, freezing), new GameOpeningState(this) };
+        Current = states[(int)PlayerState.GameOpening];
         Current.Enter();
     }
 
@@ -164,7 +165,7 @@ public sealed class PlayerStateMachine
         if (!IsActionLocked && State != PlayerState.Capturing && State != PlayerState.Floating &&
             (frame.Input.JumpQueued && !result.JumpConsumed) && frame.Homing.HasHomingTarget)
             ChangeState(PlayerState.HomingWindup);
-        else if ((State == PlayerState.Airborne || IsGliding) && !frame.Body.Grounded &&
+        else if ((State == PlayerState.Airborne || IsGliding || State == PlayerState.GameOpening) && !frame.Body.Grounded &&
                  !frame.Wind.HasWind && (frame.Input.DashQueued && !result.DashConsumed) && dash.TryStart(true, settings.Dash.AirDashDuration))
         {
             float lengthSquared = frame.Input.HorizontalInput * frame.Input.HorizontalInput + frame.Input.VerticalInput * frame.Input.VerticalInput;
@@ -667,3 +668,19 @@ public sealed class FreezingState : PlayerStateBase
     }
 }
 
+public sealed class GameOpeningState : PlayerStateBase
+{
+    public override PlayerState Id => PlayerState.GameOpening;
+
+    public GameOpeningState(PlayerStateMachine machine) : base(machine)
+    {
+    }
+
+    public override void Tick(in PlayerFrame frame, in PlayerSettings settings, ref PlayerStepResult result)
+    {
+        // エアダッシュが発動するまで空中固定
+        result.SuppressGravity = true;
+        result.VelocityX = 0f;
+        result.VelocityY = 0f;
+    }
+}
