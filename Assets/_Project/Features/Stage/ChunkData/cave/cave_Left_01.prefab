@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 2725855945031592515}
   - component: {fileID: 7548867134786124521}
   m_Layer: 0
-  m_Name: Chunk_20261101_152257
+  m_Name: cave_Left_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
