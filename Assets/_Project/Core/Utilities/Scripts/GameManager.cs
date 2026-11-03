@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [DisallowMultipleComponent]
 public sealed class GameManager : MonoBehaviour
 {
     [SerializeField, Min(0.01f)] private float timeLimitSeconds = 180f;
+    [SerializeField] private ScorePresenter scorePresenter;
     private readonly GameSessionLogic session = new GameSessionLogic();
 
     public GameStatus Status => session.Status;
@@ -36,8 +38,16 @@ public sealed class GameManager : MonoBehaviour
     private void HandleGameOver()
     {
         Debug.Log("Game over: time limit reached.", this);
+        // Only scenes wired for results should leave the current scene.
+        if (scorePresenter == null)
+        {
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPlaying = false;
 #endif
+            return;
+        }
+
+        ResultScorePresenter.FinalScore = scorePresenter.Current;
+        SceneManager.LoadScene("Assets/_Project/Scenes/Result.unity");
     }
 }
