@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6724054484504891293}
   - component: {fileID: 4818155497191382917}
   - component: {fileID: 7168160135135837420}
+  - component: {fileID: 5764821393382946211}
+  - component: {fileID: 5764821393382946212}
   m_Layer: 0
   m_Name: EventManager
   m_TagString: Untagged
@@ -59,10 +61,48 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a32d5b48ef74409bb17fc14bc72076c3, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageEventSoundView
   _eventSource: {fileID: 4818155497191382917}
   _warningClip: {fileID: 8300000, guid: 70c094cfd70b2d04d9c0e49fc2470c03, type: 3}
+--- !u!114 &5764821393382946211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799271295777679224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72490569bba24ccca7b9ae8778a3bc05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventDirectionUIPresenter
+  _eventSource: {fileID: 4818155497191382917}
+  _view: {fileID: 5764821393382946212}
+  _displaySeconds: 5
+--- !u!114 &5764821393382946212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799271295777679224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38278b7f26049aea57aa603e11a99f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventDirectionUIView
+  _arrowSprite: {fileID: 21300000, guid: 20f7ecc5e13c464d96017bf12e8d805e, type: 3}
+  _bonusSprite: {fileID: 21300000, guid: fe2954f664d14a3eb39a09c8ac747534, type: 3}
+  _bossSprite: {fileID: 21300000, guid: 8964967ace7d4eec8b996d21b4f8b85f, type: 3}
+  _itemRainSprite: {fileID: 21300000, guid: a77033afb0f7460585eca6ed5c0523d9, type: 3}
+  _arrowColor: {r: 1, g: 1, b: 1, a: 1}
+  _eventColor: {r: 1, g: 1, b: 1, a: 1}
+  _arrowSize: 32
+  _eventSize: 42
+  _iconGap: 3
+  _distance: 90
+  _blinkPeriod: 0.7
 --- !u!1 &3603423547795615306
 GameObject:
   m_ObjectHideFlags: 0
