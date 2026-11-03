@@ -6,6 +6,9 @@ using UnityEngine;
 public sealed class StageEventPresenter : MonoBehaviour
 {
     public event Action<BiomeSlot> EventStarted;
+    public event Action<StageEventType, BiomeSlot> EventDirectionStarted;
+
+    public Transform Player => _player;
 
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private Transform _player;
@@ -149,6 +152,7 @@ public sealed class StageEventPresenter : MonoBehaviour
         _activeChunks[eventIndex] = chunk;
         chunk.Begin();
         EventStarted?.Invoke(_slots[location]);
+        EventDirectionStarted?.Invoke(chunk.Type, _slots[location]);
     }
 
     private void HandleEnded(int eventIndex, int location)
