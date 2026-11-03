@@ -11,6 +11,7 @@ public sealed class PlayerHomingAttackView : MonoBehaviour
     [SerializeField, Min(0.01f)] private float thickness = 1f;
     private static readonly int Attack = Animator.StringToHash("Base Layer.Attack");
     private bool playing;
+    public event Action AnimationStarted;
 
     public bool IsComplete => playing &&
         attackAnimator.GetCurrentAnimatorStateInfo(0).fullPathHash == Attack &&
@@ -51,6 +52,7 @@ public sealed class PlayerHomingAttackView : MonoBehaviour
         attackAnimator.Play(Attack, 0, 0f);
         attackAnimator.Update(0f);
         playing = true;
+        AnimationStarted?.Invoke();
     }
 
     public void Hide()

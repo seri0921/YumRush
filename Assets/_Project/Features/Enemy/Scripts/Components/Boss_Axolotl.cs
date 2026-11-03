@@ -34,6 +34,7 @@ public class Boss_Axolotl : EnemyBase
     private Vector3 initialPosition;
     private bool hasBarrier = true;
     private bool isBreaking;
+    public event System.Action BarrierBroken;
     private bool isCool;
 
     protected override void OnInitialize()
@@ -89,6 +90,7 @@ public class Boss_Axolotl : EnemyBase
             Vector2 direction = GetDirectionToTarget(origin);
             EnemyBullet projectile = Instantiate(projectilePrefab, origin, Quaternion.identity);
             projectile.Launch(direction, projectileSpeed);
+            NotifyAttackFired();
         }
 
         animationView.Render(hasBarrier, isBreaking);
@@ -105,6 +107,7 @@ public class Boss_Axolotl : EnemyBase
         {
             hasBarrier = false;
             isBreaking = true;
+            BarrierBroken?.Invoke();
             return;
         }
 

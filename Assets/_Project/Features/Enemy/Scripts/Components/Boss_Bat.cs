@@ -39,6 +39,8 @@ public class Boss_Bat : EnemyBase
     private bool isAttackPaused;
     private bool isCool;
 
+    public event System.Action WingsOpened;
+
     protected override void OnInitialize()
     {
         HP = maxHP;
@@ -57,6 +59,7 @@ public class Boss_Bat : EnemyBase
             }
         }
 
+        bool wasProtect = currentState == BossState.Protect;
         if (stateTimerLogic.Tick(Time.deltaTime, 0f, 1f, stateInterval))
         {
             currentState = (currentState == BossState.Normal) ? BossState.Protect : BossState.Normal;
@@ -80,11 +83,14 @@ public class Boss_Bat : EnemyBase
                 Vector2 direction = GetDirectionToTarget(origin);
                 EnemyBullet projectile = Instantiate(projectilePrefab, origin, Quaternion.identity);
                 projectile.Launch(direction, projectileSpeed);
+                NotifyAttackFired();
             }
         }
 
         bool isProtect = currentState == BossState.Protect;
         animationView.Render(isProtect, !isAttackPaused);
+        if (wasProtect && !isProtect)
+            WingsOpened?.Invoke();
     }
     public override void ReceiveAttack() 
     {

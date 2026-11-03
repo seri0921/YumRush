@@ -126,12 +126,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b30401d362c7fb4895bc703c88d101c, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::Owl_Animation
   animator: {fileID: 7596971269754337173}
   spriteRenderer: {fileID: 5680394471013958172}
   idleStateName: Penguin_Idle
   attackStateName: Penguin_Idle
+--- !u!114 &443921091415718806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6246840742635398398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca91629275f2e249b3367c3070eb7cc, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteOutlineView
 --- !u!1 &7619958432364079944
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +156,9 @@ GameObject:
   - component: {fileID: 451674134805628752}
   - component: {fileID: 3363716252921001154}
   - component: {fileID: 2246765255341613418}
+  - component: {fileID: 1706756825743337880}
+  - component: {fileID: 4266492174295975712}
+  - component: {fileID: 7352952910237563833}
   m_Layer: 0
   m_Name: Boss_Penguin
   m_TagString: Untagged
@@ -241,12 +256,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 419633fb33dea9e4391ebff3a4da8ccf, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::Boss_Owl
   target: {fileID: 0}
+  dropItemPrefab: {fileID: 7256732667052693698, guid: 37c71ae2e0ffab44b8ea60c780cfa9af, type: 3}
   _scoreConfig: {fileID: 11400000, guid: fc026dc76a1c4eeca65ac5da5f14ecf7, type: 2}
   _scorePresenter: {fileID: 0}
-  dropItemPrefab: {fileID: 7256732667052693698, guid: 37c71ae2e0ffab44b8ea60c780cfa9af, type: 3}
   HP: 3
   coolDownDuration: 1
   detectionRange: 15
@@ -263,15 +278,133 @@ MonoBehaviour:
   muzzleOffset: {x: 0, y: 0}
   moveSpeed: 0
   moveWidth: 0
---- !u!114 &443921091415718806
+--- !u!114 &1706756825743337880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6246840742635398398}
+  m_GameObject: {fileID: 7619958432364079944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca91629275f2e249b3367c3070eb7cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 67f7903e95bffcd459e0e976edb5d03f, type: 3}
   m_Name:
-  m_EditorClassIdentifier: Assembly-CSharp::SpriteOutlineView
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySoundView
+  _death:
+    _clip: {fileID: 8300000, guid: 5f32500f68704d940813158abad4f64c, type: 3}
+    _volume: 1
+  _attack:
+    _clip: {fileID: 8300000, guid: 3dca2b2f7dbd7984e943333dce5db81b, type: 3}
+    _volume: 1
+  _attackSource: {fileID: 7352952910237563833}
+--- !u!114 &4266492174295975712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7619958432364079944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f78b24f58d2064dafc2b7566a5974e, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySoundPresenter
+  _enemy: {fileID: 2246765255341613418}
+  _view: {fileID: 1706756825743337880}
+--- !u!82 &7352952910237563833
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7619958432364079944}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

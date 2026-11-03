@@ -91,6 +91,7 @@ public sealed class ShootingEnemy : EnemyBase
         {
             EnemyBullet projectile = Instantiate(projectilePrefab, origin, Quaternion.identity);
             projectile.Launch(direction, projectileSpeed);
+            NotifyAttackFired();
         }
 
         animationView.Render(new ShooterAnimationState(

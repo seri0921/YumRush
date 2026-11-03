@@ -22,6 +22,8 @@ public abstract class EnemyBase : MonoBehaviour, IEnemy
     protected Collider2D hitCollider;
     public int HP = 0;
     public bool IsDefeated => defeatLogic.IsDefeated;
+    public event Action Defeated;
+    public event Action AttackFired;
     protected bool HasTarget => target != null;
     protected Vector3 TargetPosition => HasTarget ? target.transform.position : Vector3.zero;
     protected virtual void Awake()
@@ -63,12 +65,15 @@ public abstract class EnemyBase : MonoBehaviour, IEnemy
         return displacement.sqrMagnitude > 0f ? displacement.normalized : Vector2.down;
     }
 
+    protected void NotifyAttackFired() => AttackFired?.Invoke();
+
     protected bool TryDefeat()
     {
         if (!defeatLogic.TryDefeat())
             return false;
 
         _scorePresenter.Add(_scoreConfig.Points);
+        Defeated?.Invoke();
         return true;
     }
 

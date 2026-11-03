@@ -160,6 +160,7 @@ public sealed class SpreadShootEnemy : EnemyBase
 
         EnemyBullet projectile = Instantiate(projectilePrefab, origin, Quaternion.identity);
         projectile.Launch(shotDirection, speed);
+        NotifyAttackFired();
     }
 
     private void SetCoolingDown(bool setCool)

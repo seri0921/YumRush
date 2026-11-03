@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -7,6 +8,8 @@ public sealed class HomingReticleView : MonoBehaviour
     [SerializeField] private SpriteRenderer reticleRenderer;
     [SerializeField, Min(1f)] private float acquireScaleMultiplier = 2.5f;
     [SerializeField, Min(0.01f)] private float acquireDuration = 0.12f;
+
+    public event Action Acquired;
 
     private Vector3 normalScale;
     private float acquireElapsed;
@@ -31,7 +34,8 @@ public sealed class HomingReticleView : MonoBehaviour
 
         Transform image = reticleRenderer.transform;
         image.position = new Vector3(targetPosition.x, targetPosition.y, image.position.z);
-        if (targetChanged || !image.gameObject.activeSelf || !reticleRenderer.enabled)
+        bool acquired = targetChanged || !image.gameObject.activeSelf || !reticleRenderer.enabled;
+        if (acquired)
             acquireElapsed = 0f;
         else
             acquireElapsed = Mathf.Min(acquireElapsed + deltaTime, acquireDuration);
@@ -43,6 +47,8 @@ public sealed class HomingReticleView : MonoBehaviour
         reticleRenderer.enabled = true;
         if (!image.gameObject.activeSelf)
             image.gameObject.SetActive(true);
+        if (acquired)
+            Acquired?.Invoke();
     }
 
     public void Hide()

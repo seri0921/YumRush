@@ -285,6 +285,7 @@ public sealed class GroundedState : PlayerStateBase
             }
 
             result.VelocityY = baseJumpSpeed;
+            result.GroundJumpStarted = true;
             Machine.ChangeState(PlayerState.Airborne);
         }
     }
@@ -334,6 +335,7 @@ public sealed class IceGroundedState : PlayerStateBase
             }
 
             result.VelocityY = baseJumpSpeed;
+            result.GroundJumpStarted = true;
             result.JumpConsumed = true;
             Machine.ChangeState(PlayerState.Airborne);
         }

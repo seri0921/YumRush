@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 7307878238641449174}
   - component: {fileID: 3938666258967950834}
   - component: {fileID: 406556756141307917}
+  - component: {fileID: 8814791587418098629}
+  - component: {fileID: 5850343492845617626}
+  - component: {fileID: 5045925088920987331}
   m_Layer: 0
   m_Name: Minor_Penguin
   m_TagString: Untagged
@@ -44,9 +47,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a4d38c2dac6cdb45a7db74840f91304, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::ShootingEnemy
   target: {fileID: 0}
+  dropItemPrefab: {fileID: 0}
   _scoreConfig: {fileID: 11400000, guid: 1a4fbc24173f44b0ad191ea93eb1fc0e, type: 2}
   _scorePresenter: {fileID: 0}
   HP: 0
@@ -95,6 +99,136 @@ CapsuleCollider2D:
   m_Offset: {x: -0.01960373, y: 0.06371689}
   m_Size: {x: 2.2448654, y: 3.0388794}
   m_Direction: 0
+--- !u!114 &8814791587418098629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276751778287283865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f7903e95bffcd459e0e976edb5d03f, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySoundView
+  _death:
+    _clip: {fileID: 8300000, guid: 5f32500f68704d940813158abad4f64c, type: 3}
+    _volume: 1
+  _attack:
+    _clip: {fileID: 8300000, guid: 3dca2b2f7dbd7984e943333dce5db81b, type: 3}
+    _volume: 1
+  _attackSource: {fileID: 5045925088920987331}
+--- !u!114 &5850343492845617626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276751778287283865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f78b24f58d2064dafc2b7566a5974e, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySoundPresenter
+  _enemy: {fileID: 3938666258967950834}
+  _view: {fileID: 8814791587418098629}
+--- !u!82 &5045925088920987331
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276751778287283865}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5129392147457378697
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +355,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efce493a1c6689749a2924e1a7890c51, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::MinorEnemy_Animation
   animator: {fileID: 2341254383728011186}
   spriteRenderer: {fileID: 6706484874620506456}
