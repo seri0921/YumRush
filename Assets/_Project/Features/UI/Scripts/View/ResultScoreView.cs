@@ -1,0 +1,110 @@
+using System.Globalization;
+using DG.Tweening;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public sealed class ResultScoreView : MonoBehaviour
+{
+    [SerializeField, Min(0.01f)] private float _digitDuration = 0.25f;
+    [SerializeField, Min(1)] private int _digitChanges = 10;
+
+    private Sequence _sequence;
+    [SerializeField] private TMP_Text _scoreLabel;
+    [SerializeField] private RectTransform _apple;
+    [SerializeField, Min(0f)] private float _minimumAppleScale = 0.6f;
+    [SerializeField, Min(0f)] private float _maximumAppleScale = 1f;
+    [SerializeField] private int _minimumAppleScore = 500;
+    [SerializeField] private int _maximumAppleScore = 2000;
+    [SerializeField] private Image _characterImage;
+    [SerializeField] private Sprite _sadFace;
+    [SerializeField] private Sprite _normalFace;
+    [SerializeField] private Sprite _happyFace;
+    [SerializeField] private int _maximumSadScore = 500;
+    [SerializeField] private int _minimumHappyScore = 2000;
+    private Vector2 _baseAppleSize;
+    private Vector2 _finalAppleSize;
+    private int _finalScore;
+    private string _score;
+    private char[] _digits;
+
+    public bool IsComplete { get; private set; }
+
+    private void Awake() => _baseAppleSize = _apple.sizeDelta;
+
+    public void Play(int score)
+    {
+        _finalScore = score;
+        _score = score.ToString(CultureInfo.InvariantCulture);
+        _digits = _score.ToCharArray();
+        int firstDigit = _score[0] == '-' ? 1 : 0;
+        for (int index = firstDigit; index < _digits.Length; index++)
+            _digits[index] = '0';
+
+        RenderDigits();
+        _apple.sizeDelta = _baseAppleSize * _minimumAppleScale;
+        float finalAppleScale = Mathf.Lerp(_minimumAppleScale, _maximumAppleScale,
+            Mathf.InverseLerp(_minimumAppleScore, _maximumAppleScore, score));
+        _finalAppleSize = _baseAppleSize * finalAppleScale;
+        int startScore = Mathf.Min(score, _minimumAppleScore);
+        int growthTargetScore = Mathf.Min(score, _maximumAppleScore);
+        ShowExpression(startScore);
+
+        _sequence = DOTween.Sequence().SetUpdate(true);
+        for (int index = _digits.Length - 1; index >= firstDigit; index--)
+        {
+            int digitIndex = index;
+            _sequence.Append(DOVirtual.Int(0, _digitChanges, _digitDuration, step =>
+            {
+                _digits[digitIndex] = (char)('0' + (step + digitIndex) % 10);
+                RenderDigits();
+            }).SetEase(Ease.Linear));
+            _sequence.AppendCallback(() =>
+            {
+                _digits[digitIndex] = _score[digitIndex];
+                RenderDigits();
+            });
+        }
+
+        if (_finalAppleSize != _apple.sizeDelta)
+        {
+            float duration = _sequence.Duration();
+            Tweener growth = _apple.DOSizeDelta(_finalAppleSize, duration).SetEase(Ease.Linear);
+            growth.OnUpdate(() => ShowExpression(Mathf.Lerp(startScore, growthTargetScore,
+                growth.ElapsedPercentage())));
+            _sequence.Insert(0f, growth);
+        }
+
+        _sequence.OnComplete(ShowFinalScore);
+    }
+
+    public void Complete()
+    {
+        _sequence.Kill();
+        ShowFinalScore();
+    }
+
+    private void ShowFinalScore()
+    {
+        IsComplete = true;
+        _scoreLabel.text = _score;
+        _apple.sizeDelta = _finalAppleSize;
+        ShowExpression(_finalScore);
+    }
+
+    private void ShowExpression(float score)
+    {
+        Sprite expression = _normalFace;
+        if (score <= _maximumSadScore)
+            expression = _sadFace;
+        else if (score >= _minimumHappyScore)
+            expression = _happyFace;
+
+        if (_characterImage.sprite != expression)
+            _characterImage.sprite = expression;
+    }
+
+    private void RenderDigits() => _scoreLabel.text = new string(_digits);
+
+    private void OnDestroy() => _sequence?.Kill();
+}
