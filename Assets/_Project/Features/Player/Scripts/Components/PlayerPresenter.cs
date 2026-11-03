@@ -53,9 +53,12 @@ public class PlayerPresenter : MonoBehaviour
     public Vector2 FlightVelocity => _motor.Velocity;
     public float Altitude => _motor.Position.y;
     public float GlideMaximumSpeed => config.GlideMaximumSpeed;
+    public bool IsScriptedMovement => _motor.IsScriptedMovement;
 
     public event Action AttackEffectPlayed;
     public event Action DamageReceived;
+    public event Action GroundJumpStarted;
+    public event Action<PlayerState, PlayerState> StateChanged;
     
     
     private void Awake()
@@ -128,6 +131,8 @@ public class PlayerPresenter : MonoBehaviour
             frame.Homing.WindupComplete = homingAttackView.IsComplete;
             PlayerSettings settings = _frames.SampleSettings();
             PlayerStepResult result = _machine.Tick(frame, settings);
+            if (result.GroundJumpStarted)
+                GroundJumpStarted?.Invoke();
             // 攻撃適用で対象が破棄される前に、その位置で準備完了の演出を再生する。
             if (result.HomingWindupCompleted && _homing.TryGetTargetPosition(out Vector2 effectPosition))
             {
@@ -169,6 +174,7 @@ public class PlayerPresenter : MonoBehaviour
 
     private void OnStateChanged(PlayerState previousState, PlayerState newState)
     {
+        StateChanged?.Invoke(previousState, newState);
         if (previousState == PlayerState.GameOpening)
         {
             if (startCameraController != null)

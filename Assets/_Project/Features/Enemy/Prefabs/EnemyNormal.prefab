@@ -126,12 +126,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e705c8571bc9ef54b9aed158ebb1ba82, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::MinorBat_Animation
   animator: {fileID: 5084910205608999851}
   spriteRenderer: {fileID: 8941262978420540663}
   StateIdle: MinorBat_Idle
   StateFly: MinorBat_Fly
+--- !u!114 &8937148864279870842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078473170009667109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca91629275f2e249b3367c3070eb7cc, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteOutlineView
 --- !u!1 &9142794752739895050
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +155,9 @@ GameObject:
   - component: {fileID: 7785953181313845840}
   - component: {fileID: 6431499606958837572}
   - component: {fileID: 5854319538623926708}
+  - component: {fileID: 7505200735896532392}
+  - component: {fileID: 9104306662332776886}
+  - component: {fileID: 6897164746025877514}
   m_Layer: 0
   m_Name: EnemyNormal
   m_TagString: Untagged
@@ -222,9 +237,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a4d38c2dac6cdb45a7db74840f91304, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::ShootingEnemy
   target: {fileID: 0}
+  dropItemPrefab: {fileID: 0}
   _scoreConfig: {fileID: 11400000, guid: 1a4fbc24173f44b0ad191ea93eb1fc0e, type: 2}
   _scorePresenter: {fileID: 0}
   HP: 0
@@ -236,15 +252,133 @@ MonoBehaviour:
   fireInterval: 1.5
   projectileSpeed: 8
   muzzleOffset: {x: 0, y: 0}
---- !u!114 &8937148864279870842
+--- !u!114 &7505200735896532392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078473170009667109}
+  m_GameObject: {fileID: 9142794752739895050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca91629275f2e249b3367c3070eb7cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 67f7903e95bffcd459e0e976edb5d03f, type: 3}
   m_Name:
-  m_EditorClassIdentifier: Assembly-CSharp::SpriteOutlineView
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySoundView
+  _death:
+    _clip: {fileID: 8300000, guid: 5f32500f68704d940813158abad4f64c, type: 3}
+    _volume: 1
+  _attack:
+    _clip: {fileID: 8300000, guid: e8db6780ae1ead140a65bbf360ba3923, type: 3}
+    _volume: 1
+  _attackSource: {fileID: 6897164746025877514}
+--- !u!114 &9104306662332776886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9142794752739895050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f78b24f58d2064dafc2b7566a5974e, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySoundPresenter
+  _enemy: {fileID: 5854319538623926708}
+  _view: {fileID: 7505200735896532392}
+--- !u!82 &6897164746025877514
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9142794752739895050}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
