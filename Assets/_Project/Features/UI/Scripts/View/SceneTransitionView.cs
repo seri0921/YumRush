@@ -12,8 +12,8 @@ public sealed class SceneTransitionView : MonoBehaviour
 
     public void Hide() => visibility.alpha = 0f;
 
-    public IEnumerator Close() => Animate(true, closeSeconds);
-    public IEnumerator Open() => Animate(false, openSeconds);
+    public IEnumerator Close(System.Action<float> reportProgress) => Animate(true, closeSeconds, reportProgress);
+    public IEnumerator Open(System.Action<float> reportProgress) => Animate(false, openSeconds, reportProgress);
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public sealed class SceneTransitionView : MonoBehaviour
                 throw new System.InvalidOperationException("Transition contains an unassigned mouth frame.");
     }
 
-    private IEnumerator Animate(bool closing, float duration)
+    private IEnumerator Animate(bool closing, float duration, System.Action<float> reportProgress)
     {
         visibility.alpha = 1f;
         float elapsed = 0f;
@@ -36,12 +36,14 @@ public sealed class SceneTransitionView : MonoBehaviour
             int frameIndex = Mathf.Min(Mathf.FloorToInt(closedAmount * frames.Length), frames.Length - 1);
             mouth.sprite = frames[frameIndex];
             mouth.color = new Color(1f, 1f, 1f, Mathf.Min(closedAmount * frames.Length, 1f));
+            reportProgress(progress);
             yield return null;
             // Do not count the previous scene-loading frame as animation playback.
             elapsed += Time.unscaledDeltaTime;
         }
         mouth.sprite = frames[closing ? frames.Length - 1 : 0];
         mouth.color = closing ? Color.white : new Color(1f, 1f, 1f, 0f);
+        reportProgress(1f);
         if (!closing)
             Hide();
     }
