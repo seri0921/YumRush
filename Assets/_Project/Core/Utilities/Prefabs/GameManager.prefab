@@ -98,10 +98,10 @@ MonoBehaviour:
   _itemRainSprite: {fileID: -916965149692135683, guid: a77033afb0f7460585eca6ed5c0523d9, type: 3}
   _arrowColor: {r: 1, g: 1, b: 1, a: 1}
   _eventColor: {r: 1, g: 1, b: 1, a: 1}
-  _arrowSize: 32
-  _eventSize: 42
+  _arrowSize: 80
+  _eventSize: 80
   _iconGap: 3
-  _distance: 90
+  _distance: 200
   _blinkPeriod: 0.7
 --- !u!1 &3603423547795615306
 GameObject:
