@@ -2245,6 +2245,10 @@ PrefabInstance:
       propertyPath: scorePresenter
       value: 
       objectReference: {fileID: 1957698516}
+    - target: {fileID: 3060957430579109739, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
+      propertyPath: timeLimitSeconds
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3603423547795615306, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
       propertyPath: m_Name
       value: GameManager

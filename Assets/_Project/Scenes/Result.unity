@@ -418,6 +418,8 @@ MonoBehaviour:
   _digitDuration: 1
   _digitChanges: 20
   _scoreLabel: {fileID: 368846134}
+  _minimumScoreScale: 1
+  _maximumScoreScale: 2
   _apple: {fileID: 1183079140}
   _minimumAppleScale: 1
   _maximumAppleScale: 3
@@ -566,6 +568,31 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1001 &900000001
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1949321488, guid: 3e4f0f07d828b4ed4f54e20dc98c7e9e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949321488, guid: 3e4f0f07d828b4ed4f54e20dc98c7e9e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949321488, guid: 3e4f0f07d828b4ed4f54e20dc98c7e9e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3e4f0f07d828b4ed4f54e20dc98c7e9e, type: 3}
 --- !u!1 &1181766072
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,19 +936,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989983780}
   m_CullTransparentMesh: 1
---- !u!1001 &900000001
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3e4f0f07d828b4ed4f54e20dc98c7e9e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

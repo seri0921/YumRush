@@ -11,6 +11,8 @@ public sealed class ResultScoreView : MonoBehaviour
 
     private Sequence _sequence;
     [SerializeField] private TMP_Text _scoreLabel;
+    [SerializeField, Min(0f)] private float _minimumScoreScale = 1f;
+    [SerializeField, Min(0f)] private float _maximumScoreScale = 1.5f;
     [SerializeField] private RectTransform _apple;
     [SerializeField, Min(0f)] private float _minimumAppleScale = 0.6f;
     [SerializeField, Min(0f)] private float _maximumAppleScale = 1f;
@@ -24,13 +26,19 @@ public sealed class ResultScoreView : MonoBehaviour
     [SerializeField] private int _minimumHappyScore = 2000;
     private Vector2 _baseAppleSize;
     private Vector2 _finalAppleSize;
+    private Vector3 _baseScoreScale;
+    private Vector3 _finalScoreScale;
     private int _finalScore;
     private string _score;
     private char[] _digits;
 
     public bool IsComplete { get; private set; }
 
-    private void Awake() => _baseAppleSize = _apple.sizeDelta;
+    private void Awake()
+    {
+        _baseAppleSize = _apple.sizeDelta;
+        _baseScoreScale = _scoreLabel.rectTransform.localScale;
+    }
 
     public void Play(int score)
     {
@@ -43,9 +51,11 @@ public sealed class ResultScoreView : MonoBehaviour
 
         RenderDigits();
         _apple.sizeDelta = _baseAppleSize * _minimumAppleScale;
-        float finalAppleScale = Mathf.Lerp(_minimumAppleScale, _maximumAppleScale,
-            Mathf.InverseLerp(_minimumAppleScore, _maximumAppleScore, score));
+        _scoreLabel.rectTransform.localScale = _baseScoreScale * _minimumScoreScale;
+        float scoreProgress = Mathf.InverseLerp(_minimumAppleScore, _maximumAppleScore, score);
+        float finalAppleScale = Mathf.Lerp(_minimumAppleScale, _maximumAppleScale, scoreProgress);
         _finalAppleSize = _baseAppleSize * finalAppleScale;
+        _finalScoreScale = _baseScoreScale * Mathf.Lerp(_minimumScoreScale, _maximumScoreScale, scoreProgress);
         int startScore = Mathf.Min(score, _minimumAppleScore);
         int growthTargetScore = Mathf.Min(score, _maximumAppleScore);
         ShowExpression(startScore);
@@ -66,14 +76,17 @@ public sealed class ResultScoreView : MonoBehaviour
             });
         }
 
+        float duration = _sequence.Duration();
         if (_finalAppleSize != _apple.sizeDelta)
         {
-            float duration = _sequence.Duration();
             Tweener growth = _apple.DOSizeDelta(_finalAppleSize, duration).SetEase(Ease.Linear);
             growth.OnUpdate(() => ShowExpression(Mathf.Lerp(startScore, growthTargetScore,
                 growth.ElapsedPercentage())));
             _sequence.Insert(0f, growth);
         }
+
+        if (_finalScoreScale != _scoreLabel.rectTransform.localScale)
+            _sequence.Insert(0f, _scoreLabel.rectTransform.DOScale(_finalScoreScale, duration).SetEase(Ease.Linear));
 
         _sequence.OnComplete(ShowFinalScore);
     }
@@ -89,6 +102,7 @@ public sealed class ResultScoreView : MonoBehaviour
         IsComplete = true;
         _scoreLabel.text = _score;
         _apple.sizeDelta = _finalAppleSize;
+        _scoreLabel.rectTransform.localScale = _finalScoreScale;
         ShowExpression(_finalScore);
     }
 
