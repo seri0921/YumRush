@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: bb1cf14918d2ec743b6f4f8368b9b365
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4028919460008388232
+    second: Teeth_Transition_01_0
+  - first:
+      213: -8825968198240294787
+    second: Teeth_Transition_01_1
+  - first:
+      213: -8536378625543349113
+    second: Teeth_Transition_01_2
+  - first:
+      213: -1941567160013364234
+    second: Teeth_Transition_01_3
+  - first:
+      213: 1393395247872765306
+    second: Teeth_Transition_01_4
+  - first:
+      213: 8875838574623295094
+    second: Teeth_Transition_01_5
+  - first:
+      213: -1086686509767650842
+    second: Teeth_Transition_01_6
+  - first:
+      213: -9188006291089125741
+    second: Teeth_Transition_01_7
+  - first:
+      213: 7574500651778198551
+    second: Teeth_Transition_01_8
+  - first:
+      213: 4944285896069260979
+    second: Teeth_Transition_01_9
+  - first:
+      213: -8948218028933939097
+    second: Teeth_Transition_01_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Teeth_Transition_01_0
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 873
+        width: 290
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8799a85e8176618c0800000000000000
+      internalID: -4028919460008388232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Teeth_Transition_01_1
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 869
+        width: 252
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d782ef88facd38580800000000000000
+      internalID: -8825968198240294787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Teeth_Transition_01_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 866
+        width: 251
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78c50442ed0b88980800000000000000
+      internalID: -8536378625543349113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Teeth_Transition_01_3
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 850
+        width: 300
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f3e6df64fa2e05e0800000000000000
+      internalID: -1941567160013364234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Teeth_Transition_01_4
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 830
+        width: 326
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7d6c2d6895565310800000000000000
+      internalID: 1393395247872765306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Teeth_Transition_01_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 175
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 676812c48205d2b70800000000000000
+      internalID: 8875838574623295094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Teeth_Transition_01_6
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 0
+        width: 360
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e1171b70605be0f0800000000000000
+      internalID: -1086686509767650842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Teeth_Transition_01_7
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 0
+        width: 325
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39e049955f4ad7080800000000000000
+      internalID: -9188006291089125741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Teeth_Transition_01_8
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 0
+        width: 333
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71c443c16380e1960800000000000000
+      internalID: 7574500651778198551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Teeth_Transition_01_9
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 0
+        width: 322
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b6ae2793d1ad9440800000000000000
+      internalID: 4944285896069260979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Teeth_Transition_01_10
+      rect:
+        serializedVersion: 2
+        x: 1706
+        y: 0
+        width: 214
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76085a4cc1b81d380800000000000000
+      internalID: -8948218028933939097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Teeth_Transition_01_0: -4028919460008388232
+      Teeth_Transition_01_1: -8825968198240294787
+      Teeth_Transition_01_10: -8948218028933939097
+      Teeth_Transition_01_2: -8536378625543349113
+      Teeth_Transition_01_3: -1941567160013364234
+      Teeth_Transition_01_4: 1393395247872765306
+      Teeth_Transition_01_5: 8875838574623295094
+      Teeth_Transition_01_6: -1086686509767650842
+      Teeth_Transition_01_7: -9188006291089125741
+      Teeth_Transition_01_8: 7574500651778198551
+      Teeth_Transition_01_9: 4944285896069260979
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

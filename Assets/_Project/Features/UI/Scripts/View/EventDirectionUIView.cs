@@ -42,7 +42,7 @@ public sealed class EventDirectionUIView : MonoBehaviour
         _arrow.rectTransform.position = player + direction * ((_distance + spacing) * scale);
         _icon.rectTransform.sizeDelta = Vector2.one * (_eventSize * scale);
         _arrow.rectTransform.sizeDelta = Vector2.one * (_arrowSize * scale);
-        _arrow.rectTransform.localRotation = Quaternion.Euler(0f, 0f, Vector2.SignedAngle(Vector2.up, direction));
+        _arrow.rectTransform.localRotation = Quaternion.Euler(0f, 0f, Vector2.SignedAngle(Vector2.right, direction));
         _arrow.sprite = _arrowSprite;
         _arrow.color = _arrowColor;
         _icon.color = _eventColor;

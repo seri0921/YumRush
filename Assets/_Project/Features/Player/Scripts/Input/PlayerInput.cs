@@ -53,7 +53,7 @@ internal sealed class PlayerInput : IDisposable
 
     public void Sample(bool locked)
     {
-        locked |= operationLockCount > 0 || !isEnabled;
+        locked |= operationLockCount > 0 || !isEnabled || SceneTransitionPresenter.IsTransitioning;
         Direction = locked ? Vector2.zero : move.ReadValue<Vector2>();
         if (locked)
         {

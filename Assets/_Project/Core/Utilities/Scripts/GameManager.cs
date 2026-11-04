@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [DisallowMultipleComponent]
 public sealed class GameManager : MonoBehaviour
@@ -48,6 +47,6 @@ public sealed class GameManager : MonoBehaviour
         }
 
         ResultScorePresenter.FinalScore = scorePresenter.Current;
-        SceneManager.LoadScene("Assets/_Project/Scenes/Result.unity");
+        SceneTransitionPresenter.LoadScene("Assets/_Project/Scenes/Result.unity");
     }
 }

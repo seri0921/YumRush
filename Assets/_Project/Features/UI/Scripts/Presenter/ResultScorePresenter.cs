@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(ResultScoreView))]
 public sealed class ResultScorePresenter : MonoBehaviour
@@ -24,7 +23,7 @@ public sealed class ResultScorePresenter : MonoBehaviour
 
     private void Update()
     {
-        if (_returnRequested)
+        if (_returnRequested || SceneTransitionPresenter.IsTransitioning)
             return;
 
         bool submitPressed = _submit.WasPressedThisFrame();
@@ -39,6 +38,6 @@ public sealed class ResultScorePresenter : MonoBehaviour
             return;
 
         _returnRequested = true;
-        SceneManager.LoadScene(TitleScenePath);
+        SceneTransitionPresenter.LoadScene(TitleScenePath);
     }
 }
