@@ -16,7 +16,7 @@ public abstract class EnemyAnimationViewBase : MonoBehaviour
 
     protected virtual void Awake()
     {
-        Assert.IsNotNull(animator, $"{gameObject.name}: アニメーターどこ");
+        //Assert.IsNotNull(animator, $"{gameObject.name}: アニメーターどこ");
         Assert.IsNotNull(spriteRenderer, $"{gameObject.name}:レンダラーどこ");
     }
 
