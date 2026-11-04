@@ -1895,7 +1895,7 @@ PrefabInstance:
     - target: {fileID: 5731563043522541177, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 2100000, guid: 079d8a5bc3e3b464b8fe33731ed74763, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5976371841116832147, guid: bb869b7d77bf5f543b016ff854a08609, type: 3}
       propertyPath: m_SizeDelta.x
       value: 325

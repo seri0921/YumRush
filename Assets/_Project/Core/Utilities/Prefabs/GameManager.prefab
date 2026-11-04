@@ -92,10 +92,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38278b7f26049aea57aa603e11a99f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventDirectionUIView
-  _arrowSprite: {fileID: 21300000, guid: 20f7ecc5e13c464d96017bf12e8d805e, type: 3}
+  _arrowSprite: {fileID: 4631718876290602354, guid: 20f7ecc5e13c464d96017bf12e8d805e, type: 3}
   _bonusSprite: {fileID: 21300000, guid: fe2954f664d14a3eb39a09c8ac747534, type: 3}
-  _bossSprite: {fileID: 21300000, guid: 8964967ace7d4eec8b996d21b4f8b85f, type: 3}
-  _itemRainSprite: {fileID: 21300000, guid: a77033afb0f7460585eca6ed5c0523d9, type: 3}
+  _bossSprite: {fileID: 8092378828765155325, guid: 8964967ace7d4eec8b996d21b4f8b85f, type: 3}
+  _itemRainSprite: {fileID: -916965149692135683, guid: a77033afb0f7460585eca6ed5c0523d9, type: 3}
   _arrowColor: {r: 1, g: 1, b: 1, a: 1}
   _eventColor: {r: 1, g: 1, b: 1, a: 1}
   _arrowSize: 32
@@ -149,3 +149,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   timeLimitSeconds: 180
+  scorePresenter: {fileID: 0}
