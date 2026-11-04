@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -6,6 +7,8 @@ public sealed class GameManager : MonoBehaviour
 {
     [SerializeField, Min(0.01f)] private float timeLimitSeconds = 180f;
     [SerializeField] private ScorePresenter scorePresenter;
+    [SerializeField] private bool waitForCountdown;
+    [SerializeField] private EndCountdownPresenter endCountdown;
     private readonly GameSessionLogic session = new GameSessionLogic();
 
     public GameStatus Status => session.Status;
@@ -26,9 +29,21 @@ public sealed class GameManager : MonoBehaviour
     }
 
     private void Awake() => session.GameOver += HandleGameOver;
-    private void Start() => session.Start(timeLimitSeconds);
-    private void Update() => session.Tick(Time.deltaTime);
+    private void Start()
+    {
+        if (!waitForCountdown)
+            BeginSession();
+    }
+
+    private void Update()
+    {
+        session.Tick(Time.deltaTime);
+        if (endCountdown != null && Status == GameStatus.Playing)
+            endCountdown.RenderRemaining(RemainingSeconds);
+    }
     private void OnDestroy() => session.GameOver -= HandleGameOver;
+
+    public void BeginSession() => session.Start(timeLimitSeconds);
 
     // These pause the session clock only. Global gameplay pause belongs to a separate controller.
     public void PauseTimer() => session.Pause();
@@ -47,6 +62,23 @@ public sealed class GameManager : MonoBehaviour
         }
 
         ResultScorePresenter.FinalScore = scorePresenter.Current;
+        if (endCountdown != null)
+        {
+            StartCoroutine(ShowTimeUpAndLoadResult());
+            return;
+        }
+
+        LoadResult();
+    }
+
+    private IEnumerator ShowTimeUpAndLoadResult()
+    {
+        yield return endCountdown.ShowTimeUp();
+        LoadResult();
+    }
+
+    private static void LoadResult()
+    {
         SceneTransitionPresenter.LoadScene("Assets/_Project/Scenes/Result.unity");
     }
 }
