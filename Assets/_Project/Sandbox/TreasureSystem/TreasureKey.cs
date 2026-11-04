@@ -25,6 +25,7 @@ public class TreasureKey : HarmlessEnemyBase
         {
             _energyLink.SetTargets(transform, _targetBarrier.transform);
         }
+        KeyEvents.ReportSpawned(this);
     }
 
     public override void ReceiveAttack()
@@ -32,11 +33,16 @@ public class TreasureKey : HarmlessEnemyBase
         if (IsDefeated) return;
         defeatLogic.TryDefeat();
 
-
         if (_targetBarrier != null)
         {
             _targetBarrier.OnKeyDestroyed(gameObject);
         }
         Destroy(gameObject);
     }
+
+    private void OnDestroy()
+    {
+        KeyEvents.ReportDestroyed(this);
+    }
+
 }
