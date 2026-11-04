@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(SceneTransitionView))]
 public sealed class SceneTransitionPresenter : MonoBehaviour
 {
+    [SerializeField] private SceneBgmPresenter _bgm;
+
     private static SceneTransitionPresenter _instance;
     private SceneTransitionView _view;
     private EventSystem _blockedEventSystem;
@@ -32,6 +34,7 @@ public sealed class SceneTransitionPresenter : MonoBehaviour
         _instance = this;
         _view = GetComponent<SceneTransitionView>();
         _view.Hide();
+        _bgm.Initialize(gameObject.scene.name);
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += HandleSceneLoaded;
     }
@@ -55,17 +58,18 @@ public sealed class SceneTransitionPresenter : MonoBehaviour
         try
         {
             BlockUI();
-            yield return _view.Close();
+            yield return _view.Close(_bgm.FadeOut);
             // Keep the final closed frame rendered before activating the next scene.
             yield return null;
             yield return SceneManager.LoadSceneAsync(scenePath);
             yield return null;
-            yield return _view.Open();
+            yield return _view.Open(_bgm.SetAudibleFraction);
         }
         finally
         {
             RestoreUI();
             _view.Hide();
+            _bgm.SetAudibleFraction(1f);
             IsTransitioning = false;
         }
     }
@@ -74,6 +78,8 @@ public sealed class SceneTransitionPresenter : MonoBehaviour
     {
         if (IsTransitioning)
             BlockUI();
+        if (mode == LoadSceneMode.Single)
+            _bgm.SelectTrack(scene.name);
     }
 
     private void BlockUI()
