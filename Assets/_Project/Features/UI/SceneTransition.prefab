@@ -47,8 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _source: {fileID: 900007}
   _titleClip: {fileID: 8300000, guid: 10cd38bf5937ad94da71d7f2ecd8d9de, type: 3}
-  _gameClip: {fileID: 8300000, guid: 10cd38bf5937ad94da71d7f2ecd8d9de, type: 3}
-  _resultClip: {fileID: 8300000, guid: 6168d78021901964cb42ee4534268d74, type: 3}
+  _gameClip: {fileID: 8300000, guid: 607139fef3ea864429fa99287619a4b2, type: 3}
+  _resultClip: {fileID: 8300000, guid: b8ca9603dba43d1488a6ef6a37897a00, type: 3}
 --- !u!82 &900007
 AudioSource:
   m_ObjectHideFlags: 0
