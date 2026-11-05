@@ -976,7 +976,7 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 3851dc05b2e7ef9499befbc68904c54e, type: 3}
     _volume: 1
   _jump:
-    _clip: {fileID: 8300000, guid: d1f6433cc62670948a450baa2a38a96f, type: 3}
+    _clip: {fileID: 8300000, guid: 7f7ad4b44ce243e41be7170c500af56b, type: 3}
     _volume: 1
   _glide:
     _clip: {fileID: 8300000, guid: f51e76448b323bd4ca05a22162f9ccbf, type: 3}
@@ -985,10 +985,10 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 16c3d044e43922f4f8a28ed4cca341df, type: 3}
     _volume: 1
   _attackReach:
-    _clip: {fileID: 8300000, guid: 6372fba14f085b24ba5db795e9646fbe, type: 3}
+    _clip: {fileID: 8300000, guid: 206dfd0f6e22c7642b6e89562f8aa450, type: 3}
     _volume: 1
   _attackEat:
-    _clip: {fileID: 8300000, guid: 206dfd0f6e22c7642b6e89562f8aa450, type: 3}
+    _clip: {fileID: 0}
     _volume: 1
   _damage:
     _clip: {fileID: 8300000, guid: a6df798f96149ca49a069ff2c2f84b85, type: 3}
