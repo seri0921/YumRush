@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 234d0f25743c7eb4c82e3ebb2763e983
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4158553288356310445
+    second: Reticle_0
+  - first:
+      213: 5313962924832642547
+    second: Reticle_1
+  - first:
+      213: 6302614646140735007
+    second: Reticle_2
+  - first:
+      213: -1803758537202147365
+    second: Reticle_3
+  - first:
+      213: 5403125198793994461
+    second: Reticle_4
+  - first:
+      213: 3623351732845133507
+    second: Reticle_5
+  - first:
+      213: 6117389410752361034
+    second: Reticle_6
+  - first:
+      213: 7557848277682575198
+    second: Reticle_7
+  - first:
+      213: -3420245597090077010
+    second: Reticle_8
+  - first:
+      213: -4869838872649120830
+    second: Reticle_9
+  - first:
+      213: 4978259263341088571
+    second: Reticle_10
+  - first:
+      213: 3680926900549539901
+    second: Reticle_11
+  - first:
+      213: 4835476257545504289
+    second: Reticle_12
+  - first:
+      213: 194805589371341811
+    second: Reticle_13
+  - first:
+      213: -6025580880119337430
+    second: Reticle_14
+  - first:
+      213: 5101449376672854165
+    second: Reticle_15
+  - first:
+      213: 4141030667500326913
+    second: Reticle_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Reticle_0
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 664
+        width: 355
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3525df331d9d946c0800000000000000
+      internalID: -4158553288356310445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_1
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 915
+        width: 88
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f5de34202dfeb940800000000000000
+      internalID: 5313962924832642547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_2
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 664
+        width: 355
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1e8463c0a2677750800000000000000
+      internalID: 6302614646140735007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_3
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 785
+        width: 60
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdfdc79ca23c7f6e0800000000000000
+      internalID: -1803758537202147365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_4
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 722
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd0f317cdb1cbfa40800000000000000
+      internalID: 5403125198793994461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_5
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 573
+        width: 200
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ceb784243bb84230800000000000000
+      internalID: 3623351732845133507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_6
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 577
+        width: 84
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4271acf14555e450800000000000000
+      internalID: 6117389410752361034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_7
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 592
+        width: 56
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e57519127fed2e860800000000000000
+      internalID: 7557848277682575198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_8
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 544
+        width: 156
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea62adc20c8d880d0800000000000000
+      internalID: -3420245597090077010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_9
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 592
+        width: 56
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c34c5ac85bda6cb0800000000000000
+      internalID: -4869838872649120830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_10
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 577
+        width: 84
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3f4e3f8c64561540800000000000000
+      internalID: 4978259263341088571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_11
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 573
+        width: 200
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d385f6f7387451330800000000000000
+      internalID: 3680926900549539901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_12
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 220
+        width: 355
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 126c5da69001b1340800000000000000
+      internalID: 4835476257545504289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_13
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 461
+        width: 50
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fb4db2c6a614b200800000000000000
+      internalID: 194805589371341811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_14
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 220
+        width: 355
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2ee91b4d16d06ca0800000000000000
+      internalID: -6025580880119337430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_15
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 326
+        width: 60
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5903930fd2dfbc640800000000000000
+      internalID: 5101449376672854165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reticle_16
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 119
+        width: 88
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1001b54b375e77930800000000000000
+      internalID: 4141030667500326913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Reticle_0: -4158553288356310445
+      Reticle_1: 5313962924832642547
+      Reticle_10: 4978259263341088571
+      Reticle_11: 3680926900549539901
+      Reticle_12: 4835476257545504289
+      Reticle_13: 194805589371341811
+      Reticle_14: -6025580880119337430
+      Reticle_15: 5101449376672854165
+      Reticle_16: 4141030667500326913
+      Reticle_2: 6302614646140735007
+      Reticle_3: -1803758537202147365
+      Reticle_4: 5403125198793994461
+      Reticle_5: 3623351732845133507
+      Reticle_6: 6117389410752361034
+      Reticle_7: 7557848277682575198
+      Reticle_8: -3420245597090077010
+      Reticle_9: -4869838872649120830
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
