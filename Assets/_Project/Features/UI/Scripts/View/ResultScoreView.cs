@@ -22,6 +22,10 @@ public sealed class ResultScoreView : MonoBehaviour
     [SerializeField] private Sprite _sadFace;
     [SerializeField] private Sprite _normalFace;
     [SerializeField] private Sprite _happyFace;
+    [SerializeField] private Image _backgroundImage;
+    [SerializeField] private Sprite _badBackground;
+    [SerializeField] private Sprite _normalBackground;
+    [SerializeField] private Sprite _goodBackground;
     [SerializeField] private int _maximumSadScore = 500;
     [SerializeField] private int _minimumHappyScore = 2000;
     private Vector2 _baseAppleSize;
@@ -109,13 +113,22 @@ public sealed class ResultScoreView : MonoBehaviour
     private void ShowExpression(float score)
     {
         Sprite expression = _normalFace;
+        Sprite background = _normalBackground;
         if (score <= _maximumSadScore)
+        {
             expression = _sadFace;
+            background = _badBackground;
+        }
         else if (score >= _minimumHappyScore)
+        {
             expression = _happyFace;
+            background = _goodBackground;
+        }
 
         if (_characterImage.sprite != expression)
             _characterImage.sprite = expression;
+        if (_backgroundImage.sprite != background)
+            _backgroundImage.sprite = background;
     }
 
     private void RenderDigits() => _scoreLabel.text = new string(_digits);
