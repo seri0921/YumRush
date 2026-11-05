@@ -1,0 +1,6 @@
+{
+    "name": "Project.Treasure.EditorTests",
+    "references": ["Project.Treasure.Logic"],
+    "includePlatforms": ["Editor"],
+    "optionalUnityReferences": ["TestAssemblies"]
+}
