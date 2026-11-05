@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8925672474312875644}
   - component: {fileID: 1376498576356810412}
   - component: {fileID: 909108162034972575}
+  - component: {fileID: 8678508079593088143}
   m_Layer: 0
   m_Name: image
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 47756472894752275}
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5442756319310864380, guid: 39e3d49a241bcd148a4883ced50fa375, type: 3}
+  m_Sprite: {fileID: 8136309479315017781, guid: 60e0dc36cf147a7409f4584f092ec970, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,13 +100,39 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339296978943683244}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cc7ad17acbc7004ea9326931a9f1bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StaticSpriteAnimation
   animator: {fileID: 0}
   spriteRenderer: {fileID: 1376498576356810412}
+--- !u!114 &8678508079593088143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339296978943683244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c34412f178cb30a4e8e306400c8ab106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BonusEnemyView
+  animator: {fileID: 0}
+  spriteRenderer: {fileID: 1376498576356810412}
+  hpSpriteSteps:
+  - hpThreshold: 3
+    sprite: {fileID: 8136309479315017781, guid: 60e0dc36cf147a7409f4584f092ec970, type: 3}
+  - hpThreshold: 2
+    sprite: {fileID: -6048802617830899065, guid: 761e3578e05d45745a6353602d874c76, type: 3}
+  - hpThreshold: 1
+    sprite: {fileID: 1157707265453520784, guid: a0ef972975bc38746a071bd4855323c7, type: 3}
+  - hpThreshold: 0
+    sprite: {fileID: -6326104166088976254, guid: 15b5871b91396a74ebef526f4fd17a50, type: 3}
+  wobbleAmount: 0.25
+  wobbleSpeed: 30
+  wobbleDuration: 0.3
 --- !u!1 &5321773928464043534
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 47756472894752275}
   - component: {fileID: 5670324693776385314}
-  - component: {fileID: 6961581438866075121}
+  - component: {fileID: 6243769349235588054}
   m_Layer: 0
   m_Name: HarmlessBonus
   m_TagString: Untagged
@@ -154,16 +181,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HarmlessBonus
   hp: 3
   coolDownDuration: 2
+  defeatDelayDuration: 2
   scoreItemPrefab: {fileID: 7256732667052693698, guid: 927a0c312d2b41c47a2a1e90e68a95dd, type: 3}
   minDropCount: 12
   maxDropCount: 15
   horizontalForce: 15
   minVerticalForce: 12
   maxVerticalForce: 15
-  animationView: {fileID: 909108162034972575}
+  animationView: {fileID: 0}
   blinkDuration: 0.2
---- !u!58 &6961581438866075121
-CircleCollider2D:
+--- !u!61 &6243769349235588054
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -197,4 +225,14 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 3.2625372
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 6.3665695, y: 4.954568}
+  m_EdgeRadius: 0
