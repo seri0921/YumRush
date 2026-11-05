@@ -53,7 +53,7 @@ public struct PlayerAirCurrentSnapshot
 
 public struct PlayerHomingSnapshot
 {
-    public bool HasHomingTarget, TouchingHomingTarget, WindupComplete, BlockedByObstacle;
+    public bool HasHomingTarget, TouchingHomingTarget, WindupComplete;
     public float HomingDirectionX, HomingDirectionY;
 }
 
