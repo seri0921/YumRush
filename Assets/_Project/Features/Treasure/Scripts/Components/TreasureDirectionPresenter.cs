@@ -28,8 +28,9 @@ namespace Project.Treasure
                 return;
             }
 
+            bool showChest = _session.CanOpen;
             Transform target;
-            if (_session.CanOpen)
+            if (showChest)
             {
                 target = _session.Chest.transform;
             }
@@ -57,7 +58,7 @@ namespace Project.Treasure
             Rect pixels = _camera.pixelRect;
             if (TreasureDirectionLogic.TryGetMarker(viewport.x, viewport.y, viewport.z,
                 pixels.width, pixels.height, _view.InsetPixels, out double x, out double y, out double angle))
-                _view.Render(new Vector2(pixels.x + (float)x, pixels.y + (float)y), (float)angle);
+                _view.Render(new Vector2(pixels.x + (float)x, pixels.y + (float)y), (float)angle, showChest);
             else
                 _view.Hide();
         }
