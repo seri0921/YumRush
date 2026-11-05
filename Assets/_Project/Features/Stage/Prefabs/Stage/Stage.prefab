@@ -47,19 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 173d7976739f86c4a9aff6b861bba7d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BiomeManager
-  _randomizeOnStart: 0
-  _availableBiomes:
-  - {fileID: 5787448907289151, guid: 5a9dbe5e5b0f4d0419a765c7ec418d51, type: 3}
-  - {fileID: 5156188484059691079, guid: b70a5c8708d76f545a2a7bfceac548dc, type: 3}
-  - {fileID: 9063477324933395370, guid: 1fa5d411dd4c33f46b87f14de08bdab7, type: 3}
-  - {fileID: 6903425861193401847, guid: dbd460d0fb8ee4f4db5818996424222c, type: 3}
-  _slots:
-  - {fileID: 6218967819221768461}
-  - {fileID: 3498474274117130088}
-  - {fileID: 3153536538190937153}
-  - {fileID: 2404477076740574013}
-  _respawnManager: {fileID: 0}
-  _mainCamera: {fileID: 0}
 --- !u!1 &757839827524943434
 GameObject:
   m_ObjectHideFlags: 0
