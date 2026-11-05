@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 2555119485939012424}
   - component: {fileID: 6372481027414657389}
   - component: {fileID: 3205736601202505336}
+  - component: {fileID: 9200000000000000001}
   m_Layer: 0
   m_Name: TreasureKey_Owl
   m_TagString: Untagged
@@ -171,5 +172,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4adb77939d16bda4ea7e7331c1128698, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::Project.Treasure.TreasureKeyPresenter
+--- !u!114 &9200000000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9182283040865940581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46626961fb531ab4aa74e50933cfe899, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::ItemCollectEffectView
+  _effectPrefab: {fileID: 8269325874030298811, guid: 5080e0a538edcba45a549192d13e550d, type: 3}
