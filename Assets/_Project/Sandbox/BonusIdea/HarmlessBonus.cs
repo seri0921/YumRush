@@ -9,6 +9,9 @@ public class HarmlessBonus : HarmlessEnemyBase
     [Tooltip("被弾後の無敵時間")]
     [SerializeField, Min(0.01f)] private float coolDownDuration = 0.5f;
 
+    [Tooltip("HPが0になってから消滅するまでの猶予時間（秒）")]
+    [SerializeField, Min(0f)] private float defeatDelayDuration = 2.0f;
+
     [Space(8)]
     [Header("ドロップ設定")]
     [SerializeField] private ScoreItem scoreItemPrefab;
@@ -32,19 +35,21 @@ public class HarmlessBonus : HarmlessEnemyBase
 
     [Space(8)]
     [Header("ビジュアル・演出")]
-    [SerializeField] private EnemyAnimationViewBase animationView;
+    [SerializeField] private BonusEnemyView animationView;
     [SerializeField, Min(0.01f)] private float blinkDuration = 0.2f;
 
     private readonly EnemyFireLogic coolDownTimerLogic = new EnemyFireLogic();
+    private readonly EnemyFireLogic defeatDelayTimerLogic = new EnemyFireLogic();
     private int currentHp;
     private bool isCool;
+    private bool isPendingDefeat;
 
     protected override void Awake()
     {
         base.Awake();
         currentHp = hp;
         if (animationView == null)
-            animationView = GetComponentInChildren<EnemyAnimationViewBase>();
+            animationView = GetComponentInChildren<BonusEnemyView>();
     }
 
     protected override void UpdateBehavior()
@@ -56,6 +61,15 @@ public class HarmlessBonus : HarmlessEnemyBase
                 SetCoolingDown(false);
             }
         }
+
+        if (isPendingDefeat)
+        {
+            if (defeatDelayTimerLogic.Tick(Time.deltaTime, 0f, 1f, defeatDelayDuration))
+            {
+                FinalizeDefeat();
+            }
+        }
+
     }
 
     public override void ReceiveAttack()
@@ -64,28 +78,44 @@ public class HarmlessBonus : HarmlessEnemyBase
 
         SetCoolingDown(true);
 
+        currentHp--;
+
         if (animationView != null)
         {
+            animationView.Render(currentHp);
             animationView.PlayHitBlink(Color.yellow, blinkDuration);
+            animationView.PlayWobble();
         }
 
         EjectScoreItems();
 
-        currentHp--;
         if (currentHp <= 0)
         {
-            if (!defeatLogic.TryDefeat())
-                return;
-
-            if (hitCollider != null)
-                hitCollider.enabled = false;
-
-            if (TryGetComponent<RespawnTarget>(out var respawnTarget))
-                respawnTarget.NotifyConsumed();
-
-            gameObject.SetActive(false);
-            Destroy(gameObject);
+            StartDefeatPhase();
         }
+    }
+
+    private void StartDefeatPhase()
+    {
+        isPendingDefeat = true;
+
+        if (hitCollider != null)
+        {
+            hitCollider.enabled = false;
+        }
+        if (TryGetComponent<RespawnTarget>(out var respawnTarget))
+        {
+            respawnTarget.NotifyConsumed();
+        }
+    }
+
+    private void FinalizeDefeat()
+    {
+        if (!defeatLogic.TryDefeat())
+            return;
+
+        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     private void EjectScoreItems()
