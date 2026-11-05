@@ -152,11 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5cf5c6cc419c84f99542327d6d1c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HarmlessBonus
-  hp: 5
-  coolDownDuration: 1.5
+  hp: 3
+  coolDownDuration: 2
   scoreItemPrefab: {fileID: 7256732667052693698, guid: 927a0c312d2b41c47a2a1e90e68a95dd, type: 3}
-  minDropCount: 5
-  maxDropCount: 8
+  minDropCount: 12
+  maxDropCount: 15
   horizontalForce: 15
   minVerticalForce: 12
   maxVerticalForce: 15
