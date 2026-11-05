@@ -18,6 +18,11 @@ public sealed class ResultScoreView : MonoBehaviour
     [SerializeField, Min(0f)] private float _maximumAppleScale = 1f;
     [SerializeField] private int _minimumAppleScore = 500;
     [SerializeField] private int _maximumAppleScore = 2000;
+    [SerializeField] private AudioSource _growthSoundSource;
+    [SerializeField] private AudioClip _growthClip;
+    [SerializeField, Min(0.01f), Tooltip("SEを再生するリンゴのスケール増分。小さいほど頻繁に再生します。")]
+    private float _growthSoundScaleInterval = 0.2f;
+    [SerializeField, Range(0f, 1f)] private float _growthSoundVolume = 1f;
     [SerializeField] private Image _characterImage;
     [SerializeField] private Sprite _sadFace;
     [SerializeField] private Sprite _normalFace;
@@ -87,6 +92,16 @@ public sealed class ResultScoreView : MonoBehaviour
             growth.OnUpdate(() => ShowExpression(Mathf.Lerp(startScore, growthTargetScore,
                 growth.ElapsedPercentage())));
             _sequence.Insert(0f, growth);
+
+            float scaleIncrease = finalAppleScale - _minimumAppleScale;
+            float soundInterval = Mathf.Max(0.01f, _growthSoundScaleInterval);
+            int soundCount = Mathf.FloorToInt(scaleIncrease / soundInterval + 0.00001f);
+            for (int step = 1; step <= soundCount; step++)
+            {
+                float soundTime = duration * Mathf.Clamp01(step * soundInterval / scaleIncrease);
+                _sequence.InsertCallback(soundTime,
+                    () => _growthSoundSource.PlayOneShot(_growthClip, _growthSoundVolume));
+            }
         }
 
         if (_finalScoreScale != _scoreLabel.rectTransform.localScale)
@@ -98,6 +113,7 @@ public sealed class ResultScoreView : MonoBehaviour
     public void Complete()
     {
         _sequence.Kill();
+        _growthSoundSource.Stop();
         ShowFinalScore();
     }
 

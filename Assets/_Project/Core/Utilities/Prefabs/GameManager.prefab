@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageEventSoundView
   _eventSource: {fileID: 4818155497191382917}
-  _warningClip: {fileID: 8300000, guid: 70c094cfd70b2d04d9c0e49fc2470c03, type: 3}
+  _warningClip: {fileID: 8300000, guid: 508b921a24ec3a6489c15baaad48d6f1, type: 3}
 --- !u!114 &5764821393382946211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,3 +150,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   timeLimitSeconds: 180
   scorePresenter: {fileID: 0}
+  waitForCountdown: 0
+  endCountdown: {fileID: 0}

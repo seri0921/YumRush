@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fca91629275f2e249b3367c3070eb7cc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteOutlineView
 --- !u!1 &1371479045254369275
 GameObject:
@@ -301,12 +301,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: f29bd5d234ac22e4385b056316e9dc0f, type: 3}
-  m_Color: {r: 0.9748427, g: 0.9748427, b: 0.9748427, a: 0.5411765}
+  m_Sprite: {fileID: 21300000, guid: 234d0f25743c7eb4c82e3ebb2763e983, type: 3}
+  m_Color: {r: 0.9748427, g: 0.9748427, b: 0.9748427, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 12.54, y: 12.54}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad4bc940692963140bc7f7c35180a709, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HomingReticleView
   reticleRenderer: {fileID: 6316439735379637728}
   acquireScaleMultiplier: 2.5
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
   m_ComponentVersion: 2
   m_LightType: 3
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
   m_ComponentVersion: 2
   m_LightType: 3
@@ -713,7 +713,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c76e105220b041b6ab1ad13edc685e26, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationView
   animator: {fileID: 3925915009504061811}
   spriteRenderer: {fileID: 2306825707834230475}
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fca91629275f2e249b3367c3070eb7cc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteOutlineView
 --- !u!1 &7506355064604562539
 GameObject:
@@ -797,7 +797,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c81e328acfaa8445a641e110db9523c, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPresenter
   config: {fileID: 11400000, guid: 730eb522207cb4141a71319df3de0853, type: 2}
   playerCollider: {fileID: 8418799946129534624}
@@ -844,7 +844,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2097e227b2d74e44fa7ec3bd05546bdc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHomingAttack
   config: {fileID: 11400000, guid: 730eb522207cb4141a71319df3de0853, type: 2}
   PlayerHomingAttackCollider: {fileID: 8418799946129534624}
@@ -895,7 +895,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 247dcb9b66f84b86b499b3646b013295, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHomingAttackView
   attackAnimator: {fileID: 4241890469549474266}
   attackRenderer: {fileID: 5903822178168622345}
@@ -911,7 +911,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3490f2db7416bcb40ab14d420ab6df61, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackEffectView
   _windupCompletePrefab: {fileID: 2865088839825052438, guid: 8c620b4d74f4e9a4da44fa87280f40f8, type: 3}
 --- !u!114 &5412940697107092260
@@ -924,7 +924,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e664530f8f4d9a45a4e64998f3c3a82, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWindEffectView
   _glideParticles: {fileID: 5304879466187258576}
   _airDashParticles: {fileID: 7381660251613483775}
@@ -938,7 +938,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f546eafc42cb42c7aa4886ba1dd744b3, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitStopPresenter
   _durationSeconds: 0.08
 --- !u!114 &957163592208784650
@@ -951,7 +951,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9731f44f2c6552c41a1997f3ef28c300, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreGainPresenter
   _scorePresenter: {fileID: 0}
   _gainPrefab: {fileID: 7961025782547092969, guid: 2a7a1c149e38a0c4882fb496743c6837, type: 3}
@@ -967,7 +967,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba9a760ff87e4ab429b860e24cd77b0e, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSoundView
   _walkSource: {fileID: 6612128112402872324}
   _actionSource: {fileID: 6324496418850822406}
@@ -976,7 +976,7 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 3851dc05b2e7ef9499befbc68904c54e, type: 3}
     _volume: 1
   _jump:
-    _clip: {fileID: 8300000, guid: d1f6433cc62670948a450baa2a38a96f, type: 3}
+    _clip: {fileID: 8300000, guid: 7f7ad4b44ce243e41be7170c500af56b, type: 3}
     _volume: 1
   _glide:
     _clip: {fileID: 8300000, guid: f51e76448b323bd4ca05a22162f9ccbf, type: 3}
@@ -985,10 +985,10 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 16c3d044e43922f4f8a28ed4cca341df, type: 3}
     _volume: 1
   _attackReach:
-    _clip: {fileID: 8300000, guid: 6372fba14f085b24ba5db795e9646fbe, type: 3}
+    _clip: {fileID: 8300000, guid: 206dfd0f6e22c7642b6e89562f8aa450, type: 3}
     _volume: 1
   _attackEat:
-    _clip: {fileID: 8300000, guid: 206dfd0f6e22c7642b6e89562f8aa450, type: 3}
+    _clip: {fileID: 0}
     _volume: 1
   _damage:
     _clip: {fileID: 8300000, guid: a6df798f96149ca49a069ff2c2f84b85, type: 3}
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6e0efc0853e17c4dadc0154aea6057f, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSoundPresenter
   _player: {fileID: 6393998105203296982}
   _view: {fileID: 5932415752882916773}
@@ -1315,7 +1315,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e50a5975466b7b84585a2aca3fb78328, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreSoundView
   _source: {fileID: 4800339955460759980}
   _gain:
@@ -1331,7 +1331,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09fa45d244d22a4498d999bb5b13a8a6, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreSoundPresenter
   _scorePresenter: {fileID: 0}
   _view: {fileID: 2552820210679915132}
