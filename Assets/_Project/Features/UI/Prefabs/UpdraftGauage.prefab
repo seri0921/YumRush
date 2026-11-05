@@ -191,9 +191,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2414718059154998909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5394f9b7cec4683870748e424fcfb20, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIUpdraftRingGraphic
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 4004708080983207187, guid: 74050fb6a62ca9645a05b65a78e36729, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -212,7 +212,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  _thickness: 3
 --- !u!1 &2988957124665364218
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,6 +485,10 @@ MonoBehaviour:
   markerImage: {fileID: 6589615993875613233}
   referenceCircle: {fileID: 5440284776088760190}
   statusLabel: {fileID: 1021969439259592342}
+  _maximumScale: 2.5
+  _minimumScale: 1
+  _rotationSpeed: 90
+  _successEffectPrefab: {fileID: 8269325874030298811, guid: 5080e0a538edcba45a549192d13e550d, type: 3}
   normalColor: {r: 0.28, g: 0.8, b: 1, a: 1}
   optimalColor: {r: 0.92, g: 1, b: 0.35, a: 1}
   unavailableColor: {r: 0.5, g: 0.56, b: 0.62, a: 1}
@@ -621,9 +624,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5064097936331969104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5394f9b7cec4683870748e424fcfb20, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIUpdraftRingGraphic
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.45}
   m_RaycastTarget: 0
@@ -632,7 +635,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 4004708080983207187, guid: 74050fb6a62ca9645a05b65a78e36729, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -642,7 +645,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  _thickness: 3
 --- !u!1 &5532034143294617057
 GameObject:
   m_ObjectHideFlags: 0

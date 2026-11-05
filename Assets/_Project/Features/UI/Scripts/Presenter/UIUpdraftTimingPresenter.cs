@@ -33,6 +33,22 @@ public sealed class UIUpdraftTimingPresenter : MonoBehaviour
             throw new InvalidOperationException("タイミング円にはプレイヤーのCollider2DとMainCameraが必要です。");
     }
 
+    private void OnEnable() => player.StateChanged += HandleStateChanged;
+
+    private void OnDisable() => player.StateChanged -= HandleStateChanged;
+
+    private void HandleStateChanged(PlayerState previousState, PlayerState newState)
+    {
+        if (previousState != PlayerState.Floating || newState != PlayerState.WindJump)
+            return;
+
+        // 成立時の強さを使い、描画フレーム間の成功も取りこぼさない。
+        UpdraftTimingPresentation presentation = logic.Evaluate(previousState, player.CurrentLiftVelocity,
+            player.MaximumLiftVelocity, true);
+        if (presentation.Optimal)
+            view.PlaySuccess(_playerCollider.bounds.center);
+    }
+
     private void LateUpdate()
     {
         UpdraftTimingPresentation presentation = logic.Evaluate(player.State, player.CurrentLiftVelocity,
