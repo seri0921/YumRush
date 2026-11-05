@@ -101,6 +101,7 @@ public class PlayerPresenter : MonoBehaviour
             _machine.Reset();
             _homing?.ClearTarget();
             _motor.RestoreGravity();
+            _motor.SetTerrainPassThrough(false);
         }
         
         private void OnDestroy()
@@ -174,6 +175,8 @@ public class PlayerPresenter : MonoBehaviour
 
     private void OnStateChanged(PlayerState previousState, PlayerState newState)
     {
+        // 準備中は通常の衝突を保ち、突進の開始・終了時に物理設定を切り替える。
+        _motor.SetTerrainPassThrough(newState == PlayerState.Homing);
         StateChanged?.Invoke(previousState, newState);
         if (previousState == PlayerState.GameOpening)
         {

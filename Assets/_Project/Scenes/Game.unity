@@ -3924,6 +3924,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5932415752882916773, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
+      propertyPath: _attackEat._clip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932415752882916773, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
       propertyPath: _reticle._volume
       value: 0.5
       objectReference: {fileID: 0}
@@ -3931,6 +3935,10 @@ PrefabInstance:
       propertyPath: _attackEat._volume
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5932415752882916773, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
+      propertyPath: _attackReach._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 206dfd0f6e22c7642b6e89562f8aa450, type: 3}
     - target: {fileID: 5932415752882916773, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
       propertyPath: _attackReach._volume
       value: 0.5
@@ -4054,7 +4062,7 @@ PrefabInstance:
       objectReference: {fileID: 1957698516}
     - target: {fileID: 3060957430579109739, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
       propertyPath: timeLimitSeconds
-      value: 180
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3060957430579109739, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
       propertyPath: waitForCountdown

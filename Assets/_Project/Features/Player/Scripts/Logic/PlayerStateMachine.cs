@@ -572,7 +572,7 @@ public sealed class HomingState : PlayerStateBase
     {
         _elapsedTime += frame.DeltaTime;
         if (!frame.Homing.HasHomingTarget || frame.Homing.TouchingHomingTarget ||
-            frame.Homing.BlockedByObstacle || _elapsedTime >= settings.Homing.MaximumDuration)
+            _elapsedTime >= settings.Homing.MaximumDuration)
         {
             result.ApplyHomingAttack = frame.Homing.HasHomingTarget && frame.Homing.TouchingHomingTarget;
             result.VelocityX = 0f;

@@ -19,6 +19,8 @@ namespace Project.Treasure
         {
             if (IsDefeated || !_session.CollectKey(_keyId)) return;
             IsDefeated = true;
+            if (TryGetComponent<ItemCollectEffectView>(out var effectView))
+                effectView.Play(transform.position);
             gameObject.SetActive(false);
             Destroy(gameObject);
         }

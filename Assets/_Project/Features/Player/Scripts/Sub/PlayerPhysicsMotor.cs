@@ -14,6 +14,8 @@ public class PlayerPhysicsMotor
     private RigidbodyType2D originalBodyType;
     private Vector2 originalVelocity;
     private float originalGravityScale;
+    private bool _isPassingThroughTerrain;
+    private bool _originalIsTrigger;
     public bool IsScriptedMovement { get; private set; }
     
     public float NormalGravityScale { get; }
@@ -36,6 +38,24 @@ public class PlayerPhysicsMotor
     {
         if (!IsScriptedMovement)
             body.linearVelocity = velocity;
+    }
+
+    public void SetTerrainPassThrough(bool enabled)
+    {
+        if (_isPassingThroughTerrain == enabled)
+            return;
+
+        if (enabled)
+        {
+            _originalIsTrigger = playerCollider.isTrigger;
+            playerCollider.isTrigger = true;
+        }
+        else if (playerCollider != null)
+        {
+            playerCollider.isTrigger = _originalIsTrigger;
+        }
+
+        _isPassingThroughTerrain = enabled;
     }
 
     public void BeginScriptedMovement()

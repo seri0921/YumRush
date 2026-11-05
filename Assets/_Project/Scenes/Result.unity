@@ -429,6 +429,10 @@ MonoBehaviour:
   _sadFace: {fileID: 2362933769584733702, guid: dd3778b6e3d116d4686d9e45bf674927, type: 3}
   _normalFace: {fileID: 7486955593807446513, guid: b77c26c3defe5e54a9e385a889388ff0, type: 3}
   _happyFace: {fileID: 1972049103815772309, guid: 3ceb15604b2852d4094e4308fe20d48e, type: 3}
+  _backgroundImage: {fileID: 1989983782}
+  _badBackground: {fileID: 21300000, guid: 7fa08c60c64155646bef8ec20f5a7c8d, type: 3}
+  _normalBackground: {fileID: 21300000, guid: d959a3ffd04223341bd41759d69249b6, type: 3}
+  _goodBackground: {fileID: 21300000, guid: fc4d2d3711a0e454cb319cbc2d0b7d11, type: 3}
   _maximumSadScore: 500
   _minimumHappyScore: 2000
 --- !u!1 &368846131
