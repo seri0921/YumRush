@@ -2522,7 +2522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3099437127349386202, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
       propertyPath: m_Intensity
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3099437127349386202, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
       propertyPath: m_PointLightInnerRadius
@@ -2751,7 +2751,7 @@ PrefabInstance:
       objectReference: {fileID: 1957698516}
     - target: {fileID: 3060957430579109739, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
       propertyPath: timeLimitSeconds
-      value: 60
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 3060957430579109739, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
       propertyPath: waitForCountdown
