@@ -20,6 +20,8 @@ public sealed class ResultScoreView : MonoBehaviour
     [SerializeField] private int _maximumAppleScore = 2000;
     [SerializeField] private AudioSource _growthSoundSource;
     [SerializeField] private AudioClip _growthClip;
+    [SerializeField] private AudioClip _maximumAppleClip;
+    [SerializeField, Range(0f, 1f)] private float _maximumAppleSoundVolume = 1f;
     [SerializeField, Min(0.01f), Tooltip("SEを再生するリンゴのスケール増分。小さいほど頻繁に再生します。")]
     private float _growthSoundScaleInterval = 0.2f;
     [SerializeField, Range(0f, 1f)] private float _growthSoundVolume = 1f;
@@ -42,7 +44,8 @@ public sealed class ResultScoreView : MonoBehaviour
     private char[] _digits;
 
     public bool IsComplete { get; private set; }
-    public bool IsGrowthSoundPlaying => _growthSoundSource.isPlaying;
+    public bool IsResultSoundPlaying => _growthSoundSource.isPlaying;
+    public bool HasReachedMaximumAppleScore => _finalScore >= _maximumAppleScore;
 
     private void Awake()
     {
@@ -116,6 +119,11 @@ public sealed class ResultScoreView : MonoBehaviour
         _sequence.Kill();
         _growthSoundSource.Stop();
         ShowFinalScore();
+    }
+
+    public void PlayMaximumAppleSound()
+    {
+        _growthSoundSource.PlayOneShot(_maximumAppleClip, _maximumAppleSoundVolume);
     }
 
     private void ShowFinalScore()

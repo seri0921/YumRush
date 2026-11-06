@@ -17,6 +17,7 @@ public sealed class ResultScorePresenter : MonoBehaviour
     private bool _returnRequested;
     private float _inputBlockRemaining;
     private bool _bgmStarted;
+    private bool _maximumAppleSoundHandled;
 
     private void Start()
     {
@@ -36,10 +37,18 @@ public sealed class ResultScorePresenter : MonoBehaviour
         if (_returnRequested || SceneTransitionPresenter.IsTransitioning)
             return;
 
-        if (!_bgmStarted && _view.IsComplete && !_view.IsGrowthSoundPlaying)
+        if (!_bgmStarted && _view.IsComplete && !_view.IsResultSoundPlaying)
         {
-            _bgm.PlayResultBgm();
-            _bgmStarted = true;
+            if (!_maximumAppleSoundHandled && _view.HasReachedMaximumAppleScore)
+            {
+                _view.PlayMaximumAppleSound();
+                _maximumAppleSoundHandled = true;
+            }
+            else
+            {
+                _bgm.PlayResultBgm();
+                _bgmStarted = true;
+            }
         }
 
         if (_inputBlockRemaining > 0f)
