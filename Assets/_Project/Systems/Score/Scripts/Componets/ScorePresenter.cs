@@ -12,6 +12,7 @@ public sealed class ScorePresenter : MonoBehaviour
     public bool IsScoreHidden { get; private set; }
     public event Action<bool> VisibilityChanged;
     public event Action<int> Gained;
+    public event Action<int, ScoreGainKind> GainedWithKind;
 
     private void Awake()
     {
@@ -57,10 +58,15 @@ public sealed class ScorePresenter : MonoBehaviour
         }
     }
 
-    public void Add(int points)
+    public void Add(int points) => Add(points, ScoreGainKind.Normal);
+
+    public void Add(int points, ScoreGainKind gainKind)
     {
         logic.Add(points);
         if (points > 0)
+        {
             Gained?.Invoke(points);
+            GainedWithKind?.Invoke(points, gainKind);
+        }
     }
 }
