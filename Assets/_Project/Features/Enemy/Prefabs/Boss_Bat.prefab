@@ -47,11 +47,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63cb350ac2dd567459b829f50931f1f2, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss_Bat
   target: {fileID: 0}
-  dropItemPrefab: {fileID: 7256732667052693698, guid: 37c71ae2e0ffab44b8ea60c780cfa9af, type: 3}
-  _scoreConfig: {fileID: 11400000, guid: fc026dc76a1c4eeca65ac5da5f14ecf7, type: 2}
+  dropItemPrefab: {fileID: 7256732667052693698, guid: 82ea520fe74cf01439af4e358b053778, type: 3}
+  _scoreConfig: {fileID: 11400000, guid: e29aa693c30e7e248a0b68af1ad721ea, type: 2}
   _scorePresenter: {fileID: 0}
   HP: 2
   maxHP: 3
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67f7903e95bffcd459e0e976edb5d03f, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySoundView
   _death:
     _clip: {fileID: 8300000, guid: 5f32500f68704d940813158abad4f64c, type: 3}
@@ -121,6 +121,9 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: e8db6780ae1ead140a65bbf360ba3923, type: 3}
     _volume: 1
   _attackSource: {fileID: 3420744325921466680}
+  _barrierBreak:
+    _clip: {fileID: 0}
+    _volume: 1
   _wingsOpen:
     _clip: {fileID: 8300000, guid: 22895318a05d3fc4289d6f13b47e0e1b, type: 3}
     _volume: 1
@@ -134,7 +137,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5f78b24f58d2064dafc2b7566a5974e, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySoundPresenter
   _enemy: {fileID: 3393810738133899708}
   _view: {fileID: 130924855299874173}
@@ -361,7 +364,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1182775cb4800140a6eccd9eab17c45, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bat_Animation
   animator: {fileID: 8962140022647536203}
   spriteRenderer: {fileID: 7464896927725365612}
@@ -375,5 +378,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fca91629275f2e249b3367c3070eb7cc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteOutlineView

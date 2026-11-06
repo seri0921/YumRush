@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b30401d362c7fb4895bc703c88d101c, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Owl_Animation
   animator: {fileID: 7596971269754337173}
   spriteRenderer: {fileID: 5680394471013958172}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fca91629275f2e249b3367c3070eb7cc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteOutlineView
 --- !u!1 &7619958432364079944
 GameObject:
@@ -256,13 +256,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 419633fb33dea9e4391ebff3a4da8ccf, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss_Owl
   target: {fileID: 0}
-  dropItemPrefab: {fileID: 7256732667052693698, guid: 37c71ae2e0ffab44b8ea60c780cfa9af, type: 3}
+  dropItemPrefab: {fileID: 7256732667052693698, guid: 82ea520fe74cf01439af4e358b053778, type: 3}
   _scoreConfig: {fileID: 11400000, guid: fc026dc76a1c4eeca65ac5da5f14ecf7, type: 2}
   _scorePresenter: {fileID: 0}
-  HP: 3
+  HP: 2
   coolDownDuration: 1
   detectionRange: 15
   windupDuration: 0.8
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67f7903e95bffcd459e0e976edb5d03f, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySoundView
   _death:
     _clip: {fileID: 8300000, guid: 5f32500f68704d940813158abad4f64c, type: 3}
@@ -297,6 +297,12 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 3dca2b2f7dbd7984e943333dce5db81b, type: 3}
     _volume: 1
   _attackSource: {fileID: 7352952910237563833}
+  _barrierBreak:
+    _clip: {fileID: 0}
+    _volume: 1
+  _wingsOpen:
+    _clip: {fileID: 0}
+    _volume: 1
 --- !u!114 &4266492174295975712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +313,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5f78b24f58d2064dafc2b7566a5974e, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySoundPresenter
   _enemy: {fileID: 2246765255341613418}
   _view: {fileID: 1706756825743337880}

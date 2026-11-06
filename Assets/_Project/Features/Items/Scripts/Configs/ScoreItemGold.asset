@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4a89869fa5e7641a97fdf3c0812a95, type: 3}
   m_Name: ScoreItemGold
   m_EditorClassIdentifier: Assembly-CSharp::ScoreItemConfig
-  points: 1000
+  points: 3000

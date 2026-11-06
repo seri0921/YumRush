@@ -2176,23 +2176,31 @@ PrefabInstance:
     - target: {fileID: 4818155497191382917, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
       propertyPath: '_events.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 02ed97c911bd2e64ba1a529cad5f7da9, type: 2}
+      objectReference: {fileID: 11400000, guid: 4f5d513b1f50749419c83bb862ae74fc, type: 2}
     - target: {fileID: 4818155497191382917, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
       propertyPath: '_events.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 02ed97c911bd2e64ba1a529cad5f7da9, type: 2}
+      objectReference: {fileID: 11400000, guid: 31250b901e1bee9469602d9fcbf2462d, type: 2}
     - target: {fileID: 4818155497191382917, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
       propertyPath: '_events.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 4f5d513b1f50749419c83bb862ae74fc, type: 2}
+      objectReference: {fileID: 11400000, guid: 3ce3c85ce1cb2c148a28c103a8b744a0, type: 2}
     - target: {fileID: 4818155497191382917, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
       propertyPath: '_events.Array.data[3]'
       value: 
-      objectReference: {fileID: 11400000, guid: 4f5d513b1f50749419c83bb862ae74fc, type: 2}
+      objectReference: {fileID: 11400000, guid: 02ed97c911bd2e64ba1a529cad5f7da9, type: 2}
     - target: {fileID: 4818155497191382917, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
       propertyPath: '_events.Array.data[4]'
       value: 
-      objectReference: {fileID: 11400000, guid: 4f5d513b1f50749419c83bb862ae74fc, type: 2}
+      objectReference: {fileID: 11400000, guid: 62717ef62f2088242bf3af1aebe30d9b, type: 2}
+    - target: {fileID: 4818155497191382917, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
+      propertyPath: '_events.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 02ed97c911bd2e64ba1a529cad5f7da9, type: 2}
+    - target: {fileID: 4818155497191382917, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
+      propertyPath: '_events.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 62717ef62f2088242bf3af1aebe30d9b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
