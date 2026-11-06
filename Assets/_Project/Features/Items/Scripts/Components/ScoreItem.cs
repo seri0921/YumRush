@@ -19,7 +19,7 @@ public sealed class ScoreItem : MonoBehaviour, ICollectibleItem
         if (collected || !isActiveAndEnabled)
             return false;
 
-        collector.AddScore(config.Points);
+        collector.AddScore(config.Points, config.GainKind);
         collected = true;
         if (TryGetComponent<ItemCollectEffectView>(out var effectView))
             effectView.Play(transform.position);

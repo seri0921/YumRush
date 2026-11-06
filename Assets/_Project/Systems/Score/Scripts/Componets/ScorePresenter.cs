@@ -9,7 +9,10 @@ public sealed class ScorePresenter : MonoBehaviour
     private readonly ScoreLogic logic = new ScoreLogic();
     private ScoreDisplayLogic displayLogic;
     public int Current => logic.Current;
+    public bool IsScoreHidden { get; private set; }
+    public event Action<bool> VisibilityChanged;
     public event Action<int> Gained;
+    public event Action<int, ScoreGainKind> GainedWithKind;
 
     private void Awake()
     {
@@ -46,13 +49,24 @@ public sealed class ScorePresenter : MonoBehaviour
         double remaining = gameManager.Status == GameStatus.Ready
             ? gameManager.TimeLimitSeconds
             : gameManager.RemainingSeconds;
-        view.Render(logic.Current, displayLogic.ShouldHide(remaining));
+        bool isHidden = displayLogic.ShouldHide(remaining);
+        view.Render(logic.Current, isHidden);
+        if (IsScoreHidden != isHidden)
+        {
+            IsScoreHidden = isHidden;
+            VisibilityChanged?.Invoke(isHidden);
+        }
     }
 
-    public void Add(int points)
+    public void Add(int points) => Add(points, ScoreGainKind.Normal);
+
+    public void Add(int points, ScoreGainKind gainKind)
     {
         logic.Add(points);
         if (points > 0)
+        {
             Gained?.Invoke(points);
+            GainedWithKind?.Invoke(points, gainKind);
+        }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -25,9 +26,27 @@ public sealed class StartCountdownView : MonoBehaviour
 
     public void Hide() => _label.enabled = false;
 
-    public void PlaySound()
+    public IEnumerator PrepareSound()
     {
-        if (_countdownClip != null)
-            _source.PlayOneShot(_countdownClip);
+        if (_countdownClip == null)
+            yield break;
+
+        if (_countdownClip.loadState == AudioDataLoadState.Unloaded)
+            _countdownClip.LoadAudioData();
+
+        while (_countdownClip.loadState == AudioDataLoadState.Loading)
+            yield return null;
+
+        if (_countdownClip.loadState != AudioDataLoadState.Loaded)
+            throw new InvalidOperationException("Failed to load start countdown audio.");
+    }
+
+    public void ScheduleSound(double startedAt)
+    {
+        if (_countdownClip == null)
+            return;
+
+        _source.clip = _countdownClip;
+        _source.PlayScheduled(startedAt);
     }
 }

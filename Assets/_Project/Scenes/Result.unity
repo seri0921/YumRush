@@ -428,6 +428,8 @@ MonoBehaviour:
   _maximumAppleScore: 2000
   _growthSoundSource: {fileID: 368846135}
   _growthClip: {fileID: 8300000, guid: 2980422b756649d4f99df09aea33879c, type: 3}
+  _maximumAppleClip: {fileID: 8300000, guid: 7ce67bc654eb4c5894317066f9cb6e2f, type: 3}
+  _maximumAppleSoundVolume: 1
   _growthSoundScaleInterval: 0.2
   _growthSoundVolume: 1
   _characterImage: {fileID: 45952540}
