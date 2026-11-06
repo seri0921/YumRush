@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 5961319521398294803}
   - component: {fileID: 4115297191872766614}
   m_Layer: 0
-  m_Name: ScoreItem (7) SpawnPoint (1)
+  m_Name: Bascket SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
   prefab: {fileID: 5321773928464043534, guid: 60c77849dd6f3f14db706719706dbb04, type: 3}
-  config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
+  config: {fileID: 11400000, guid: 88e0c391766ddc1409d22d57e54453ce, type: 2}
 --- !u!1 &254136530134392161
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
   prefab: {fileID: 2994425199152664405, guid: 22b238678f6649645a9447651572cb23, type: 3}
-  config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
+  config: {fileID: 11400000, guid: 902a91174c3c5124aa80fb0a082569a9, type: 2}
 --- !u!1 &355837917256534697
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +585,7 @@ GameObject:
   - component: {fileID: 374396127951930}
   - component: {fileID: 6638186914634898169}
   m_Layer: 0
-  m_Name: ScoreItemBig SpawnPoint (1)
+  m_Name: Bascket SpawnPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -619,7 +619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
   prefab: {fileID: 5321773928464043534, guid: 60c77849dd6f3f14db706719706dbb04, type: 3}
-  config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
+  config: {fileID: 11400000, guid: 88e0c391766ddc1409d22d57e54453ce, type: 2}
 --- !u!1 &596633258255638826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,7 +1608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
   prefab: {fileID: 2994425199152664405, guid: 22b238678f6649645a9447651572cb23, type: 3}
-  config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
+  config: {fileID: 11400000, guid: 902a91174c3c5124aa80fb0a082569a9, type: 2}
 --- !u!1 &1230547465062435062
 GameObject:
   m_ObjectHideFlags: 0
@@ -2870,7 +2870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
   prefab: {fileID: 2994425199152664405, guid: 22b238678f6649645a9447651572cb23, type: 3}
-  config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
+  config: {fileID: 11400000, guid: 902a91174c3c5124aa80fb0a082569a9, type: 2}
 --- !u!1 &2646209238258115244
 GameObject:
   m_ObjectHideFlags: 0
@@ -4158,7 +4158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
   prefab: {fileID: 2994425199152664405, guid: 22b238678f6649645a9447651572cb23, type: 3}
-  config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
+  config: {fileID: 11400000, guid: 902a91174c3c5124aa80fb0a082569a9, type: 2}
 --- !u!1 &3734365950839969602
 GameObject:
   m_ObjectHideFlags: 0
@@ -4607,7 +4607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
   prefab: {fileID: 2994425199152664405, guid: 22b238678f6649645a9447651572cb23, type: 3}
-  config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
+  config: {fileID: 11400000, guid: 902a91174c3c5124aa80fb0a082569a9, type: 2}
 --- !u!1 &4238569185372279934
 GameObject:
   m_ObjectHideFlags: 0
@@ -8260,7 +8260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
   prefab: {fileID: 2994425199152664405, guid: 22b238678f6649645a9447651572cb23, type: 3}
-  config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
+  config: {fileID: 11400000, guid: 902a91174c3c5124aa80fb0a082569a9, type: 2}
 --- !u!1 &7224906086682171451
 GameObject:
   m_ObjectHideFlags: 0
@@ -8812,7 +8812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Project.Respawn::SpawnPoint
   prefab: {fileID: 2994425199152664405, guid: 22b238678f6649645a9447651572cb23, type: 3}
-  config: {fileID: 11400000, guid: 087c08b2bf2d99545a57e0177ef32dba, type: 2}
+  config: {fileID: 11400000, guid: 902a91174c3c5124aa80fb0a082569a9, type: 2}
 --- !u!1 &7726121246142792660
 GameObject:
   m_ObjectHideFlags: 0
