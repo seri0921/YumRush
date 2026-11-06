@@ -212,6 +212,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -52.44
       objectReference: {fileID: 0}
+    - target: {fileID: 8767147182490722376, guid: 04e40eaa000ffd2459a9548c5c7daf58, type: 3}
+      propertyPath: _canSpawnChest
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8913531458799163248, guid: 04e40eaa000ffd2459a9548c5c7daf58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
