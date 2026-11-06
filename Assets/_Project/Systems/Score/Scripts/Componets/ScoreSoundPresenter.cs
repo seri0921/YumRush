@@ -17,13 +17,19 @@ public sealed class ScoreSoundPresenter : MonoBehaviour
         Assert.IsNotNull(_view);
     }
 
-    private void OnEnable() => _scorePresenter.Gained += HandleGained;
+    private void OnEnable() => _scorePresenter.GainedWithKind += HandleGained;
 
     private void OnDisable()
     {
         if (_scorePresenter != null)
-            _scorePresenter.Gained -= HandleGained;
+            _scorePresenter.GainedWithKind -= HandleGained;
     }
 
-    private void HandleGained(int points) => _view.PlayGain();
+    private void HandleGained(int points, ScoreGainKind gainKind)
+    {
+        if (gainKind == ScoreGainKind.Treasure)
+            _view.PlayTreasureGain();
+        else
+            _view.PlayGain();
+    }
 }

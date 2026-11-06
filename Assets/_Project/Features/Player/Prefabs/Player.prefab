@@ -1321,6 +1321,9 @@ MonoBehaviour:
   _gain:
     _clip: {fileID: 8300000, guid: 24fd3ee923b2a734d9ff5fcd17e51277, type: 3}
     _volume: 1
+  _treasureGain:
+    _clip: {fileID: 8300000, guid: b02702d6c7274f17af847b4c16c5ac48, type: 3}
+    _volume: 1
 --- !u!114 &344038966619014178
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,5 +20,7 @@ public sealed class PlayerItemCollector : MonoBehaviour
             item.TryCollect(this);
     }
 
-    public void AddScore(int points) => scorePresenter.Add(points);
+    public void AddScore(int points) => AddScore(points, ScoreGainKind.Normal);
+
+    public void AddScore(int points, ScoreGainKind gainKind) => scorePresenter.Add(points, gainKind);
 }

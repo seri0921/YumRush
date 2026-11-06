@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: TreasureAppleScore
   m_EditorClassIdentifier: Assembly-CSharp::ScoreItemConfig
   points: 1000
+  _gainKind: 1
