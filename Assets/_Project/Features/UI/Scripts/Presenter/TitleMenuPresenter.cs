@@ -8,6 +8,7 @@ public sealed class TitleMenuPresenter : MonoBehaviour
     [SerializeField] private TitleButtonView _startButton;
     [SerializeField] private TitleButtonView _exitButton;
     [SerializeField] private ButtonSoundView _soundView;
+    [SerializeField] private TitleTutorialPresenter _tutorial;
 
     private TitleButtonView _lastSelectedButton;
     private bool _actionRequested;
@@ -39,7 +40,7 @@ public sealed class TitleMenuPresenter : MonoBehaviour
         if (!CanAcceptAction)
             return;
 
-        _actionRequested = SceneTransitionPresenter.LoadScene(GameScenePath);
+        _actionRequested = SceneTransitionPresenter.LoadScene(GameScenePath, _tutorial.Show());
         if (_actionRequested)
             _soundView.PlayClick();
     }
