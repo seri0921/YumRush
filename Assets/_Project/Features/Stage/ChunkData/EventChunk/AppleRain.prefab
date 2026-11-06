@@ -434,17 +434,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8086415644754874299}
-  - {fileID: 4756273305233431235}
-  - {fileID: 1402156641089535915}
-  - {fileID: 4067793478111085689}
-  - {fileID: 8652639781885985190}
-  - {fileID: 2518250937666268742}
-  - {fileID: 5011965286399272834}
-  - {fileID: 5635043682071091948}
-  - {fileID: 2417776434189810556}
   - {fileID: 1910239208548018695}
+  - {fileID: 2417776434189810556}
+  - {fileID: 8652639781885985190}
+  - {fileID: 5635043682071091948}
+  - {fileID: 4067793478111085689}
+  - {fileID: 5011965286399272834}
+  - {fileID: 4756273305233431235}
+  - {fileID: 8086415644754874299}
+  - {fileID: 1402156641089535915}
   - {fileID: 3021197211661153011}
+  - {fileID: 2518250937666268742}
   - {fileID: 5601358558945724288}
   - {fileID: 6123394961166092190}
   m_Father: {fileID: 0}
@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemRainChunk
   itemPrefab: {fileID: 2994425199152664405, guid: 1190a24d2c638914ea638a4565b84ebf, type: 3}
-  minInterval: 3
-  maxInterval: 4
-  randomXRange: 5
+  minInterval: 2
+  maxInterval: 3
+  randomXRange: 6.5
   spawnPoints: []

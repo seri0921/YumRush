@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a35f54d459348778670887a7e9c5e2a, type: 3}
-  m_Name: BossEvent_B
+  m_Name: BossEvent_01
   m_EditorClassIdentifier: Assembly-CSharp::TimedEventConfig
   _type: 1
-  _startSeconds: 45
+  _startSeconds: 5
   _durationSeconds: 45

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AppleRainEvent_01
   m_EditorClassIdentifier: Assembly-CSharp::TimedEventConfig
   _type: 2
-  _startSeconds: 5
+  _startSeconds: 30
   _durationSeconds: 30
