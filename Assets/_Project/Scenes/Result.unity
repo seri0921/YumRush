@@ -404,6 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc1bc7db742467a810ebe761c01cf83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultScorePresenter
+  _inputBlockDuration: 1
 --- !u!114 &368846130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,8 +425,8 @@ MonoBehaviour:
   _apple: {fileID: 1183079140}
   _minimumAppleScale: 1
   _maximumAppleScale: 3
-  _minimumAppleScore: 500
-  _maximumAppleScore: 2000
+  _minimumAppleScore: 10000
+  _maximumAppleScore: 35000
   _growthSoundSource: {fileID: 368846135}
   _growthClip: {fileID: 8300000, guid: 2980422b756649d4f99df09aea33879c, type: 3}
   _maximumAppleClip: {fileID: 8300000, guid: 7ce67bc654eb4c5894317066f9cb6e2f, type: 3}
@@ -440,8 +441,8 @@ MonoBehaviour:
   _badBackground: {fileID: 21300000, guid: 7fa08c60c64155646bef8ec20f5a7c8d, type: 3}
   _normalBackground: {fileID: 21300000, guid: d959a3ffd04223341bd41759d69249b6, type: 3}
   _goodBackground: {fileID: 21300000, guid: fc4d2d3711a0e454cb319cbc2d0b7d11, type: 3}
-  _maximumSadScore: 500
-  _minimumHappyScore: 2000
+  _maximumSadScore: 10000
+  _minimumHappyScore: 35000
 --- !u!1 &368846131
 GameObject:
   m_ObjectHideFlags: 0
