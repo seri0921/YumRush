@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 337611542278785935, guid: 82ea520fe74cf01439af4e358b053778, type: 3}
+      propertyPath: m_Radius
+      value: 0.2684272
+      objectReference: {fileID: 0}
+    - target: {fileID: 337611542278785935, guid: 82ea520fe74cf01439af4e358b053778, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932980823715452466, guid: 82ea520fe74cf01439af4e358b053778, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932980823715452466, guid: 82ea520fe74cf01439af4e358b053778, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2994425199152664405, guid: 82ea520fe74cf01439af4e358b053778, type: 3}
       propertyPath: m_Name
       value: TreasureApple
@@ -56,6 +72,10 @@ PrefabInstance:
       propertyPath: config
       value: 
       objectReference: {fileID: 11400000, guid: be637e771a40ff64e8cb33837bf7550c, type: 2}
+    - target: {fileID: 7325322787859890116, guid: 82ea520fe74cf01439af4e358b053778, type: 3}
+      propertyPath: detectRange
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
