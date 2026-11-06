@@ -426,7 +426,7 @@ MonoBehaviour:
   _minimumAppleScale: 1
   _maximumAppleScale: 3
   _minimumAppleScore: 10000
-  _maximumAppleScore: 35000
+  _maximumAppleScore: 30000
   _growthSoundSource: {fileID: 368846135}
   _growthClip: {fileID: 8300000, guid: 2980422b756649d4f99df09aea33879c, type: 3}
   _maximumAppleClip: {fileID: 8300000, guid: 7ce67bc654eb4c5894317066f9cb6e2f, type: 3}
@@ -442,7 +442,7 @@ MonoBehaviour:
   _normalBackground: {fileID: 21300000, guid: d959a3ffd04223341bd41759d69249b6, type: 3}
   _goodBackground: {fileID: 21300000, guid: fc4d2d3711a0e454cb319cbc2d0b7d11, type: 3}
   _maximumSadScore: 10000
-  _minimumHappyScore: 35000
+  _minimumHappyScore: 30000
 --- !u!1 &368846131
 GameObject:
   m_ObjectHideFlags: 0

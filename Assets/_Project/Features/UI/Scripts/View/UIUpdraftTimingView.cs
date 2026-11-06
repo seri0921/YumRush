@@ -1,5 +1,4 @@
 using System;
-using TMPro;
 using UnityEngine;
 
 public sealed class UIUpdraftTimingView : MonoBehaviour
@@ -9,7 +8,6 @@ public sealed class UIUpdraftTimingView : MonoBehaviour
     [SerializeField] private RectTransform marker;
     [SerializeField] private UnityEngine.UI.Image markerImage;
     [SerializeField] private RectTransform referenceCircle;
-    [SerializeField] private TMP_Text statusLabel;
     [Header("円の表示")]
     [SerializeField, Min(1f)] private float _maximumScale = 2.5f;
     [SerializeField, Min(0.01f)] private float _minimumScale = 1f;
@@ -27,7 +25,7 @@ public sealed class UIUpdraftTimingView : MonoBehaviour
     private void Awake()
     {
         if (content == null || marker == null || markerImage == null ||
-            referenceCircle == null || statusLabel == null || _successEffectPrefab == null)
+            referenceCircle == null || _successEffectPrefab == null)
             throw new InvalidOperationException("UpdraftTimingView のUI参照を設定してください。");
         _canvas = GetComponentInParent<Canvas>();
         _contentRect = (RectTransform)content.transform;
@@ -59,11 +57,8 @@ public sealed class UIUpdraftTimingView : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0f, 0f, _rotationAngle);
         marker.localRotation = rotation;
         referenceCircle.localRotation = rotation;
-        statusLabel.rectTransform.anchoredPosition = new Vector2(0f, -diameter * _maximumScale * 0.5f - 20f);
         Color color = !presentation.Ready ? unavailableColor :
             presentation.Optimal ? optimalColor : normalColor;
         markerImage.color = color;
-        statusLabel.text = !presentation.Ready ? "READYING" : presentation.Optimal ? "JUMP!" : "SPACE";
-        statusLabel.color = color;
     }
 }
