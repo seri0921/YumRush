@@ -30,11 +30,14 @@ public sealed class StartCountdownPresenter : MonoBehaviour
         while (SceneTransitionPresenter.IsTransitioning)
             yield return null;
 
-        double startedAt = Time.unscaledTimeAsDouble;
-        _view.PlaySound();
-        while (Time.unscaledTimeAsDouble - startedAt < _goAt)
+        yield return _view.PrepareSound();
+
+        // Allow the audio thread to prepare playback before the shared start time.
+        double startedAt = AudioSettings.dspTime + 0.1d;
+        _view.ScheduleSound(startedAt);
+        while (AudioSettings.dspTime - startedAt < _goAt)
         {
-            double elapsed = Time.unscaledTimeAsDouble - startedAt;
+            double elapsed = AudioSettings.dspTime - startedAt;
             if (elapsed >= _oneAt)
                 _view.Show("1");
             else if (elapsed >= _twoAt)

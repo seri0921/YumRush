@@ -9,6 +9,8 @@ public sealed class UIUpdraftTimingPresenter : MonoBehaviour
     
     [Tooltip("タイミングゲージを描画するView。")] [SerializeField] 
     private UIUpdraftTimingView view;
+
+    [SerializeField] private UIUpdraftTimingSoundView _soundView;
     
     [Space(8)]
     [Header("判定")] [Tooltip("最大上昇速度に対する最適タイミングのしきい値（0〜1）。")] [SerializeField, Range(0.01f, 1f)] 
@@ -24,7 +26,7 @@ public sealed class UIUpdraftTimingPresenter : MonoBehaviour
 
     private void Awake()
     {
-        if (player == null || view == null)
+        if (player == null || view == null || _soundView == null)
             throw new InvalidOperationException("UpdraftTimingDisplay の参照を設定してください。");
         logic = new UIUpdraftTimingLogic(optimalThreshold);
         _playerCollider = player.GetComponent<Collider2D>();
@@ -46,7 +48,10 @@ public sealed class UIUpdraftTimingPresenter : MonoBehaviour
         UpdraftTimingPresentation presentation = logic.Evaluate(previousState, player.CurrentLiftVelocity,
             player.MaximumLiftVelocity, true);
         if (presentation.Optimal)
+        {
             view.PlaySuccess(_playerCollider.bounds.center);
+            _soundView.PlaySuccess();
+        }
     }
 
     private void LateUpdate()

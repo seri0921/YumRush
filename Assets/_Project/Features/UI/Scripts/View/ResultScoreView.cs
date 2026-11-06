@@ -42,6 +42,7 @@ public sealed class ResultScoreView : MonoBehaviour
     private char[] _digits;
 
     public bool IsComplete { get; private set; }
+    public bool IsGrowthSoundPlaying => _growthSoundSource.isPlaying;
 
     private void Awake()
     {
