@@ -15,6 +15,8 @@ public sealed class StartCountdownPresenter : MonoBehaviour
 
     private IDisposable _inputLock;
 
+    public event Action CountdownCompleted;
+
     private void Awake()
     {
         if (_gameManager == null || _player == null || _view == null)
@@ -54,6 +56,7 @@ public sealed class StartCountdownPresenter : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(_goDuration);
         _view.Hide();
+        CountdownCompleted?.Invoke();
     }
 
     private void OnDestroy() => ReleaseInput();

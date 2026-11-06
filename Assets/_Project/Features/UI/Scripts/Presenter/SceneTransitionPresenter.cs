@@ -39,7 +39,7 @@ public sealed class SceneTransitionPresenter : MonoBehaviour
         SceneManager.sceneLoaded += HandleSceneLoaded;
     }
 
-    public static bool LoadScene(string scenePath)
+    public static bool LoadScene(string scenePath, IEnumerator afterClose = null)
     {
         if (IsTransitioning)
             return false;
@@ -49,11 +49,11 @@ public sealed class SceneTransitionPresenter : MonoBehaviour
             throw new System.ArgumentException("Scene is not available in Build Settings: " + scenePath, nameof(scenePath));
 
         IsTransitioning = true;
-        _instance.StartCoroutine(_instance.Transition(scenePath));
+        _instance.StartCoroutine(_instance.Transition(scenePath, afterClose));
         return true;
     }
 
-    private IEnumerator Transition(string scenePath)
+    private IEnumerator Transition(string scenePath, IEnumerator afterClose)
     {
         try
         {
@@ -61,6 +61,8 @@ public sealed class SceneTransitionPresenter : MonoBehaviour
             yield return _view.Close(_bgm.FadeOut);
             // Keep the final closed frame rendered before activating the next scene.
             yield return null;
+            if (afterClose != null)
+                yield return afterClose;
             yield return SceneManager.LoadSceneAsync(scenePath);
             yield return null;
             yield return _view.Open(_bgm.SetAudibleFraction);
