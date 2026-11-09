@@ -1039,7 +1039,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a3896582ce74dc390d0239502ac3e53, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartDashPromptPresenter
   _countdown: {fileID: 901200005}
   _player: {fileID: 1393514355}
@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b4d8ba0fae24f9f863190273cf58da2, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartDashPromptView
   _label: {fileID: 1717601518}
   _message: Press X or Y Button!
@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2765,6 +2765,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2552820210679915132, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
+      propertyPath: _gain._volume
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2856537715056687476, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2856,14 +2860,18 @@ PrefabInstance:
     - target: {fileID: 5932415752882916773, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
       propertyPath: _glide._clip
       value: 
-      objectReference: {fileID: 8300000, guid: 7f7ad4b44ce243e41be7170c500af56b, type: 3}
+      objectReference: {fileID: 8300000, guid: f51e76448b323bd4ca05a22162f9ccbf, type: 3}
+    - target: {fileID: 5932415752882916773, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
+      propertyPath: _jump._volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5932415752882916773, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
       propertyPath: _walk._volume
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5932415752882916773, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
       propertyPath: _glide._volume
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5932415752882916773, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
       propertyPath: _damage._volume
@@ -2891,7 +2899,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 206dfd0f6e22c7642b6e89562f8aa450, type: 3}
     - target: {fileID: 5932415752882916773, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
       propertyPath: _attackReach._volume
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6393998105203296982, guid: 988d6a03c8031c24d892e0168ad5d8ad, type: 3}
       propertyPath: startCameraController
@@ -3074,6 +3082,10 @@ PrefabInstance:
       propertyPath: '_events.Array.data[4]'
       value: 
       objectReference: {fileID: 11400000, guid: 62717ef62f2088242bf3af1aebe30d9b, type: 2}
+    - target: {fileID: 5157759991769737486, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5764821393382946211, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
       propertyPath: _displaySeconds
       value: 4
@@ -3082,11 +3094,20 @@ PrefabInstance:
       propertyPath: _blinkPeriod
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7168160135135837420, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 8719822471740913099}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
+--- !u!82 &8719822471740913099 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5157759991769737486, guid: 424c5910815fd744d95a972ff54fe4f7, type: 3}
+  m_PrefabInstance: {fileID: 8719822471740913098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

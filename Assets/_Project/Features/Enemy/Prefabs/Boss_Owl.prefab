@@ -123,7 +123,7 @@ MonoBehaviour:
     _volume: 1
   _attack:
     _clip: {fileID: 8300000, guid: c597c2f7f8ad73d4dac39c83f96382f1, type: 3}
-    _volume: 1
+    _volume: 0.3
   _attackSource: {fileID: 871616576216369783}
   _barrierBreak:
     _clip: {fileID: 0}
