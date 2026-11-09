@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a4d38c2dac6cdb45a7db74840f91304, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShootingEnemy
   target: {fileID: 0}
   dropItemPrefab: {fileID: 0}
@@ -109,15 +109,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67f7903e95bffcd459e0e976edb5d03f, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySoundView
   _death:
     _clip: {fileID: 8300000, guid: 5f32500f68704d940813158abad4f64c, type: 3}
     _volume: 1
   _attack:
     _clip: {fileID: 8300000, guid: 3dca2b2f7dbd7984e943333dce5db81b, type: 3}
-    _volume: 1
+    _volume: 0.3
   _attackSource: {fileID: 5045925088920987331}
+  _barrierBreak:
+    _clip: {fileID: 0}
+    _volume: 1
+  _wingsOpen:
+    _clip: {fileID: 0}
+    _volume: 1
 --- !u!114 &5850343492845617626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +134,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5f78b24f58d2064dafc2b7566a5974e, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySoundPresenter
   _enemy: {fileID: 3938666258967950834}
   _view: {fileID: 8814791587418098629}
@@ -355,7 +361,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efce493a1c6689749a2924e1a7890c51, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinorEnemy_Animation
   animator: {fileID: 2341254383728011186}
   spriteRenderer: {fileID: 6706484874620506456}
@@ -372,5 +378,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fca91629275f2e249b3367c3070eb7cc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteOutlineView

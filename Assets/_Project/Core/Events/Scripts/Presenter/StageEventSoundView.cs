@@ -7,13 +7,12 @@ public sealed class StageEventSoundView : MonoBehaviour
     [SerializeField] private StageEventPresenter _eventSource;
     [SerializeField] private AudioClip _warningClip;
 
-    private AudioSource _audioSource;
+    [SerializeField] private AudioSource _audioSource;
 
     private void Awake()
     {
         Assert.IsNotNull(_eventSource);
         Assert.IsNotNull(_warningClip);
-        _audioSource = gameObject.AddComponent<AudioSource>();
         _audioSource.playOnAwake = false;
         _audioSource.spatialBlend = 0f;
     }
