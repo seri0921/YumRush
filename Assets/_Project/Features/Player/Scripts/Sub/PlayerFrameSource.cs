@@ -26,6 +26,7 @@ internal sealed class PlayerFrameSource
                 VerticalInput = input.Direction.y,
                 FacingDirection = facingDirection,
                 JumpQueued = input.JumpQueued,
+                AttackQueued = input.AttackQueued,
                 DashQueued = input.DashQueued
             },
             Body = new PlayerBodySnapshot

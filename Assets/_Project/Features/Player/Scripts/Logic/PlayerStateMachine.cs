@@ -43,12 +43,13 @@ public sealed class PlayerStateMachine
     public IPlayerState Current { get; private set; }
     public PlayerState State => Current.Id;
     public bool IsActionLocked => State == PlayerState.Hit || IsHoming || State == PlayerState.AirCurrent || State == PlayerState.Freezing;
+    public bool CanStartHoming => !IsActionLocked || State == PlayerState.AirCurrent;
     public bool IsHoming => State == PlayerState.Homing || State == PlayerState.HomingWindup;
     public bool IsGliding => State == PlayerState.Gliding;
     public bool CanWindJump => State == PlayerState.Floating && wind.CanWindJump;
     public float LiftVelocity => wind.LiftVelocity;
     public bool CanEnterWind => !IsHoming && State != PlayerState.Hit && State != PlayerState.AirCurrent;
-    public bool CanEnterAirCurrent => State != PlayerState.Hit;
+    public bool CanEnterAirCurrent => State != PlayerState.Hit && !IsHoming;
 
     public bool IsInWind =>
         State == PlayerState.Capturing || State == PlayerState.Floating ||
@@ -162,8 +163,7 @@ public sealed class PlayerStateMachine
         if (frame.Body.Grounded || IsInWind)
             dash.Recharge();
 
-        if (!IsActionLocked && State != PlayerState.Capturing && State != PlayerState.Floating &&
-            (frame.Input.JumpQueued && !result.JumpConsumed) && frame.Homing.HasHomingTarget)
+        if (CanStartHoming && frame.Input.AttackQueued && frame.Homing.HasHomingTarget)
             ChangeState(PlayerState.HomingWindup);
         else if ((State == PlayerState.Airborne || IsGliding || State == PlayerState.GameOpening) && !frame.Body.Grounded &&
                  !frame.Wind.HasWind && (frame.Input.DashQueued && !result.DashConsumed) && dash.TryStart(true, settings.Dash.AirDashDuration))
@@ -175,7 +175,7 @@ public sealed class PlayerStateMachine
             ChangeState(PlayerState.AirDashing);
         }
 
-        if (IsGliding && !frame.Body.Grounded && (frame.Input.JumpQueued && !result.JumpConsumed) && !frame.Homing.HasHomingTarget)
+        if (IsGliding && !frame.Body.Grounded && frame.Input.JumpQueued && !result.JumpConsumed)
         {
             ChangeState(PlayerState.Airborne);
             result.JumpConsumed = true;
