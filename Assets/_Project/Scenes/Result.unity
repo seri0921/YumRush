@@ -405,6 +405,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultScorePresenter
   _inputBlockDuration: 1
+  _unityroomScoreboardId: 1
+  _unityroomHmacKey: JBd83zYWgkgUX6WwsKl9VUCcnf2TjmnYdPG37LLBVM9ImBv6kc6Qvpj6H3lyZi7d9lp+tryjEAKSIjw/i0hlmw==
 --- !u!114 &368846130
 MonoBehaviour:
   m_ObjectHideFlags: 0
