@@ -1,97 +1,102 @@
-# プロジェクトフォルダ構造・開発ガイド
+# YumRush
 
-新規参画メンバー向けのプロジェクトフォルダ構成および運用ルールのガイドラインです。  
-アセットの配置場所に迷った際は、このドキュメントを参照してください。
+YumRush は Unity 製の 2D アクションゲームです。制限時間内にステージを移動し、アイテムの回収や敵の撃破でスコアを稼ぎます。タイトルからゲーム本編に入り、プレイ終了後にリザルトでスコアを確認できます。
 
----
+## セットアップと初回プレイ
 
-## 📁 ディレクトリ構造
+1. Git と Unity Hub を用意し、Unity Editor **6000.3.9f1** をインストールします。使用するバージョンは [ProjectVersion.txt](ProjectSettings/ProjectVersion.txt) で確認できます。
+2. リポジトリを取得します。
 
-基本的には `Assets/_Project/` 以下に自作のスクリプトやアセットを配置します。  
-サードパーティ製プラグインや外部アセットは `Assets/ThirdParty/` に分離することで、依存関係を明確に保ちます。
+   ```sh
+   git clone https://github.com/seri0921/CAPCOM-IPUT-2026.git
+   cd CAPCOM-IPUT-2026
+   ```
+
+3. Unity Hub の「Add / 追加」から、`Assets/`、`Packages/`、`ProjectSettings/` があるリポジトリのルートを選びます。初回はアセットのインポートとパッケージの取得が完了するまで待ちます。パッケージの取得にはネットワーク接続が必要です。
+4. Unity の Project ウィンドウから [Title.unity](Assets/_Project/Scenes/Title.unity) を開き、Play ▶ を押します。タイトル画面からゲームを開始し、移動とアイテム回収を試します。制限時間までプレイすると、リザルトへの遷移とスコア表示も確認できます。
+
+| 操作 | キーボード | ゲームパッド |
+| --- | --- | --- |
+| 移動 | WASD または矢印キー | 左スティック |
+| ジャンプ | Space | 下側のフェイスボタン |
+| 攻撃 | J | 右側のフェイスボタン |
+| 空中ダッシュ | K | 上側または左側のフェイスボタン |
+
+ゲーム中の操作は [PlayerInput.cs](Assets/_Project/Features/Player/Scripts/Input/PlayerInput.cs) で定義されています。パッケージの取得に失敗したときは、Console のエラーを確認し、`git --version` が通ることと、GitHub および OpenUPM に接続できることを確認してください。パッケージの定義は [manifest.json](Packages/manifest.json) にあります。
+
+## ディレクトリ構造
+
+リポジトリで管理している主なフォルダとファイルです。
 
 ```text
-Assets/
-├── _Project/                 # 自作プロダクト専用のメインディレクトリ
-│   ├── Art/                  # プロジェクト共通のデザイン・グラフィック素材
-│   │   ├── Sprites/          # 共通スプライト・2D画像
-│   │   ├── Materials/        # マテリアル
-│   │   ├── Animations/       # 共通アニメーション・コントローラー
-│   │   └── Fonts/            # フォントファイル
-│   │
-│   ├── Audio/                # 共通のサウンド・BGM・効果音素材
-│   │   ├── BGM/              # BGMファイル
-│   │   └── SFX/              # 効果音（SFX）ファイル
-│   │
-│   ├── Features/             # ゲームを構成する個別機能（垂直スライス構造）
-│   │   ├── Player/           # プレイヤー関連（コード・アニメーション・Prefab等）
-│   │   ├── Enemy/            # 敵キャラクター関連
-│   │   ├── Combat/           # 戦闘システム・ダメージ計算等
-│   │   ├── Stage/            # ステージ・ギミック・マップ関連
-│   │   └── UI/               # UI機能・画面固有のUI表示
-│   │
-│   ├── Core/                 # 汎用的な基盤コード・共通ユーティリティ
-│   │   ├── Events/           # イベント通知（MessagePipe / ScriptableObjectEvent等）
-│   │   ├── Utilities/        # 汎用ヘルパークラス
-│   │   └── Extensions/       # C# 拡張メソッド
-│   │
-│   ├── Systems/              # ゲーム全体を管理するシステム層
-│   │   ├── Save/             # セーブ・ロード機能
-│   │   ├── Audio/            # サウンドマネージャー・音声再生制御
-│   │   └── SceneManagement/  # シーン遷移・ロード処理
-│   │
-│   ├── Scenes/               # 本番で使用するメインシーン
-│   │   ├── Title.unity       # タイトル画面
-│   │   ├── Game.unity        # ゲーム本編
-│   │   └── Result.unity      # リザルト画面
-│   │
-│   ├── Settings/             # ScriptableObject・URP設定等のプロジェクト設定ファイル
-│   ├── Tests/                # 自動テスト（EditMode / PlayMode）
-│   └── Sandbox/              # 開発者の個人実験・テスト用作業場（本番非含）
-│
-├── ThirdParty/               # 外部アセット・アセットストア購入物
-│   ├── DOTween/
-│   └── OtherAssets/
-│
-└── TextMesh Pro/             # TMP初期導入アセット（インポート時のルート配置物）
+.
+├── README.md
+├── Assets/
+│   ├── _Project/
+│   │   ├── Art/              # 共通のビジュアル素材
+│   │   │   ├── Fonts/
+│   │   │   ├── Sprites/
+│   │   │   └── Videos/
+│   │   ├── Audio/            # サウンド素材
+│   │   │   ├── BGM/
+│   │   │   └── SE/
+│   │   ├── Core/             # 共通処理
+│   │   │   ├── Events/       # ステージイベントと進行管理
+│   │   │   ├── Rendering/    # スプライトのアウトラインなど
+│   │   │   └── Utilities/    # ゲーム進行、カメラ、ヒットストップなど
+│   │   ├── Features/         # 機能ごとのコード・Prefab・設定
+│   │   │   ├── Enemy/
+│   │   │   ├── Items/
+│   │   │   ├── Player/
+│   │   │   ├── Respawn/
+│   │   │   ├── Stage/
+│   │   │   ├── Treasure/
+│   │   │   │   └── Tests/
+│   │   │   │       └── Editor/
+│   │   │   └── UI/
+│   │   ├── Sandbox/          # 実験・検証用のコードと素材
+│   │   │   ├── BonusIdea/
+│   │   │   └── TreasureSystem/
+│   │   ├── Scenes/
+│   │   │   ├── Title.unity
+│   │   │   ├── Game.unity
+│   │   │   ├── Result.unity
+│   │   │   ├── Game 1.unity
+│   │   │   └── ButanoriwoWorld.unity
+│   │   ├── Settings/         # URP 2D 設定とシーンテンプレート
+│   │   │   └── Scenes/
+│   │   └── Systems/
+│   │       ├── Audio/        # シーンごとの BGM 再生
+│   │       └── Score/        # スコアの加算と表示
+│   ├── Editor/              # Unity Editor 用のメニューや補助ツール
+│   ├── Resources/           # DOTween 設定
+│   ├── TextMesh Pro/         # TextMesh Pro のリソース
+│   ├── ThirdParty/
+│   │   ├── DOTween/
+│   │   └── MeshFlow/
+│   ├── DefaultVolumeProfile.asset
+│   ├── InputSystem_Actions.inputactions
+│   └── UniversalRenderPipelineGlobalSettings.asset
+├── Packages/                # Unity パッケージの定義とロックファイル
+└── ProjectSettings/         # Unity のバージョン、ビルド対象など
 ```
 
----
+ビルドに含まれるシーンは `Title → Game → Result` の順に登録されています。登録状況は [EditorBuildSettings.asset](ProjectSettings/EditorBuildSettings.asset) で確認できます。
 
-## 🔍 各フォルダの役割と配置ルール
+## 変更したい機能の探し方
 
-| フォルダ | 役割 | 具体例・格納ルール |
-| :--- | :--- | :--- |
-| **`Features`** | **個別のゲーム機能（ドメイン単位）** | プレイヤー、敵、戦闘ルール、特定機能用UIなど。<br>※その機能でのみ使用するPrefabやスクリプトは原則この中にまとめます。 |
-| **`Core`** | **汎用性の高い共通基盤** | ゲームロジックに依存しない拡張メソッド、数値計算ユーティリティ、汎用イベント等。 |
-| **`Systems`** | **全体を管理・維持するシステム** | セーブ＆ロード、オーディオ管理、シーンロード管理などゲーム共通のマネージャー類。 |
-| **`Art`** | **共通グラフィック素材** | 複数画面で使い回すスプライト、マテリアル、フォントなど。 |
-| **`Audio`** | **共通サウンド素材** | BGMファイル（`.wav`, `.mp3`）、共通の操作音・効果音など。 |
-| **`Scenes`** | **本番用ゲームシーン** | タイトル、メインゲーム、リザルトなど、実際にビルドに含めるシーン。 |
-| **`Settings`** | **設定・定義ファイル** | 描画設定（URP Settings）、Input System設定、共通データテーブル用ScriptableObject等。 |
-| **`Tests`** | **自動テスト** | Unity Test Frameworkの `EditMode` / `PlayMode` 用テストコード。 |
-| **`Sandbox`** | **実験・検証用スペース** | プロトタイプ作成、動作検証用シーン、開発中の使い捨てコード。<br>※本番ビルドには依存させないでください。 |
+| 変更したいもの | 最初に見る場所 |
+| --- | --- |
+| プレイヤーの移動、攻撃、操作 | [Features/Player](Assets/_Project/Features/Player) |
+| 敵の挙動、スコアアイテム | [Features/Enemy](Assets/_Project/Features/Enemy)、[Features/Items](Assets/_Project/Features/Items) |
+| ステージの地形・風、時間に応じたイベント | [Stage のガイド](Assets/_Project/Features/Stage/README.md)、[Events のガイド](Assets/_Project/Core/Events/README.md) |
+| 敵やアイテムの再出現、鍵と宝箱 | [Respawn のガイド](Assets/_Project/Features/Respawn/README.md)、[Treasure のガイド](Assets/_Project/Features/Treasure/README.md) |
+| タイトル画面、HUD、リザルト、スコア | [Features/UI](Assets/_Project/Features/UI)、[Systems/Score](Assets/_Project/Systems/Score) |
+| スプライトのアウトライン | [Rendering のガイド](Assets/_Project/Core/Rendering/README.md) |
 
----
+## ファイル追加と変更後の確認
 
-## 💡 ファイル配置に迷ったときの考え方
-
-1. **特定機能でしか使わないファイル**  
-   👉 `Features/[機能名]/` の中にまとめて配置してください。  
-   *(例: プレイヤー専用のコントローラーやPrefab ➔ `Features/Player/`)*
-
-2. **複数の機能から参照される共通コード・機能**  
-   👉 `Core/` や `Systems/` に配置を検討してください。  
-   *(例: 数値フォーマット処理 ➔ `Core/Utilities/`)*
-
-3. **外部アセット（Asset Storeから導入したものなど）**  
-   👉 `ThirdParty/` 以下に配置し、`_Project/` 内のコードと分けます。
-
----
-
-## ⚠️ 注意事項・ローカルルール
-
-- **`_Project/` 外への新規ファイル作成禁止**:  
-  アセットのインポート等で自動作成された場合を除き、新しく作成するコードや素材は必ず `_Project/` 配下に配置してください。
-- **`Sandbox/` の取り扱い**:  
-  他のメンバーの実験環境を破損しないよう注意し、本番コード（`Features` 等）から `Sandbox` 内のクラスを参照しないようにしてください。
+- 自作コードや素材は `Assets/_Project/` に置きます。特定機能のスクリプト、Prefab、設定は既存の `Features/<機能名>/` にまとめ、共通素材は `Art/` や `Audio/`、共通処理は `Core/`、ゲーム全体の管理処理は `Systems/` に置きます。外部アセットの配置先は `Assets/ThirdParty/` です。インポート時にツールが自動生成するファイルは、そのツールの配置に従います。
+- 実験用ファイルは `Sandbox/` に置き、本番コードから参照しないようにします。
+- アセットの移動や改名は Unity の Project ウィンドウで行います。追加・変更したアセットは対応する `.meta` と一緒にコミットします。`Library/`、`Logs/`、`UserSettings/` などのローカル生成物は Git の管理対象外です。
+- ゲームの変更後は `Title` から Play し、変更箇所の挙動と Console のエラーを確認します。宝箱や方向表示のロジックを変更した場合は、Unity の `Window > General > Test Runner` を開き、`EditMode` タブで [Treasure のテスト](Assets/_Project/Features/Treasure/Tests/Editor) を実行します。
