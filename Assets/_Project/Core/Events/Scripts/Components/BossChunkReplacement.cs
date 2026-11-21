@@ -11,6 +11,9 @@ public sealed class BossChunkReplacement : MonoBehaviour
     private GameObject _instance;
     private bool[] _normalActiveStates;
 
+    // Unity can deserialize a null array as empty after an editor reload.
+    private bool HasSavedNormalStates => _normalActiveStates != null && _normalActiveStates.Length > 0;
+
     public void ValidateConfiguration()
     {
         BiomeContent biome = GetComponentInParent<BiomeContent>(true);
@@ -40,7 +43,7 @@ public sealed class BossChunkReplacement : MonoBehaviour
 
     public void Show()
     {
-        if (_normalActiveStates != null)
+        if (HasSavedNormalStates)
             throw new InvalidOperationException("The boss Chunk is already showing.");
         // The anchor is still inactive: Awake/OnEnable run only after normal terrain is hidden.
         _instance = Instantiate(_bossChunkPrefab, transform, false);
@@ -55,7 +58,7 @@ public sealed class BossChunkReplacement : MonoBehaviour
 
     public void Restore()
     {
-        if (_normalActiveStates == null) return;
+        if (!HasSavedNormalStates) return;
         if (_instance != null)
         {
             _instance.SetActive(false);
