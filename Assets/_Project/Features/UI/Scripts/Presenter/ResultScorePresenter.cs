@@ -1,15 +1,22 @@
+using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unityroom.Client;
 
 [RequireComponent(typeof(ResultScoreView))]
 public sealed class ResultScorePresenter : MonoBehaviour
 {
     private const string TitleScenePath = "Assets/_Project/Scenes/Title.unity";
 
-    public static int FinalScore { private get; set; }
+    public static int? FinalScore { private get; set; }
 
     [SerializeField, Min(0f), Tooltip("画面遷移の終了後、入力を無効にする秒数。")]
     private float _inputBlockDuration = 1f;
+
+    [Header("unityroom Ranking")]
+    [SerializeField, Min(1)] private int _unityroomScoreboardId = 1;
+    [SerializeField] private string _unityroomHmacKey;
 
     private ResultScoreView _view;
     private SceneBgmPresenter _bgm;
@@ -25,11 +32,36 @@ public sealed class ResultScorePresenter : MonoBehaviour
         _bgm = FindFirstObjectByType<SceneBgmPresenter>();
         if (_bgm == null)
             throw new System.InvalidOperationException("The result scene requires a SceneBgmPresenter.");
-        _view.Play(FinalScore);
-        FinalScore = 0;
+        int? finalScore = FinalScore;
+        FinalScore = null;
+        _view.Play(finalScore.GetValueOrDefault());
         _submit = InputSystem.actions.FindAction("UI/Submit", throwIfNotFound: true);
         _submit.Enable();
         _inputBlockRemaining = _inputBlockDuration;
+
+        if (Application.platform == RuntimePlatform.WebGLPlayer && finalScore.HasValue &&
+            _unityroomScoreboardId > 0 && !string.IsNullOrWhiteSpace(_unityroomHmacKey))
+        {
+            SubmitScoreAsync(finalScore.Value, _unityroomScoreboardId, _unityroomHmacKey.Trim()).Forget();
+        }
+    }
+
+    private static async UniTask SubmitScoreAsync(int score, int scoreboardId, string hmacKey)
+    {
+        try
+        {
+            // The request can finish after the player returns to the title scene.
+            using var client = new UnityroomClient { HmacKey = hmacKey };
+            await client.Scoreboards.SendAsync(new()
+            {
+                ScoreboardId = scoreboardId,
+                Score = score
+            });
+        }
+        catch (Exception exception)
+        {
+            Debug.LogWarning($"unityroom score submission failed ({exception.GetType().Name}).");
+        }
     }
 
     private void Update()

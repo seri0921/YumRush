@@ -9,13 +9,15 @@ internal sealed class PlayerInput : IDisposable
 {
     private readonly InputAction move = new InputAction("Move", InputActionType.Value);
     private readonly InputAction jump = new InputAction("Jump", InputActionType.Button, "<Keyboard>/space");
-    private readonly InputAction dash = new InputAction("AirDash", InputActionType.Button, "<Keyboard>/m");
+    private readonly InputAction attack = new InputAction("Attack", InputActionType.Button, "<Keyboard>/j");
+    private readonly InputAction dash = new InputAction("AirDash", InputActionType.Button, "<Keyboard>/k");
     private int operationLockCount;
     private bool isEnabled;
     private bool isDisposed;
 
     public Vector2 Direction { get; private set; }
     public bool JumpQueued { get; private set; }
+    public bool AttackQueued { get; private set; }
     public bool DashQueued { get; private set; }
 
     public PlayerInput()
@@ -28,7 +30,7 @@ internal sealed class PlayerInput : IDisposable
             .With("Left", "<Keyboard>/leftArrow").With("Right", "<Keyboard>/rightArrow");
         move.AddBinding("<Gamepad>/leftStick");
         jump.AddBinding("<Gamepad>/buttonSouth");
-        jump.AddBinding("<Gamepad>/buttonEast");
+        attack.AddBinding("<Gamepad>/buttonEast");
         dash.AddBinding("<Gamepad>/buttonNorth");
         dash.AddBinding("<Gamepad>/buttonWest");
     }
@@ -38,6 +40,7 @@ internal sealed class PlayerInput : IDisposable
         isEnabled = true;
         move.Enable();
         jump.Enable();
+        attack.Enable();
         dash.Enable();
     }
 
@@ -46,18 +49,27 @@ internal sealed class PlayerInput : IDisposable
         isEnabled = false;
         move.Disable();
         jump.Disable();
+        attack.Disable();
         dash.Disable();
         Direction = Vector2.zero;
         ClearRequests();
     }
 
-    public void Sample(bool locked)
+    public void Sample(bool locked, bool movementLocked)
     {
         locked |= operationLockCount > 0 || !isEnabled || SceneTransitionPresenter.IsTransitioning;
-        Direction = locked ? Vector2.zero : move.ReadValue<Vector2>();
+        Direction = locked || movementLocked ? Vector2.zero : move.ReadValue<Vector2>();
         if (locked)
         {
             ClearRequests();
+            return;
+        }
+
+        AttackQueued |= attack.WasPressedThisFrame();
+        if (movementLocked)
+        {
+            ClearJump();
+            ClearDash();
             return;
         }
 
@@ -71,6 +83,7 @@ internal sealed class PlayerInput : IDisposable
     public void ClearRequests()
     {
         JumpQueued = false;
+        AttackQueued = false;
         DashQueued = false;
     }
 
@@ -80,6 +93,7 @@ internal sealed class PlayerInput : IDisposable
         isEnabled = false;
         move.Dispose();
         jump.Dispose();
+        attack.Dispose();
         dash.Dispose();
     }
 

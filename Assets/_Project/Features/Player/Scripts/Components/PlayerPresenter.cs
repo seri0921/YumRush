@@ -112,7 +112,7 @@ public class PlayerPresenter : MonoBehaviour
         
         private void Update()
         {
-            _input.Sample(_machine.IsActionLocked || HitStopPresenter.IsStopping);
+            _input.Sample(!_machine.CanStartHoming || HitStopPresenter.IsStopping, _machine.IsActionLocked);
             if (HitStopPresenter.IsStopping)
                 return;
             if (_input.Direction.x != 0f)
@@ -166,7 +166,7 @@ public class PlayerPresenter : MonoBehaviour
             animationView.Render(State, _motor.Velocity.x, FacingDirection);
             windEffectView.Render(State, FacingDirection);
             IEnemy currentTarget = null;
-            bool showReticle = !_motor.IsScriptedMovement && State != PlayerState.Hit && State != PlayerState.AirCurrent &&
+            bool showReticle = !_motor.IsScriptedMovement && State != PlayerState.Hit &&
                                _homing.TryGetTarget(out currentTarget, out targetPosition);
             bool targetChanged = !ReferenceEquals(reticleTarget, currentTarget);
             homingReticleView.Render(showReticle, targetPosition, targetChanged, Time.deltaTime);

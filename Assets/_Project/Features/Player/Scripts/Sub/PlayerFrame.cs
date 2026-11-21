@@ -27,7 +27,7 @@ public struct PlayerInputSnapshot
 {
     public float HorizontalInput, VerticalInput;
     public int FacingDirection;
-    public bool JumpQueued, DashQueued;
+    public bool JumpQueued, AttackQueued, DashQueued;
 }
 
 public struct PlayerBodySnapshot
